@@ -1,0 +1,160 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@font-face {
+    font-family: 'Sans3-Bold';
+    src: url('/src/assets/SourceSans3-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;;
+}
+
+@font-face {
+    font-family: 'Sans3-Regular';
+    src: url('/src/assets/SourceSans3-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;;
+}
+
+@font-face {
+    font-family: 'Sans3-Light';
+    src: url('/src/assets/SourceSans3-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;;
+}
+
+.navbar {
+    background-color: #fbfbfb;
+    height: 6vh;
+    align-items: center;
+    display: flex;
+    font-family: "Sans3-Bold", sans-serif;
+}
+
+.sidebar{
+    background-color: #f8f8f8;
+    // border-right: 1px solid;
+    height: 94vh;
+    width: 6vw;
+    transition: 0.3s;
+    @media only screen and (max-width: 800px) {
+        width: 10vw;
+    }
+    .sbButtonList {
+        padding: 0px 5px 0px 5px;
+        .sbButton {
+            background-color: #f8f8f8;
+            border: 0cm;
+            border-radius: 4px;
+            padding-bottom: 4px;
+            height: 7vh;
+            width: 6vw;
+            .sbButtonText {
+                display: none;
+            }
+        }
+    }
+}
+.sidebar:hover {
+    width: 16vw;
+    @media only screen and (max-width: 800px) {
+        width: 20vw;
+    }
+    .sbButton {
+        width: 16vw;
+        .sbButtonText {
+            animation: fadeIn 0.3s;
+            display: block;
+        }
+    }
+    .sbButton:hover {
+        background-color: #d6dce1;
+    }
+}
+
+.content{
+    background-color: white;
+    height: 94vh;
+    width: 94vw;
+    @media only screen and (max-width: 800px) {
+        width: 90vw;
+    }
+}
+
+.plantillaModal {
+    mat-dialog-container {
+        border-radius: 10px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    }
+}
+
+.cdk-global-scrollblock {
+    overflow: auto;
+}
+
+.green-snackbar {
+    background-color: green;
+    color: #fff;
+    button {
+        display: none;
+    }
+}
+
+.yellow-snackbar {
+    background-color: orange;
+    color: #fff;
+    button {
+        display: none;
+    }
+}
+
+.red-snackbar {
+    background-color: red;
+    color: #fff;
+    button {
+        display: none;
+    }
+}
+
+mat-progress-spinner{
+    position: absolute !important;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-button {
+    background-color: transparent;
+    border: transparent;
+}
+.text-button:hover{
+    text-decoration: underline;
+}
+
+.solid-button {
+    background-color: #385a68;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.fluid-button {
+    background-color: #385a68;
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+}
+

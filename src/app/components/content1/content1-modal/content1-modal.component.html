@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-between">
+    <div>
+        content1-modal works!
+    </div>
+    <div>
+        <button (click)="closeModal()">X</button>
+    </div>
+</div>
+<div>
+    <button (click)="showToast('hola', 'green-snackbar')">
+        showGreenToast
+    </button>
+    <button (click)="showToast('hola', 'yellow-snackbar')">
+        showYellowToast
+    </button>
+    <button (click)="showToast('hola', 'red-snackbar')">
+        showRedToast
+    </button>
+    
+    <button (click)="showSpinner()">
+        show/unshow Spinner
+    </button>
+</div>
+<mat-progress-spinner *ngIf="isLoading" mode="indeterminate"></mat-progress-spinner>

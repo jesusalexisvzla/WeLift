@@ -1,0 +1,10 @@
+<div class="sidebar">
+    <div *ngFor="let item of sidebarMenu" class="d-flex sbButtonList">
+        <button class="sbButton" [routerLink]="item.url">
+            <mat-icon>{{item.icon}}</mat-icon>
+            <div class="sbButtonText">
+                {{item.name}}
+            </div>
+        </button>
+    </div>
+</div>
