@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Content1Component } from './content1/content1.component';
 import { Content2Component } from './content2/content2.component';
+import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 
 const routes: Routes = [
     {
@@ -16,11 +17,15 @@ const routes: Routes = [
     {
         path: 'content2',
         component: Content2Component,
+    },
+    {
+        path: 'how-it-works',
+        component: HowItWorksComponent,
     }
 ]
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
-  })
-  export class ComponentsRoutingModule { }
+})
+export class ComponentsRoutingModule { }
