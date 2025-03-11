@@ -1,3 +1,28 @@
-.bton{
-    height: 30px;
+.btn-container {
+    height: 100%;
+}
+
+.img-navbar {
+    height: 6vh;
+}
+
+.text-button {
+    color: white;
+    height: 95%;
+    width: 110px;
+}
+
+.text-button:hover {
+    box-shadow: 0px 5px #fd8103;
+    text-decoration: none;
+}
+
+.selected-btn {
+    box-shadow: 0px 5px #fd8103;
+}
+
+.book-btn {
+    background-color: #fd8103;
+    color: #310370;
+    box-shadow: 0px 5px #fd8103;
 }
