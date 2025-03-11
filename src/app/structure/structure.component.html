@@ -1,14 +1,14 @@
 <app-navbar (messageEvent)="receiveMessage($event)"></app-navbar>
 
 <div class="d-flex">
-    <div 
+    <!-- <div 
         id="sidebar"
         (mouseover)="changeContent(true)"
         (mouseout)="changeContent(false)"
         class="sidebar"
     >
         <app-sidebar></app-sidebar>
-    </div>
+    </div> -->
     <div id="content" class="content">
         <router-outlet></router-outlet>
     </div>
