@@ -1,14 +1,14 @@
-<div class="how-it-wrks-container">
+<div class="how-it-wrks-container-part1">
     <div class="how-it-wrks">
         <div class="hiw-title d-flex">
-            <div class="hiw-titlea">
+            <div class="hiw-titlea purpleText">
                 How it Works.
             </div>
             <div class="hiw-titleb">
                 4 Nice and easy steps
             </div>
         </div>
-        <div class="text">
+        <div class="purpleText">
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
         </div>
     </div>
@@ -74,6 +74,153 @@
     <div class="contact-txt-btn">
         <div class="contact-txt">
             For groups larger than 10 passengers, please <b>contact us</b> for a quote. 
+        </div>
+        <button class="contact-btn">Contact Us</button>
+    </div>
+</div>
+<!-- /**********************************************************************************************************************************************************************/ -->
+<div class="how-it-wrks-container-part2">
+    <div class="how-it-wrks how-it-wrks-2">
+        <div class="hiw-title hiw-titlea whiteText">
+            At the airport.
+        </div>
+        <div class="whiteText">
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+        </div>
+    </div>
+
+    <div class="cards cards2 pdbt">
+        <div class="card card-2">
+            <div class="card-arrow">
+                >
+            </div>
+            <div class="card-content">
+                <div class="card-content-title">
+                    Arrival & Immigration
+                </div>
+                <div class="card-content-text">
+                    Straight after your arrival you will need to go to the immigration desks and present your documents.
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-2">
+            <div class="card-arrow">
+                >
+            </div>
+            <div class="card-content">
+                <div class="card-content-title">
+                    Luggage and Customs
+                </div>
+                <div class="card-content-text">
+                    Straight after your arrival you will need to go to the immigration desks and present your documents.
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-2">
+            <div class="card-content">
+                <div class="card-content-title">
+                    Timeshare & Other Rentals
+                </div>
+                <div class="card-content-text">
+                    Straight after your arrival you will need to go to the immigration desks and present your documents.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cards cards2 pdtp">
+        <div class="card card-2">
+            <div class="card-arrow">
+                >
+            </div>
+            <div class="card-content">
+                <div class="card-content-title">
+                    Go to Group Exit
+                </div>
+                <div class="card-content-text">
+                    Straight after your arrival you will need to go to the immigration desks and present your documents.
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-2">
+            <div class="card-content">
+                <div class="card-content-title">
+                    Greet us at Umbrella #5
+                </div>
+                <div class="card-content-text">
+                    Straight after your arrival you will need to go to the immigration desks and present your documents.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /**********************************************************************************************************************************************************************/ -->
+<div class="how-it-wrks-container-part1">
+    <div class="how-it-wrks how-it-wrks-2">
+        <div class="hiw-title hiw-titlea purpleText lowerText">
+            Frequently <br> asked questions.
+        </div>
+        <div class="purpleText">
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+        </div>
+    </div>
+
+    <div class="cards collapsableCards">
+        <div class="card collapsableCard d-flex" [ngClass]="[statusOne ? 'opendCard' : 'clpsdCard']" (click)="open('statusOne')">
+            <div class="d-flex expandHeader">
+                <div class="expandTxt">
+                    Will my driver try to baptize me and my family?
+                </div>
+                <div class="expandBtn" [ngClass]="[statusOne ? 'orangeText' : 'purpleText']" >{{statusOne ? '-' : '+'}}</div>
+            </div>
+            <div class="expandBody" [ngClass]="[statusOne ? 'opendTxt' : 'clpsdTxt']">
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+            </div>
+        </div>
+
+        <div class="card collapsableCard d-flex" [ngClass]="[statusTwo ? 'opendCard' : 'clpsdCard']" (click)="open('statusTwo')">
+            <div class="d-flex expandHeader">
+                <div class="expandTxt">
+                    Will my driver try to baptize me and my family?
+                </div>
+                <div class="expandBtn" [ngClass]="[statusTwo ? 'orangeText' : 'purpleText']" >{{statusTwo ? '-' : '+'}}</div>
+            </div>
+            <div class="expandBody" [ngClass]="[statusTwo ? 'opendTxt' : 'clpsdTxt']">
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+            </div>
+        </div>
+
+        <div class="card collapsableCard d-flex" [ngClass]="[statusThree ? 'opendCard' : 'clpsdCard']" (click)="open('statusThree')">
+            <div class="d-flex expandHeader">
+                <div class="expandTxt">
+                    Will my driver try to baptize me and my family?
+                </div>
+                <div class="expandBtn" [ngClass]="[statusThree ? 'orangeText' : 'purpleText']" >{{statusThree ? '-' : '+'}}</div>
+            </div>
+            <div class="expandBody" [ngClass]="[statusThree ? 'opendTxt' : 'clpsdTxt']">
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+            </div>
+        </div>
+
+        <div class="card collapsableCard d-flex" [ngClass]="[statusFour ? 'opendCard' : 'clpsdCard']" (click)="open('statusFour')">
+            <div class="d-flex expandHeader">
+                <div class="expandTxt">
+                    Will my driver try to baptize me and my family?
+                </div>
+                <div class="expandBtn" [ngClass]="[statusFour ? 'orangeText' : 'purpleText']" >{{statusFour ? '-' : '+'}}</div>
+            </div>
+            <div class="expandBody" [ngClass]="[statusFour ? 'opendTxt' : 'clpsdTxt']">
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-txt-btn">
+        <div class="contact-txt">
+            Still have questions? <b>Contact us!</b> Our team will get back to you as soon as possible. 
         </div>
         <button class="contact-btn">Contact Us</button>
     </div>
