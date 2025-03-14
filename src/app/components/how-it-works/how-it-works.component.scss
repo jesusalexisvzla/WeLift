@@ -1,29 +1,43 @@
-.how-it-wrks-container-part1 {
-    height: 90vh;
+.scroll-container {
+    height: 90vh; /* Full viewport height */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Enable vertical snap */
+    scroll-behavior: Smooth; /* Smooth scrolling effect */
+}
+
+.section {
+    height: 90vh; /* Each section takes full page height */
     padding: 0px 200px;
+    scroll-snap-align: start; /* Aligns the top of the section */
     margin: 0;
 }
 
-.how-it-wrks {
+.section-2 {
+    background-color: #310370;
+    box-shadow: inset 0px 80px 90px -100px black;
+}
+
+.hiw-header-1 {
     padding: 40px 0px 100px 0px;
 }
 
-.hiw-title {
-    align-items: end;
+.hiw-header-2 {
+    padding: 40px 0px 40px 0px;
 }
 
-.hiw-titlea {
+.hiw-title-1 {
     font-size: 50px;
 }
 
-.hiw-titleb {
+.hiw-title-2 {
     font-size: 20px;
-    color: #fd8103;
 }
 
+/**************************************************/
+/****************CARD CLASSES START****************/
 .cards {
-    justify-content: space-around;
     display: flex;
+    justify-content: center;
 }
 
 .card {
@@ -31,11 +45,25 @@
     width: 250px;
     text-align: center;
     color: #310370;
+    margin: 0px 5px;
 }
 
-.card-content {
+.card-2 {
+    background-image: url(../../../assets/output-onlinepngtools.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    padding: 0px;
+}
+
+.card-content-1 {
     height: 100%;
     align-content: center;
+}
+
+.card-content-2 {
+    height: 70%;
+    justify-content: space-between;
 }
 
 .card-content-title {
@@ -48,13 +76,9 @@
     padding: 0px 50px;
 }
 
-.card-number {
+.card-special {
     position: absolute;
-    left: 40%;
-    top: -10%;
     z-index: 3;
-    background-color: #fd8103;
-    border: 3px solid white;
     box-shadow: 0px 1px 1px .1px black;
     height: 50px;
     width: 50px;
@@ -63,6 +87,35 @@
     font-weight: bold;
 }
 
+.card-special-number {
+    left: 40%;
+    top: -10%;
+    background-color: #fd8103;
+    border: 3px solid white;    
+}
+
+.card-special-arrow {
+    left: 90%;
+    top: 40%;
+    background-color: white;
+    border: 3px solid #fd8103;
+}
+
+.card-img-container {
+    height: 30%;
+    align-content: end;
+}
+
+.card-img {
+    height: 50px;
+    width: fit-content;
+    align-self: center;
+}
+/*****************CARD CLASSES END*****************/
+/**************************************************/
+
+/**************************************************/
+/***************CONTACT CLASSES START**************/
 .contact-txt-btn {
     padding-top: 25px;
     display: flex;
@@ -82,95 +135,58 @@
     height: 100%;
     width: 100px;
 }
-
+/****************CONTACT CLASSES END***************/
 /**************************************************/
 
-.how-it-wrks-container-part2 {
-    height: 90vh;
-    padding: 0px 200px;
-    margin: 0;
-
-    background-color: #310370;
-    box-shadow: inset 0px 80px 90px -100px black;
-}
-
-.how-it-wrks-2{
-    padding: 40px 0px 40px 0px;
-}
-
-.cards2 {
-    justify-content: center;
-}
-
-.pdtp {
-    padding: 5px 0px 0px 0px;
-}
-
-.pdbt {
-    padding: 0px 0px 5px 0px;
-}
-
-.card-2 {
-    height: 300px;
-    width: 250px;
-    text-align: center;
-    color: #310370;
-    margin: 0px 5px;
-}
-
-.card-arrow {
-    position: absolute;
-    left: 90%;
-    top: 40%;
-    z-index: 3;
-    background-color: white;
-    border: 3px solid #fd8103;
-    box-shadow: 0px 1px 1px .1px black;
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
-    font-size: xx-large;
-    font-weight: bold;
-}
-
 /**************************************************/
-
-.collapsableCards {
+/*************COLLAPSABLE CLASSES START************/
+.collapsable-container {
     display: block;
+    height: 520px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-.collapsableCard {
+.collapsable {
     height: 150px;
-    width: 100%;
+    width: 99%;
     padding: 0px 50px;
     margin-bottom: 10px;
-    // justify-content: center;
     align-items: start;
     text-align: start;
     font-size: x-large;
 }
 
-.collapsableCard:hover {
+.collapsable:hover {
     cursor: pointer;
 }
 
-.expandHeader {
+.collapsable-clsd {
+    height: 120px;
+    transition: height 1s;
+}
+
+.collapsable-open {
+    height: 215px;
+    transition: height 1s;
+}
+
+.collapsable-header {
     height: 75px;
     width: calc(100% - 100px);
     align-items: end;
-
     margin-bottom: 40px;
     position: absolute;
 }
 
-.expandBody {
+.collapsable-title {
+    width: 70%;
+}
+
+.collapsable-body {
     height: auto;
     width: 100%;
-
     margin-bottom: 40px;
-}
-.expandTxt {
-    width: 70%;
 }
 
 .expandBtn{
@@ -178,26 +194,20 @@
     text-align: end;
 }
 
-.clpsdCard {
-    height: 120px;
-    transition: height 1s;
-}
-
-.opendCard {
-    height: 215px;
-    transition: height 1s;
-}
-
-.clpsdTxt {
+.collapsable-text-clsd {
     display: none;
 }
 
-.opendTxt {
+.collapsable-text-open {
     padding-top: 100px;
     display: block;
     animation: fadeIn 2s;
 }
+/**************COLLAPSABLE CLASSES END*************/
+/**************************************************/
 
+/**************************************************/
+/****************EXTRA CLASSES START***************/
 .orangeText {
     color: #fd8103;
 }
@@ -213,4 +223,18 @@
 .lowerText {
     line-height: 50px;
     padding-bottom: 40px;
+}
+
+.pdtp {
+    padding: 5px 0px 0px 0px;
+}
+
+.pdbt {
+    padding: 0px 0px 5px 0px;
+}
+/*****************EXTRA CLASSES END****************/
+/**************************************************/
+.sm {
+    width: 90%;
+    justify-content: center;
 }

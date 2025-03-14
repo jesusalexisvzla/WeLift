@@ -8,21 +8,25 @@
 
 .text-button {
     color: white;
-    height: 95%;
+    height: 100%;
     width: 110px;
+    text-decoration: none;
+    background: linear-gradient(#fd8103 0 0) 
+        bottom/
+        var(--underline-width, 0%) 0.3em
+        no-repeat;
+    transition: background-size 0.5s;
 }
 
 .text-button:hover {
-    box-shadow: 0px 5px #fd8103;
-    text-decoration: none;
+    --underline-width: 100%;
 }
 
 .selected-btn {
-    box-shadow: 0px 5px #fd8103;
+    --underline-width:100%;
 }
 
 .book-btn {
     background-color: #fd8103;
     color: #310370;
-    box-shadow: 0px 5px #fd8103;
 }

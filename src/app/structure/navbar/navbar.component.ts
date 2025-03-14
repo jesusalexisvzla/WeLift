@@ -13,8 +13,11 @@ export class NavbarComponent implements OnInit {
     public router: Router,
     private loginService: LoginService,
   ) { }
+  
+  selected: string = this.router.url
 
   ngOnInit(): void {
+    console.log(this.selected)
   }
 
   logout(){
@@ -23,6 +26,7 @@ export class NavbarComponent implements OnInit {
   }
 
   move(url) {
+    this.selected = url
     this.router.navigateByUrl(url)
   }
 }
