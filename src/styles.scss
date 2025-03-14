@@ -10,22 +10,22 @@
 @font-face {
     font-family: 'Sans3-Bold';
     src: url('/src/assets/SourceSans3-Bold.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;;
+    font-weight: bold;
+    font-style: normal;
 }
 
 @font-face {
     font-family: 'Sans3-Regular';
     src: url('/src/assets/SourceSans3-Regular.otf') format('opentype');
     font-weight: normal;
-    font-style: normal;;
+    font-style: normal;
 }
 
 @font-face {
     font-family: 'Sans3-Light';
     src: url('/src/assets/SourceSans3-Light.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;;
+    font-weight: light;
+    font-style: normal;
 }
 
 .navbar {
@@ -39,7 +39,6 @@
 
 .sidebar{
     background-color: #f8f8f8;
-    // border-right: 1px solid;
     height: 90vh;
     width: 6vw;
     transition: 0.3s;
@@ -79,6 +78,7 @@
 }
 
 .content {
+    overflow: hidden;
     background-color: white;
     height: 90vh;
     width: 100vw;

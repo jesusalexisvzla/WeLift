@@ -1,33 +1,43 @@
-.how-it-wrks-container {
+.scroll-container {
+    height: 90vh; /* Full viewport height */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Enable vertical snap */
+    scroll-behavior: Smooth; /* Smooth scrolling effect */
+}
+
+.section {
+    height: 90vh; /* Each section takes full page height */
     padding: 0px 200px;
+    scroll-snap-align: start; /* Aligns the top of the section */
     margin: 0;
 }
 
-.how-it-wrks {
-    padding-bottom: 100px;
+.section-2 {
+    background-color: #310370;
+    box-shadow: inset 0px 80px 90px -100px black;
 }
 
-.hiw-title {
-align-items: end;
+.hiw-header-1 {
+    padding: 40px 0px 100px 0px;
 }
 
-.hiw-titlea {
+.hiw-header-2 {
+    padding: 40px 0px 40px 0px;
+}
+
+.hiw-title-1 {
     font-size: 50px;
-    color: #310370;
 }
 
-.hiw-titleb {
+.hiw-title-2 {
     font-size: 20px;
-    color: #fd8103;
 }
 
-.text {
-    color: #310370;
-}
-
+/**************************************************/
+/****************CARD CLASSES START****************/
 .cards {
-    justify-content: space-around;
     display: flex;
+    justify-content: center;
 }
 
 .card {
@@ -35,11 +45,25 @@ align-items: end;
     width: 250px;
     text-align: center;
     color: #310370;
+    margin: 0px 5px;
 }
 
-.card-content {
+.card-2 {
+    background-image: url(../../../assets/output-onlinepngtools.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    padding: 0px;
+}
+
+.card-content-1 {
     height: 100%;
     align-content: center;
+}
+
+.card-content-2 {
+    height: 70%;
+    justify-content: space-between;
 }
 
 .card-content-title {
@@ -49,15 +73,12 @@ align-items: end;
 
 .card-content-text {
     font-size: small;
+    padding: 0px 50px;
 }
 
-.card-number {
+.card-special {
     position: absolute;
-    left: 40%;
-    top: -10%;
     z-index: 3;
-    background-color: #fd8103;
-    border: 3px solid white;
     box-shadow: 0px 1px 1px .1px black;
     height: 50px;
     width: 50px;
@@ -66,6 +87,35 @@ align-items: end;
     font-weight: bold;
 }
 
+.card-special-number {
+    left: 40%;
+    top: -10%;
+    background-color: #fd8103;
+    border: 3px solid white;    
+}
+
+.card-special-arrow {
+    left: 90%;
+    top: 40%;
+    background-color: white;
+    border: 3px solid #fd8103;
+}
+
+.card-img-container {
+    height: 30%;
+    align-content: end;
+}
+
+.card-img {
+    height: 50px;
+    width: fit-content;
+    align-self: center;
+}
+/*****************CARD CLASSES END*****************/
+/**************************************************/
+
+/**************************************************/
+/***************CONTACT CLASSES START**************/
 .contact-txt-btn {
     padding-top: 25px;
     display: flex;
@@ -84,4 +134,107 @@ align-items: end;
     border: none;
     height: 100%;
     width: 100px;
+}
+/****************CONTACT CLASSES END***************/
+/**************************************************/
+
+/**************************************************/
+/*************COLLAPSABLE CLASSES START************/
+.collapsable-container {
+    display: block;
+    height: 520px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.collapsable {
+    height: 150px;
+    width: 99%;
+    padding: 0px 50px;
+    margin-bottom: 10px;
+    align-items: start;
+    text-align: start;
+    font-size: x-large;
+}
+
+.collapsable:hover {
+    cursor: pointer;
+}
+
+.collapsable-clsd {
+    height: 120px;
+    transition: height 1s;
+}
+
+.collapsable-open {
+    height: 215px;
+    transition: height 1s;
+}
+
+.collapsable-header {
+    height: 75px;
+    width: calc(100% - 100px);
+    align-items: end;
+    margin-bottom: 40px;
+    position: absolute;
+}
+
+.collapsable-title {
+    width: 70%;
+}
+
+.collapsable-body {
+    height: auto;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.expandBtn{
+    width: 30%;
+    text-align: end;
+}
+
+.collapsable-text-clsd {
+    display: none;
+}
+
+.collapsable-text-open {
+    padding-top: 100px;
+    display: block;
+    animation: fadeIn 2s;
+}
+/**************COLLAPSABLE CLASSES END*************/
+/**************************************************/
+
+/**************************************************/
+/****************EXTRA CLASSES START***************/
+.orangeText {
+    color: #fd8103;
+}
+
+.purpleText {
+    color: #310370;
+}
+
+.whiteText {
+    color: white;
+}
+
+.lowerText {
+    line-height: 50px;
+    padding-bottom: 40px;
+}
+
+.pdtp {
+    padding: 5px 0px 0px 0px;
+}
+
+.pdbt {
+    padding: 0px 0px 5px 0px;
+}
+/*****************EXTRA CLASSES END****************/
+/**************************************************/
+.sm {
+    width: 90%;
+    justify-content: center;
 }

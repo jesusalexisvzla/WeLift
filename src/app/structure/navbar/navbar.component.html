@@ -1,8 +1,8 @@
 <div class="navbar justify-content-around">
     <img class="img-navbar" src="../../../assets/Naranja.png"/>
     <div class="justify-content-between btn-container">
-        <button class="text-button selected-btn">Home</button>
-        <button class="text-button" (click)="move('how-it-works')">How it Works</button>
+        <button class="text-button" [ngClass]="{'selected-btn': selected == '/home'}" (click)="move('/home')">Home</button>
+        <button class="text-button" [ngClass]="{'selected-btn': selected == '/how-it-works'}" (click)="move('/how-it-works')">How it Works</button>
         <button class="text-button">Groups</button>
         <button class="text-button">Activities</button>
         <button class="text-button">Blog</button>
