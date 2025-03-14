@@ -9,6 +9,8 @@ import { Content2Component } from './content2/content2.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { BookNowComponent } from './book-now/book-now.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
     declarations: [
         Content1Component,
@@ -20,7 +22,9 @@ import { BookNowComponent } from './book-now/book-now.component';
     imports: [
         CommonModule,
         ComponentsRoutingModule,
-        MaterialModule
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
     ],
     entryComponents: [
     ]

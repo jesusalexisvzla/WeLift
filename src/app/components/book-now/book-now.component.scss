@@ -1,0 +1,46 @@
+::ng-deep .mat-tab-header {
+    border: none;
+}
+
+::ng-deep .mat-ink-bar {
+    display: none;
+}
+
+::ng-deep .mat-tab-labels {
+    justify-content: space-between;
+}
+
+::ng-deep .mat-tab-label {
+    background: #310370 !important;
+    opacity: 1 !important;
+    color: white;
+    justify-content: space-between !important;
+    width: 350px;
+}
+
+::ng-deep .mat-tab-body-wrapper {
+    position: absolute !important;
+    height: 76vh;
+    width: calc(100vw - 400px);
+    top: 21%;
+    box-shadow: 0px 0px 90px -20px black;
+    padding-top: 19px;
+}
+
+.bn-container {
+    padding: 0px 200px;
+}
+
+.bn-title {
+    padding: 0px 75px;
+    font-size: 50px;
+}
+
+.tab-container {
+    padding: 50px 100px;
+}
+
+.tab-header {
+    font-size: 20px;
+    font-weight: 500;
+}

@@ -1,1 +1,40 @@
-<p>book-now works!</p>
+<div class="bn-container">
+    <div class="bn-title purpleText">
+        Book your Private Transfer.
+    </div>
+    <mat-tab-group>
+        <mat-tab label="Transfer Details"> 
+            <div class="tab-container purpleText">
+                <div class="tab-header">
+                    Your transfer
+                </div>
+                <form [formGroup]="transferDetailsForm" (ngSubmit)="performRequest()" center>
+
+                </form>
+            </div>
+        </mat-tab>        
+        <mat-tab label="Contact Information">
+            <div class="tab-container purpleText">
+                <div class="tab-header">
+                    Contact Information
+                </div>
+                <form [formGroup]="transferDetailsForm" (ngSubmit)="performRequest()" center>
+
+                </form>
+            </div>
+        </mat-tab>
+        <mat-tab label="Confirmation and Payment">
+            <div class="tab-container purpleText">
+                <div class="tab-header orangeText">
+                    Please confirm your transfer, flights and request information.
+                </div>
+                <div class="tab-header">
+                    Your Transfer Details
+                </div>
+                <form [formGroup]="transferDetailsForm" (ngSubmit)="performRequest()" center>
+
+                </form>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
