@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from "@angular/forms";
+import { MatTabGroup } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-book-now',
@@ -7,13 +8,14 @@ import { FormBuilder, FormControl, Validators } from "@angular/forms";
   styleUrls: ['./book-now.component.scss']
 })
 export class BookNowComponent implements OnInit {
+  @ViewChild('tabGroup') tabGroup!: MatTabGroup;
 
   public transferDetailsForm = this.fb.group({
     origin: new FormControl({value: '', disabled: false}, Validators.required),
     destination: new FormControl({value: '', disabled: false}, Validators.required),
     //dropdown fields - interchangable
     adultsQty: new FormControl({value: 0, disabled: false}, Validators.required),
-    childrenQty: new FormControl({value: 0, disabled: false}, Validators.required),
+    childsQty: new FormControl({value: 0, disabled: false}, Validators.required),
     //number - minus and plus signs
     oneWay: new FormControl({value: false, disabled: false}, Validators.required),
     //boolean
@@ -57,6 +59,9 @@ export class BookNowComponent implements OnInit {
     country: new FormControl({value: '', disabled: false}), //dropdown
   });
 
+  adultsQty = 0;
+  childsQty = 0;
+
   constructor(
     private fb: FormBuilder,
   ) { }
@@ -65,8 +70,14 @@ export class BookNowComponent implements OnInit {
   }
 
   performRequest() {
-    if (this.transferDetailsForm.valid) {
+    this.transferDetailsForm.patchValue({
+      adultsQty: this.adultsQty,
+      childsQty: this.childsQty
+    });
 
-    }
+    console.log(this.transferDetailsForm.value)
+    // if (this.transferDetailsForm.valid) {
+
+    // }
   }
 }

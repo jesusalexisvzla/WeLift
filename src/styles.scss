@@ -40,6 +40,10 @@
     color: white;
 }
 
+.greyText {
+    color: #b6b6b6;
+}
+
 .navbar {
     background-color: #310370;
     padding: 0;
@@ -171,3 +175,24 @@ mat-progress-spinner{
     height: 40px;
 }
 
+.contact-txt-btn {
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 70px;
+}
+
+.contact-btn {
+    background-color: #fd8103;
+    color: #310370;
+    border: none;
+    height: 100%;
+    width: 100px;
+}
+
+.return-btn {
+    background-color: transparent;
+    color: #fd8103;
+    border: none;
+}

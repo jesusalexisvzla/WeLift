@@ -2,25 +2,342 @@
     <div class="bn-title purpleText">
         Book your Private Transfer.
     </div>
-    <mat-tab-group>
+    <mat-tab-group #tabGroup>
         <mat-tab label="Transfer Details"> 
             <div class="tab-container purpleText">
-                <div class="tab-header">
-                    Your transfer
-                </div>
-                <form [formGroup]="transferDetailsForm" (ngSubmit)="performRequest()" center>
+                <form [formGroup]="transferDetailsForm" center>
+                    <div class="tab-header">
+                        <b>Your Transfer</b>
+                    </div>
+                    <div class="row row-underline pb-50">
+                        <div class="col-6">
+                            <mat-form-field class="w-100">
+                                <mat-label class="">From</mat-label>
+                                <mat-select matNativeControl id="origin" formControlName="origin" class="form-control" name="origin" placeholder="Origin">
+                                    <mat-option value="volvo">Volvo</mat-option>
+                                    <mat-option value="saab">Saab</mat-option>
+                                    <mat-option value="mercedes">Mercedes</mat-option>
+                                    <mat-option value="audi">Audi</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6">
+                            <mat-form-field class="w-100">
+                                <mat-label class="">To</mat-label>
+                                <mat-select matNativeControl id="destination" formControlName="destination" class="form-control" name="destination" placeholder="Destination">
+                                    <mat-option value="volvo">Volvo</mat-option>
+                                    <mat-option value="saab">Saab</mat-option>
+                                    <mat-option value="mercedes">Mercedes</mat-option>
+                                    <mat-option value="audi">Audi</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-3">
+                            <div class="qty-button-label">Adults</div>
+                            <div class="qty-button-group d-flex">
+                                <button class="qty-button" (click)="adultsQty = adultsQty ? adultsQty - 1 : adultsQty">-</button>
+                                <div class="mx-4"><b>{{adultsQty}}</b></div>
+                                <button class="qty-button" (click)="adultsQty = adultsQty + 1">+</button>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="qty-button-label">Children (under 7 free ride)</div>
+                            <div class="qty-button-group d-flex">
+                                <button class="qty-button" (click)="childsQty = childsQty ? childsQty - 1 : childsQty">-</button>
+                                <div class="mx-4"><b>{{childsQty}}</b></div>
+                                <button class="qty-button" (click)="childsQty = childsQty + 1">+</button>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <mat-radio-group aria-label="Select an option" matNativeControl id="oneWay" formControlName="oneWay" class="form-control" name="oneWay" placeholder="oneWay">
+                                <mat-radio-button value=true>One-way</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
 
+                    <div class="tab-header">
+                        <b>Arrival Flight Information</b>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            <mat-form-field class="w-100">
+                                <mat-label class="">Airline</mat-label>
+                                <mat-select matNativeControl id="arrivalAirline" formControlName="arrivalAirline" class="form-control" name="arrivalAirline" placeholder="arrivalAirline">
+                                    <mat-option value="volvo">Volvo</mat-option>
+                                    <mat-option value="saab">Saab</mat-option>
+                                    <mat-option value="mercedes">Mercedes</mat-option>
+                                    <mat-option value="audi">Audi</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-2">
+                            <mat-form-field class="w-100">
+                                <mat-label>Flight Number</mat-label>
+                                <input matInput placeholder="Flight Number">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-2">
+                            <mat-form-field class="w-100">
+                                <mat-label>Date of Arrival</mat-label>
+                                <input matInput placeholder="mm/dd/yyyy">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-1 d-flex">
+                            <mat-form-field class="w-100">
+                                <mat-label>Time</mat-label>
+                                <input matInput placeholder="mm/dd/yyyy">
+                            </mat-form-field>
+                            <div class="align-content-center">
+                                <b>:</b>
+                            </div>
+                        </div>
+
+                        <div class="col-1">
+                            <mat-form-field class="w-100">
+                                <mat-label></mat-label>
+                                <input matInput placeholder="mm/dd/yyyy">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-1">
+                            <mat-form-field class="w-100">
+                                <mat-label class=""></mat-label>
+                                <mat-select matNativeControl id="arrivalTime" formControlName="arrivalTime" class="form-control" name="arrivalTime" placeholder="arrivalTime">
+                                    <mat-option value="AM">AM</mat-option>
+                                    <mat-option value="PM">PM</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="tab-header">
+                        <b>Departure Flight Information</b>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            <mat-form-field class="w-100">
+                                <mat-label class="">Airline</mat-label>
+                                <mat-select matNativeControl id="departureAirline" formControlName="departureAirline" class="form-control" name="departureAirline" placeholder="departureAirline">
+                                    <mat-option value="volvo">Volvo</mat-option>
+                                    <mat-option value="saab">Saab</mat-option>
+                                    <mat-option value="mercedes">Mercedes</mat-option>
+                                    <mat-option value="audi">Audi</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-2">
+                            <mat-form-field class="w-100">
+                                <mat-label>Flight Number</mat-label>
+                                <input matInput placeholder="Flight Number">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-2">
+                            <mat-form-field class="w-100">
+                                <mat-label>Date of Departure</mat-label>
+                                <input matInput placeholder="mm/dd/yyyy">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-1 d-flex">
+                            <mat-form-field class="w-100">
+                                <mat-label>Time</mat-label>
+                                <input matInput placeholder="mm/dd/yyyy">
+                            </mat-form-field>
+                            <div class="align-content-center">
+                                <b>:</b>
+                            </div>
+                        </div>
+
+                        <div class="col-1">
+                            <mat-form-field class="w-100">
+                                <mat-label></mat-label>
+                                <input matInput placeholder="mm/dd/yyyy">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-1">
+                            <mat-form-field class="w-100">
+                                <mat-label class=""></mat-label>
+                                <mat-select matNativeControl id="departureTime" formControlName="departureTime" class="form-control" name="departureTime" placeholder="departureTime">
+                                    <mat-option value="AM">AM</mat-option>
+                                    <mat-option value="PM">PM</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="tab-header">
+                        <b>Special Requests</b> (Water and beers already included)
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <mat-radio-group aria-label="Select an option" matNativeControl id="booster" formControlName="booster" class="form-control" name="booster" placeholder="booster">
+                                <mat-radio-button value=true>Booster Seat</mat-radio-button>
+                            </mat-radio-group>
+                            <mat-radio-group aria-label="Select an option" matNativeControl id="baby" formControlName="baby" class="form-control" name="baby" placeholder="baby">
+                                <mat-radio-button value=true>Baby Seat</mat-radio-button>
+                            </mat-radio-group>
+                            <mat-radio-group aria-label="Select an option" matNativeControl id="wheel" formControlName="wheel" class="form-control" name="wheel" placeholder="wheel">
+                                <mat-radio-button value=true>Wheel Chair</mat-radio-button>
+                            </mat-radio-group>
+                            <mat-radio-group aria-label="Select an option" matNativeControl id="grocery" formControlName="grocery" class="form-control" name="grocery" placeholder="grocery">
+                                <mat-radio-button value=true>Grocery Stop</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div class="col-9">
+                            <div>Other Requests</div>
+                            <mat-form-field class="w-100 no-underline" >
+                                <mat-label>Type your message.</mat-label>
+                                <textarea matInput class="text-area" placeholder="Ex. It makes me feel..." rows="5"></textarea>
+                            </mat-form-field>
+                        </div>
+                    </div>
                 </form>
+                <div class="contact-txt-btn">
+                    <button class="contact-btn" (click)="performRequest(); tabGroup.selectedIndex = 1">Next</button>
+                </div>
             </div>
         </mat-tab>        
         <mat-tab label="Contact Information">
             <div class="tab-container purpleText">
-                <div class="tab-header">
-                    Contact Information
-                </div>
-                <form [formGroup]="transferDetailsForm" (ngSubmit)="performRequest()" center>
+                <form [formGroup]="contactInformationForm" (ngSubmit)="performRequest()" center>
+                    <div class="tab-header">
+                        <b>Contact Information</b>
+                    </div>
+                    <div class="row row-underline pb-50">
+                        <div class="col-5">
+                            <mat-form-field class="w-100">
+                                <mat-label>First Name</mat-label>
+                                <input matInput placeholder="Type your first name">
+                            </mat-form-field>
+                        </div>
 
+                        <div class="col-1"></div>
+
+                        <div class="col-5">
+                            <mat-form-field class="w-100">
+                                <mat-label>Last Name</mat-label>
+                                <input matInput placeholder="Type your first name">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-5">
+                            <mat-form-field class="w-100">
+                                <mat-label>Email</mat-label>
+                                <input matInput placeholder="Type your email adrress">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-1"></div>
+
+                        <div class="col-5">
+                            <mat-form-field class="w-100">
+                                <mat-label>Confirm your Email</mat-label>
+                                <input matInput placeholder="Type your email adrress">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-4">
+                            <mat-form-field class="w-100">
+                                <mat-label>Phone Number</mat-label>
+                                <input matInput placeholder="Type your phone number">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-2"></div>
+
+                        <div class="col-4">
+                            <mat-form-field class="w-100">
+                                <mat-label>Confirm your Phone Number</mat-label>
+                                <input matInput placeholder="Type your phone number">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="tab-header">
+                        <b>Address</b>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            <mat-form-field class="w-100">
+                                <mat-label>Street Name 1</mat-label>
+                                <input matInput placeholder="Type the name of the street">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-1"></div>
+
+                        <div class="col-5">
+                            <mat-form-field class="w-100">
+                                <mat-label>Street Name 2 (Optional)</mat-label>
+                                <input matInput placeholder="Type the name of the street">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-1"></div>
+
+                        <div class="col-1">
+                            <mat-form-field class="w-100">
+                                <mat-label>Exterior Number</mat-label>
+                                <input matInput placeholder="Number">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-1"></div>
+
+                        <div class="col-1">
+                            <mat-form-field class="w-100">
+                                <mat-label>Interior Number</mat-label>
+                                <input matInput placeholder="Number">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-3"></div>
+
+                        <div class="col-5">
+                            <mat-form-field class="w-100">
+                                <mat-label>Neighborhood (Optional)</mat-label>
+                                <input matInput placeholder="Type your neighborhood">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-1"></div>
+
+                        <div class="col-1">
+                            <mat-form-field class="w-100">
+                                <mat-label>Zip Code</mat-label>
+                                <input matInput placeholder="Number">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-1"></div>
+
+                        <div class="col-4">
+                            <mat-form-field class="w-100">
+                                <mat-label class="">Country</mat-label>
+                                <mat-select matNativeControl id="country" formControlName="country" class="form-control" name="country" placeholder="country">
+                                    <mat-option value="volvo">Volvo</mat-option>
+                                    <mat-option value="saab">Saab</mat-option>
+                                    <mat-option value="mercedes">Mercedes</mat-option>
+                                    <mat-option value="audi">Audi</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
                 </form>
+                <div class="d-flex justify-content-between">
+                    <div class="contact-txt-btn">
+                        <button class="return-btn" (click)="this.tabGroup.selectedIndex = 0"> < Go Back</button>
+                    </div>
+                    <div class="contact-txt-btn">
+                        <button class="contact-btn" (click)="performRequest(); this.tabGroup.selectedIndex = 2">Next</button>
+                    </div>
+                </div>
             </div>
         </mat-tab>
         <mat-tab label="Confirmation and Payment">
@@ -29,11 +346,172 @@
                     Please confirm your transfer, flights and request information.
                 </div>
                 <div class="tab-header">
-                    Your Transfer Details
+                    <b>Your Transfer Details</b>
                 </div>
-                <form [formGroup]="transferDetailsForm" (ngSubmit)="performRequest()" center>
+                <div class="row row-underline pb-50">
+                    <div class="col-4">
+                        From
+                        <div>
+                            <b>Los Cabos International Airport (SJD)</b>
+                        </div>
+                    </div>
 
-                </form>
+                    <div class="col-4">
+                        To
+                        <div>
+                            <b>One And Only Palmilla</b>
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        <b>Round Trip</b>
+                    </div>
+
+                    <div class="col-2"></div>
+
+                    <div class="col-2">
+                        Adults
+                        <div>
+                            <b>3</b>
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        Children
+                        <div>
+                            <b>2</b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-header">
+                    <b>Arrival Flight Information</b>
+                </div>
+                <div class="row row-underline pb-50">
+                    <div class="col-4">
+                        Airline
+                        <div>
+                            <b>American Airlines</b>
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        Flight Number
+                        <div>
+                            <b>AA000</b>
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        Date of Arrival
+                        <div>
+                            <b>05/01/2021</b>
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        Flight Landing Time
+                        <div>
+                            <b>15:30 PM</b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-header">
+                    <b>Departure Flight Information</b>
+                </div>
+                <div class="row row-underline pb-50">
+                    <div class="col-4">
+                        Airline
+                        <div>
+                            <b>American Airlines</b>
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        Flight Number
+                        <div>
+                            <b>AA000</b>
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        Date of Arrival
+                        <div>
+                            <b>05/01/2021</b>
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        Flight Landing Time
+                        <div>
+                            <b>15:30 PM</b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-header">
+                    <b>Special Requests</b> (Water and beers already included)
+                </div>
+                <div class="row pb-50">
+                    <div class="col-3">
+                        <mat-radio-group aria-label="Select an option" matNativeControl id=""  class="form-control" name="" placeholder="">
+                            <mat-radio-button value=true disabled="true">Booster Seat</mat-radio-button>
+                        </mat-radio-group>
+                        <mat-radio-group aria-label="Select an option" matNativeControl id=""  class="form-control" name="" placeholder="">
+                            <mat-radio-button value=true disabled="true">Baby Seat</mat-radio-button>
+                        </mat-radio-group>
+                        <mat-radio-group aria-label="Select an option" matNativeControl id="" class="form-control" name="" placeholder="">
+                            <mat-radio-button value=true disabled="true">Wheel Chair</mat-radio-button>
+                        </mat-radio-group>
+                        <mat-radio-group aria-label="Select an option" matNativeControl id=""  class="form-control" name="" placeholder="">
+                            <mat-radio-button checked="true" value=true>Grocery Stop</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="col-9">
+                        Other Requests
+                        <div>
+                            <b>This is a very special request</b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row-borderline-orange pb-50">
+                    <div class="row">
+                        <div class="col-4">
+                            Total: <b>$250.00 USD</b>
+                        </div>
+                        
+                        <div class="col-1"></div>
+
+                        <div class="col-7 greyText">
+                            Prices include TAX and service fees. Please ask our staff for invoices and receipts.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-header orangeText">
+                    <b>Payment Method</b>
+                </div>
+                <div class="pb-50">
+                    <div>
+                        Select your prefered option and click <b>submit</b>. We will contact you shortly to confirm your reservation and proceed with the payment process.
+                    </div>
+                    <mat-radio-group aria-label="Select an option" matNativeControl id=""  class="form-control row" name="" placeholder="">
+                        <mat-radio-button class="col-3" value=true>PayPal</mat-radio-button>
+                        <mat-radio-button class="col-6" value=true>Pay upon arrival (cash, debit or credit)</mat-radio-button>
+                        <mat-radio-button class="col-3" value=true>Debit or credit card</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <div class="contact-txt-btn">
+                        <button class="return-btn" (click)="this.tabGroup.selectedIndex = 1"> < Go Back</button>
+                    </div>
+                    <div class="contact-txt-btn">
+                        <button class="contact-btn" (click)="performRequest();">Submit</button>
+                    </div>
+                </div>
             </div>
         </mat-tab>
     </mat-tab-group>
