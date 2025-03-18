@@ -22,12 +22,12 @@ export class BookNowComponent implements OnInit {
 
     arrivalAirline: new FormControl({value: '', disabled: false}, Validators.required), //dropdown
     arrivalFlightNo: new FormControl({value: '', disabled: false}, Validators.required), //string
-    arrivalDate: new FormControl({value: Date, disabled: false}, Validators.required), //date
+    arrivalDate: new FormControl({value: '', disabled: false}, Validators.required), //date
     arrivalTime: new FormControl({value: "", disabled: false}, Validators.required), //number - number - dropdown
 
     departureAirline: new FormControl({value: '', disabled: false}, Validators.required), //dropdown
     departureFlightNo: new FormControl({value: '', disabled: false}, Validators.required), //string
-    departureDate: new FormControl({value: Date, disabled: false}, Validators.required), //date
+    departureDate: new FormControl({value: '', disabled: false}, Validators.required), //date
     departureTime: new FormControl({value: "", disabled: false}, Validators.required), //number - number - dropdown
 
     booster: new FormControl({value: false, disabled: false}, Validators.required),
@@ -62,11 +62,141 @@ export class BookNowComponent implements OnInit {
   adultsQty = 0;
   childsQty = 0;
 
+  originOptions = [
+    {
+      id: 1,
+      name: "Los Mochis Sinaloa"
+    },
+    {
+      id: 2,
+      name: "Los Cabos San Lucas"
+    },
+    {
+      id: 3,
+      name: "CDMX"
+    },
+    {
+      id: 4,
+      name: "Guadalajara"
+    }
+  ]
+
+  destinationOptions = [
+    {
+      id: 1,
+      name: "Los Mochis Sinaloa"
+    },
+    {
+      id: 2,
+      name: "Los Cabos San Lucas"
+    },
+    {
+      id: 3,
+      name: "CDMX"
+    },
+    {
+      id: 4,
+      name: "Guadalajara"
+    }
+  ]
+
+  aAirlineOptions = [
+    {
+      id: 1,
+      name: "American Airlines"
+    },
+    {
+      id: 2,
+      name: "Mexican Airlines"
+    },
+    {
+      id: 3,
+      name: "AeroMexico"
+    },
+    {
+      id: 4,
+      name: "Volaris"
+    }
+  ]
+
+  dAirlineOptions = [
+    {
+      id: 1,
+      name: "American Airlines"
+    },
+    {
+      id: 2,
+      name: "Mexican Airlines"
+    },
+    {
+      id: 3,
+      name: "AeroMexico"
+    },
+    {
+      id: 4,
+      name: "Volaris"
+    }
+  ]
+
+  countryOptions = [
+    {
+      id: 1,
+      name: "Mexico"
+    },
+    {
+      id: 2,
+      name: "USA"
+    },
+    {
+      id: 3,
+      name: "Canada"
+    },
+    {
+      id: 4,
+      name: "China"
+    }
+  ]
+
   constructor(
     private fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {
+    this.setListeners();
+  }
+
+  setListeners() {
+    this.transferDetailsForm.get("origin").valueChanges.subscribe( origin => {
+      if (origin == this.transferDetailsForm.get("destination").value) {
+        this.transferDetailsForm.controls['origin'].setErrors({'incorrect': true})
+      } else {
+        this.transferDetailsForm.controls['origin'].setErrors(null)
+      }
+    })
+
+    this.transferDetailsForm.get("destination").valueChanges.subscribe( destination => {
+      if (destination == this.transferDetailsForm.get("origin").value) {
+        this.transferDetailsForm.controls['destination'].setErrors({'incorrect': true})
+      } else {
+        this.transferDetailsForm.controls['destination'].setErrors(null)
+      }
+    })
+
+    this.contactInformationForm.get("confEmail").valueChanges.subscribe( email => {
+      if (email != this.contactInformationForm.get("email").value) {
+        this.contactInformationForm.controls['confEmail'].setErrors({'incorrect': true})
+      } else {
+        this.contactInformationForm.controls['confEmail'].setErrors(null)
+      }
+    })
+
+    this.contactInformationForm.get("confPhone").valueChanges.subscribe( phone => {
+      if (phone != this.contactInformationForm.get("phone").value) {
+        this.contactInformationForm.controls['confPhone'].setErrors({'incorrect': true})
+      } else {
+        this.contactInformationForm.controls['confPhone'].setErrors(null)
+      }
+    })
   }
 
   performRequest() {
@@ -76,8 +206,9 @@ export class BookNowComponent implements OnInit {
     });
 
     console.log(this.transferDetailsForm.value)
-    // if (this.transferDetailsForm.valid) {
-
-    // }
+    console.log(this.transferDetailsForm.value)
+    if (this.transferDetailsForm.valid && this.contactInformationForm.valid) {
+      console.log("registered correctly")
+    }
   }
 }
