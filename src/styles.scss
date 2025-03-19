@@ -2,6 +2,10 @@
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+body {
+    overflow: hidden;
+}
+
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
@@ -26,6 +30,22 @@
     src: url('/src/assets/SourceSans3-Light.otf') format('opentype');
     font-weight: light;
     font-style: normal;
+}
+
+.orangeText {
+    color: #fd8103;
+}
+
+.purpleText {
+    color: #310370;
+}
+
+.whiteText {
+    color: white;
+}
+
+.greyText {
+    color: #b6b6b6;
 }
 
 .navbar {
@@ -159,3 +179,24 @@ mat-progress-spinner{
     height: 40px;
 }
 
+.contact-txt-btn {
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 70px;
+}
+
+.contact-btn {
+    background-color: #fd8103;
+    color: #310370;
+    border: none;
+    height: 100%;
+    width: 100px;
+}
+
+.return-btn {
+    background-color: transparent;
+    color: #fd8103;
+    border: none;
+}

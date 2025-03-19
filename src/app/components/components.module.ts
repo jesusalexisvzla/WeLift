@@ -7,6 +7,9 @@ import { Content1Component } from './content1/content1.component';
 import { Content1ModalComponent } from './content1/content1-modal/content1-modal.component';
 import { Content2Component } from './content2/content2.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
+import { BookNowComponent } from './book-now/book-now.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -14,11 +17,14 @@ import { HowItWorksComponent } from './how-it-works/how-it-works.component';
         Content1ModalComponent,
         Content2Component,
         HowItWorksComponent,
+        BookNowComponent,
     ],
     imports: [
         CommonModule,
         ComponentsRoutingModule,
-        MaterialModule
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
     ],
     entryComponents: [
     ]

@@ -12,7 +12,7 @@
     
         <div class="cards d-flex">
             <div class="card" *ngFor="let card of cardsSection1; index as i">
-                <div class="card-special card-special-number">i</div>
+                <div class="card-special card-special-number">{{i+1}}</div>
                 <div class="card-content-1">
                     <div class="card-content-title">{{card.title}}</div>
                     <div class="card-content-text">{{card.text}}
@@ -37,7 +37,7 @@
             </div>
         </div>
     
-        <div class="cards pdbt">
+        <div class="cards">
             <div class="row sm">
                 <div class="col- card card-2" *ngFor="let card of cardsSection2; index as i" [ngStyle]="{'margin': i >= 3 ? '5px 5px 0px 5px' : '0px 5px 5px 5px'}">
                     <div *ngIf="card.arrow" class="card-special card-special-arrow"> > </div>

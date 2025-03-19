@@ -19,6 +19,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [],
@@ -45,7 +46,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatCheckboxModule,
     MatRadioModule,
     MatStepperModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatTabsModule
   ],
 })
 export class MaterialModule { }
