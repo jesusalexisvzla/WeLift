@@ -11,7 +11,7 @@
                     </div>
                     <div class="row row-underline pd-50">
                         <!-- Mat-Select - Origin -->
-                        <div class="col-6">
+                        <div class="col-5">
                             <mat-form-field class="w-100">
                                 <mat-label class="">From</mat-label>
                                 <mat-select matNativeControl id="origin" formControlName="origin" class="form-control" name="origin" placeholder="Origin">
@@ -19,6 +19,14 @@
                                 </mat-select>
                                 <mat-error>Error</mat-error>
                             </mat-form-field>
+                        </div>
+
+                        <!-- Mat-Button - Change Locations -->
+                        <div class="col-1">
+                            <button class="sbButton swapz" (click)="changeLocations(transferDetailsForm.get('origin').value, transferDetailsForm.get('destination').value)">
+                                <mat-icon class="swapz">swap_horiz</mat-icon>
+                                <div class="sbButtonText"></div>
+                            </button>
                         </div>
 
                         <!-- Mat-Select - Destination -->
@@ -55,7 +63,7 @@
                         <!-- Mat-Radio - One Way -->
                         <div class="col-6 pt-20">
                             <mat-radio-group aria-label="Select an option" matNativeControl id="oneWay" formControlName="oneWay" class="form-control" name="oneWay" placeholder="oneWay">
-                                <mat-radio-button value=true>One-way</mat-radio-button>
+                                <mat-radio-button id="oneWayRB" (click)="changeRBs(transferDetailsForm.get('oneWay').value, 'oneWayRB', 'oneWayChecked')" [checked]="oneWayChecked" value=true>One-way</mat-radio-button>
                             </mat-radio-group>
                         </div>
                     </div>
@@ -98,7 +106,8 @@
                         <div class="col-1 d-flex">
                             <mat-form-field class="w-100">
                                 <mat-label>Time</mat-label>
-                                <input matInput type="text" pattern="\d*" maxlength="2" id="arrivalTime" formControlName="arrivalTime" class="form-control" name="arrivalTime" placeholder="00">
+                                <input matInput type="text" maxlength="2" id="arrivalTimeHours" formControlName="arrivalTimeHours" class="form-control" name="arrivalTimeHours" placeholder="00">
+                                <mat-error>Invalid Time</mat-error>
                             </mat-form-field>
                             <div class="align-content-center">
                                 <b>:</b>
@@ -109,7 +118,8 @@
                         <div class="col-1">
                             <mat-form-field class="w-100">
                                 <mat-label></mat-label>
-                                <input matInput type="text" pattern="\d*" maxlength="2" placeholder="00">
+                                <input matInput type="text" maxlength="2" max="60" id="arrivalTimeMinutes" formControlName="arrivalTimeMinutes" class="form-control" name="arrivalTimeMinutes" placeholder="00">
+                                <mat-error>Invalid Time</mat-error>
                             </mat-form-field>
                         </div>
 
@@ -117,7 +127,7 @@
                         <div class="col-1">
                             <mat-form-field class="w-100">
                                 <mat-label class=""></mat-label>
-                                <mat-select matNativeControl id="arrivalTime" formControlName="arrivalTime" class="form-control" name="arrivalTime" placeholder="arrivalTime">
+                                <mat-select matNativeControl id="arrivalTimeAP" formControlName="arrivalTimeAP" class="form-control" name="arrivalTimeAP" placeholder="">
                                     <mat-option value="AM">AM</mat-option>
                                     <mat-option value="PM">PM</mat-option>
                                 </mat-select>
@@ -163,7 +173,8 @@
                         <div class="col-1 d-flex">
                             <mat-form-field class="w-100">
                                 <mat-label>Time</mat-label>
-                                <input matInput type="text" pattern="\d*" maxlength="2" id="departureTime" formControlName="departureTime" class="form-control" name="departureTime" placeholder="00">
+                                <input matInput type="text" maxlength="2" id="departureTimeHours" formControlName="departureTimeHours" class="form-control" name="departureTimeHours" placeholder="00">
+                                <mat-error>Invalid Time</mat-error>
                             </mat-form-field>
                             <div class="align-content-center">
                                 <b>:</b>
@@ -174,7 +185,7 @@
                         <div class="col-1">
                             <mat-form-field class="w-100">
                                 <mat-label></mat-label>
-                                <input matInput type="text" pattern="\d*" maxlength="2" placeholder="00">
+                                <input matInput type="text" maxlength="2" max="60" id="departureTimeMinutes" formControlName="departureTimeMinutes" class="form-control" name="departureTimeMinutes" placeholder="00">
                             </mat-form-field>
                         </div>
 
@@ -182,7 +193,7 @@
                         <div class="col-1">
                             <mat-form-field class="w-100">
                                 <mat-label class=""></mat-label>
-                                <mat-select matNativeControl id="departureTime" formControlName="departureTime" class="form-control" name="departureTime" placeholder="departureTime">
+                                <mat-select matNativeControl id="departureTimeAP" formControlName="departureTimeAP" class="form-control" name="departureTimeAP" placeholder="">
                                     <mat-option value="AM">AM</mat-option>
                                     <mat-option value="PM">PM</mat-option>
                                 </mat-select>
@@ -196,16 +207,16 @@
                     <div class="row pd-50">
                         <div class="col-3">
                             <mat-radio-group aria-label="Select an option" matNativeControl id="booster" formControlName="booster" class="form-control" name="booster" placeholder="booster">
-                                <mat-radio-button value=true>Booster Seat</mat-radio-button>
+                                <mat-radio-button id="boosterRB" (click)="changeRB('boosterRB', 'boosterChecked')" [checked]="boosterChecked" value=true>Booster Seat</mat-radio-button>
                             </mat-radio-group>
                             <mat-radio-group aria-label="Select an option" matNativeControl id="baby" formControlName="baby" class="form-control" name="baby" placeholder="baby">
-                                <mat-radio-button value=true>Baby Seat</mat-radio-button>
+                                <mat-radio-button id="babyRB" (click)="changeRB('babyRB', 'babyChecked')" [checked]="babyChecked" value=true>Baby Seat</mat-radio-button>
                             </mat-radio-group>
                             <mat-radio-group aria-label="Select an option" matNativeControl id="wheel" formControlName="wheel" class="form-control" name="wheel" placeholder="wheel">
-                                <mat-radio-button value=true>Wheel Chair</mat-radio-button>
+                                <mat-radio-button id="wheelRB" (click)="changeRB('wheelRB', 'wheelChecked')" [checked]="wheelChecked" value=true>Wheel Chair</mat-radio-button>
                             </mat-radio-group>
                             <mat-radio-group aria-label="Select an option" matNativeControl id="grocery" formControlName="grocery" class="form-control" name="grocery" placeholder="grocery">
-                                <mat-radio-button value=true>Grocery Stop</mat-radio-button>
+                                <mat-radio-button id="groceryRB" (click)="changeRB('groceryRB', 'groceryChecked')" [checked]="groceryChecked" value=true>Grocery Stop</mat-radio-button>
                             </mat-radio-group>
                         </div>
 
@@ -361,8 +372,9 @@
                 <div class="tab-header orangeText">
                     Please confirm your transfer, flights and request information.
                 </div>
-                <div class="tab-header pd-50">
+                <div class="tab-header pd-50 d-flex justify-content-between">
                     <b>Your Transfer Details</b>
+                    <button class="return-btn" (click)="tabGroup.selectedIndex = 0"> < Edit</button>
                 </div>
                 <div class="row row-underline pb-50">
                     <div class="col-4">
@@ -381,7 +393,7 @@
 
                     <div class="col-4">
                         <div class="w-50 pt-20">
-                            <b>{{transferDetailsForm.get("oneWay").value ? 'One Way' : 'Round Trip'}}</b>
+                            <b>{{oneWayChecked ? 'One Way' : 'Round Trip'}}</b>
                         </div>
                     </div>
 
@@ -400,8 +412,9 @@
                     </div>
                 </div>
 
-                <div class="tab-header pd-50">
+                <div class="tab-header pd-50 d-flex justify-content-between">
                     <b>Arrival Flight Information</b>
+                    <button class="return-btn" (click)="tabGroup.selectedIndex = 0"> < Edit</button>
                 </div>
                 <div class="row row-underline pb-50">
                     <div class="col-4">
@@ -433,8 +446,9 @@
                     </div>
                 </div>
 
-                <div class="tab-header pd-50">
+                <div class="tab-header pd-50 d-flex justify-content-between">
                     <b>Departure Flight Information</b>
+                    <button class="return-btn" (click)="tabGroup.selectedIndex = 0"> < Edit</button>
                 </div>
                 <div class="row row-underline pb-50">
                     <div class="col-4">
@@ -466,22 +480,23 @@
                     </div>
                 </div>
 
-                <div class="tab-header pd-50">
+                <div class="tab-header pd-50 d-flex justify-content-between">
                     <b>Special Requests</b> (Water and beers already included)
+                    <button class="return-btn" (click)="tabGroup.selectedIndex = 0"> < Edit</button>
                 </div>
                 <div class="row pb-50">
                     <div class="col-3">
-                        <mat-radio-group aria-label="Select an option" matNativeControl id="" class="form-control" [ngClass]="[!transferDetailsForm.get('booster').value ? 'mrb-disabled' : '']" name="" placeholder="">
-                            <mat-radio-button [disabled]="!transferDetailsForm.get('booster').value">Booster Seat</mat-radio-button>
+                        <mat-radio-group aria-label="Select an option" matNativeControl id="" class="form-control" [ngClass]="[!boosterChecked ? 'mrb-disabled' : '']" name="" placeholder="">
+                            <mat-radio-button [disabled]="!boosterChecked">Booster Seat</mat-radio-button>
                         </mat-radio-group>
-                        <mat-radio-group aria-label="Select an option" matNativeControl id="" class="form-control pt-10" [ngClass]="[!transferDetailsForm.get('baby').value ? 'mrb-disabled' : '']" name="" placeholder="">
-                            <mat-radio-button [disabled]="!transferDetailsForm.get('baby').value">Baby Seat</mat-radio-button>
+                        <mat-radio-group aria-label="Select an option" matNativeControl id="" class="form-control pt-10" [ngClass]="[!babyChecked ? 'mrb-disabled' : '']" name="" placeholder="">
+                            <mat-radio-button [disabled]="!babyChecked">Baby Seat</mat-radio-button>
                         </mat-radio-group>
-                        <mat-radio-group aria-label="Select an option" matNativeControl id="" class="form-control pt-10" [ngClass]="[!transferDetailsForm.get('wheel').value ? 'mrb-disabled' : '']" name="" placeholder="">
-                            <mat-radio-button [disabled]="!transferDetailsForm.get('wheel').value">Wheel Chair</mat-radio-button>
+                        <mat-radio-group aria-label="Select an option" matNativeControl id="" class="form-control pt-10" [ngClass]="[!wheelChecked ? 'mrb-disabled' : '']" name="" placeholder="">
+                            <mat-radio-button [disabled]="!wheelChecked">Wheel Chair</mat-radio-button>
                         </mat-radio-group>
-                        <mat-radio-group aria-label="Select an option" matNativeControl id="" class="form-control pt-10" [ngClass]="[!transferDetailsForm.get('grocery').value ? 'mrb-disabled' : '']" name="" placeholder="">
-                            <mat-radio-button [disabled]="!transferDetailsForm.get('grocery').value">Grocery Stop</mat-radio-button>
+                        <mat-radio-group aria-label="Select an option" matNativeControl id="" class="form-control pt-10" [ngClass]="[!groceryChecked ? 'mrb-disabled' : '']" name="" placeholder="">
+                            <mat-radio-button [disabled]="!groceryChecked">Grocery Stop</mat-radio-button>
                         </mat-radio-group>
                     </div>
                     <div class="col-9">
@@ -512,7 +527,9 @@
                         Select your prefered option and click <b>submit</b>. We will contact you shortly to confirm your reservation and proceed with the payment process.
                     </div>
                     <mat-radio-group aria-label="Select an option" matNativeControl id=""  class="form-control row pt-50" name="" placeholder="">
-                        <mat-radio-button class="col-3" value=true>PayPal</mat-radio-button>
+                        <mat-radio-button class="col-3" value=true>
+                            <img class="paypal-img" src="../../../assets/paypal-logo.png" alt="Italian Trulli">
+                        </mat-radio-button>
                         <mat-radio-button class="col-6" value=true>Pay upon arrival (cash, debit or credit)</mat-radio-button>
                         <mat-radio-button class="col-3" value=true>Debit or credit card</mat-radio-button>
                     </mat-radio-group>

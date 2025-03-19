@@ -223,3 +223,29 @@
 ::ng-deep .mat-input-element {
     height: 40px !important;
 }
+
+.sbButton {
+    background-color: transparent;
+    border: 0cm;
+    border-radius: 4px;
+    padding-bottom: 4px;
+    height: 7vh;
+    width: 6vw;
+    .sbButtonText {
+        display: none;
+    }
+    color: #310370;
+}
+
+.swapz {
+    ::ng-deep .material-icons {
+        height: 100%;
+        width: 100%;
+        font-size: 30px !important;
+        align-content: space-evenly;
+    }
+}
+
+.paypal-img {
+    height: 100px;
+}
