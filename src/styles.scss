@@ -200,3 +200,29 @@ mat-progress-spinner{
     color: #fd8103;
     border: none;
 }
+
+.scroll-container {
+    height: 90vh; /* Full viewport height */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Enable vertical snap */
+    scroll-behavior: Smooth; /* Smooth scrolling effect */
+}
+
+.section {
+    height: 90vh; /* Each section takes full page height */
+    padding: 0px 200px;
+    scroll-snap-align: start; /* Aligns the top of the section */
+    margin: 0;
+}
+
+.sectionssss {
+    height: 120vh; /* Each section takes full page height */
+    padding: 0px 200px;
+    scroll-snap-align: start; /* Aligns the top of the section */
+    margin: 0;
+}
+
+.section-2 {
+    background-color: #310370;
+    box-shadow: inset 0px 80px 90px -100px black;
+}

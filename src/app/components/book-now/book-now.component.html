@@ -3,7 +3,7 @@
         Book your Private Transfer.
     </div>
     <mat-tab-group #tabGroup>
-        <mat-tab label="Transfer Details"> 
+        <mat-tab label="Transfer Details">
             <div class="tab-container purpleText">
                 <form [formGroup]="transferDetailsForm" center>
                     <div class="tab-header">
@@ -63,7 +63,7 @@
                         <!-- Mat-Radio - One Way -->
                         <div class="col-6 pt-20">
                             <mat-radio-group aria-label="Select an option" matNativeControl id="oneWay" formControlName="oneWay" class="form-control" name="oneWay" placeholder="oneWay">
-                                <mat-radio-button id="oneWayRB" (click)="changeRBs(transferDetailsForm.get('oneWay').value, 'oneWayRB', 'oneWayChecked')" [checked]="oneWayChecked" value=true>One-way</mat-radio-button>
+                                <mat-radio-button id="oneWayRB" (click)="changeRB('oneWayRB', 'oneWayChecked')" [checked]="oneWayChecked" value=true>One-way</mat-radio-button>
                             </mat-radio-group>
                         </div>
                     </div>
@@ -224,7 +224,7 @@
                             <div>Other Requests</div>
                             <mat-form-field class="w-100 no-underline" >
                                 <mat-label>Type your message.</mat-label>
-                                <textarea matInput id="request" formControlName="request" class="text-area " name="request" placeholder="Ex. It makes me feel..." rows="5"></textarea>
+                                <textarea matInput id="request" formControlName="request" class="text-area" name="request" placeholder="Ex. It makes me feel..." rows="5"></textarea>
                             </mat-form-field>
                         </div>
                     </div>
