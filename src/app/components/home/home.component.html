@@ -1,17 +1,18 @@
-<div class="home-container scroll-container">
+<div class="component-container scroll-container">
+    <!-- Book your transfer -->
     <div class="section p-0">
-        <div class="bn-title purpleText">
+        <div class="section-title purple-text">
             Book your Private Transfer.
         </div>
         <mat-tab-group #tabGroup>
             <mat-tab label="From Airport to  Hotel">
-                <div class="tab-container purpleText">
-                    <form [formGroup]="transferDetailsForm" center>
+                <div class="tab-container purple-text">
+                    <form [formGroup]="transferDetailsForm">
                         <div class="row pd-50">
                             <!-- Mat-Select - Airport -->
                             <div class="col-5">
                                 <mat-form-field class="w-100">
-                                    <mat-label class="">From</mat-label>
+                                    <mat-label>From</mat-label>
                                     <mat-select matNativeControl id="airport" formControlName="airport" class="form-control" name="airport" placeholder="Airport" [(value)]="selectedAirport">
                                         <mat-option *ngFor="let airport of airportOptions" [value]="airport.name">{{airport.name}}</mat-option>
                                     </mat-select>
@@ -21,16 +22,15 @@
     
                             <!-- Mat-Button - Change Locations -->
                             <div class="col-1">
-                                <button class="sbButton swapz" (click)="tabGroup.selectedIndex = 1">
-                                    <mat-icon class="swapz">swap_horiz</mat-icon>
-                                    <div class="sbButtonText"></div>
+                                <button class="icon-btn-sm icon-fw" (click)="tabGroup.selectedIndex = 1">
+                                    <mat-icon>swap_horiz</mat-icon>
                                 </button>
                             </div>
     
                             <!-- Mat-Select - Hotel -->
                             <div class="col-6">
                                 <mat-form-field class="w-100">
-                                    <mat-label class="">To</mat-label>
+                                    <mat-label>To</mat-label>
                                     <mat-select matNativeControl id="hotel" formControlName="hotel" class="form-control" name="hotel" placeholder="Hotel" [(value)]="selectedHotel">
                                         <mat-option *ngFor="let hotel of hotelOptions" [value]="hotel.name">{{hotel.name}}</mat-option>
                                     </mat-select>
@@ -40,21 +40,21 @@
     
                             <!-- Qty-Btns - Adults -->
                             <div class="col-3 pt-20">
-                                <div class="qty-button-label">Adults</div>
-                                <div class="qty-button-group d-flex">
-                                    <button class="qty-button" (click)="adultsQty = adultsQty ? adultsQty - 1 : adultsQty">-</button>
+                                <div class="btn-label">Adults</div>
+                                <div class="d-flex">
+                                    <button class="round-btn-sm" (click)="adultsQty = adultsQty ? adultsQty - 1 : adultsQty">-</button>
                                     <div class="mx-4"><b>{{adultsQty}}</b></div>
-                                    <button class="qty-button" (click)="adultsQty = adultsQty + 1">+</button>
+                                    <button class="round-btn-sm" (click)="adultsQty = adultsQty + 1">+</button>
                                 </div>
                             </div>
     
                             <!-- Qty-Btns - Children -->
                             <div class="col-3 pt-20">
-                                <div class="qty-button-label">Children (under 7 free ride)</div>
-                                <div class="qty-button-group d-flex">
-                                    <button class="qty-button" (click)="childsQty = childsQty ? childsQty - 1 : childsQty">-</button>
+                                <div class="btn-label">Children (under 7 free ride)</div>
+                                <div class="d-flex">
+                                    <button class="round-btn-sm" (click)="childsQty = childsQty ? childsQty - 1 : childsQty">-</button>
                                     <div class="mx-4"><b>{{childsQty}}</b></div>
-                                    <button class="qty-button" (click)="childsQty = childsQty + 1">+</button>
+                                    <button class="round-btn-sm" (click)="childsQty = childsQty + 1">+</button>
                                 </div>
                             </div>
     
@@ -65,9 +65,10 @@
                                 </mat-radio-group>
                             </div>
     
+                            <!-- Btn - Submit -->
                             <div class="col-3 align-self-end">
-                                <div class="bn-btn">
-                                    <button class="contact-btn" (click)="performRequest()">Submit</button>
+                                <div class="btn-container">
+                                    <button class="btn-submit" (click)="performRequest()">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -76,13 +77,13 @@
             </mat-tab>
     
             <mat-tab label="From Hotel to Airport">
-                <div class="tab-container purpleText">
+                <div class="tab-container purple-text">
                     <form [formGroup]="transferDetailsForm" center>
                         <div class="row pd-50">
                             <!-- Mat-Select - Hotel -->
                             <div class="col-5">
                                 <mat-form-field class="w-100">
-                                    <mat-label class="">To</mat-label>
+                                    <mat-label>To</mat-label>
                                     <mat-select matNativeControl id="hotel" formControlName="hotel" class="form-control" name="hotel" placeholder="Hotel" [(value)]="selectedHotel">
                                         <mat-option *ngFor="let hotel of hotelOptions" [value]="hotel.name">{{hotel.name}}</mat-option>
                                     </mat-select>
@@ -92,16 +93,15 @@
                             
                             <!-- Mat-Button - Change Locations -->
                             <div class="col-1">
-                                <button class="sbButton swapz" (click)="tabGroup.selectedIndex = 0">
-                                    <mat-icon class="swapz">swap_horiz</mat-icon>
-                                    <div class="sbButtonText"></div>
+                                <button class="icon-btn-sm icon-fw" (click)="tabGroup.selectedIndex = 0">
+                                    <mat-icon>swap_horiz</mat-icon>
                                 </button>
                             </div>
                             
                             <!-- Mat-Select - Airport -->
                             <div class="col-6">
                                 <mat-form-field class="w-100">
-                                    <mat-label class="">From</mat-label>
+                                    <mat-label>From</mat-label>
                                     <mat-select matNativeControl id="airport" formControlName="airport" class="form-control" name="airport" placeholder="Airport" [(value)]="selectedAirport">
                                         <mat-option *ngFor="let airport of airportOptions" [value]="airport.name">{{airport.name}}</mat-option>
                                     </mat-select>
@@ -111,21 +111,21 @@
                             
                             <!-- Qty-Btns - Adults -->
                             <div class="col-3 pt-20">
-                                <div class="qty-button-label">Adults</div>
-                                <div class="qty-button-group d-flex">
-                                    <button class="qty-button" (click)="adultsQty = adultsQty ? adultsQty - 1 : adultsQty">-</button>
+                                <div class="btn-label">Adults</div>
+                                <div class="d-flex">
+                                    <button class="round-btn-sm" (click)="adultsQty = adultsQty ? adultsQty - 1 : adultsQty">-</button>
                                     <div class="mx-4"><b>{{adultsQty}}</b></div>
-                                    <button class="qty-button" (click)="adultsQty = adultsQty + 1">+</button>
+                                    <button class="round-btn-sm" (click)="adultsQty = adultsQty + 1">+</button>
                                 </div>
                             </div>
     
                             <!-- Qty-Btns - Children -->
                             <div class="col-3 pt-20">
-                                <div class="qty-button-label">Children (under 7 free ride)</div>
-                                <div class="qty-button-group d-flex">
-                                    <button class="qty-button" (click)="childsQty = childsQty ? childsQty - 1 : childsQty">-</button>
+                                <div class="btn-label">Children (under 7 free ride)</div>
+                                <div class="d-flex">
+                                    <button class="round-btn-sm" (click)="childsQty = childsQty ? childsQty - 1 : childsQty">-</button>
                                     <div class="mx-4"><b>{{childsQty}}</b></div>
-                                    <button class="qty-button" (click)="childsQty = childsQty + 1">+</button>
+                                    <button class="round-btn-sm" (click)="childsQty = childsQty + 1">+</button>
                                 </div>
                             </div>
     
@@ -137,8 +137,8 @@
                             </div>
     
                             <div class="col-3 align-self-end">
-                                <div class="bn-btn">
-                                    <button class="contact-btn" (click)="performRequest()">Submit</button>
+                                <div class="btn-container">
+                                    <button class="btn-submit" (click)="performRequest()">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -147,9 +147,9 @@
             </mat-tab>
     
             <mat-tab label="Confirmation and Payment">
-                <div class="tab-container purpleText">
+                <div class="tab-container purple-text">
                     <form [formGroup]="contactInformationForm" center>
-                        <div class="purpleText fs-18">
+                        <div class="purple-text font-m">
                                 Please fill the following form, provide us your address and as much information as possible regarding your private transfer. 
                                 Our team will contact you as soon as possible.
                         </div>
@@ -188,8 +188,8 @@
                             </div>
     
                             <div class="col-3 pt-50 align-self-end">
-                                <div class="bn-btn">
-                                    <button class="contact-btn" (click)="performRequest()">Submit</button>
+                                <div class="btn-container">
+                                    <button class="btn-submit" (click)="performRequest()">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -201,181 +201,163 @@
 
     <!-- Everything for your transfer -->
     <div class="section p-0">
-        <div class="bn-title purpleText">
+        <div class="section-title purple-text">
             Everything for your Transfer.
         </div>
-        <div class="purpleText" style="padding: 0px 75px;">
+        <p class="purple-text section-text">
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+        </p>
+        <p class="purple-text section-text">
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
-            <div class="purpleText pt-50">
-                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
-                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
-                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
-            </div>
-        </div>
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+        </p>
         <div class="row">
-            <div class="col-3 round-img-container pt-50">
-                <div class="purpleText round-img-text">
-                    Beverages
-                </div>
-                
+            <div class="col-3 text-align-center pt-50">
+                <b class="purple-text font-l">Beverages</b>
                 <div class="align-items-center pt-50">
-                    <img class="card-img round-img-img" src="../../../assets/beverages.jpg"/>
+                    <img class="card-img round-img" src="../../../assets/beverages.jpg"/>
                 </div>
             </div>
 
-            <div class="col-3 round-img-container pt-50">
-                <div class="purpleText round-img-text">
-                    Grocery Stop
-                </div>
-                
+            <div class="col-3 text-align-center pt-50">
+                <b class="purple-text font-l">Grocery Stop</b>
                 <div class="align-items-center pt-50">
-                    <img class="card-img round-img-img" src="../../../assets/grocery.jpg"/>
+                    <img class="card-img round-img" src="../../../assets/grocery.jpg"/>
                 </div>
             </div>
 
-            <div class="col-3 round-img-container pt-50">
-                <div class="purpleText round-img-text">
-                    Bilingual Drivers
-                </div>
-                
+            <div class="col-3 text-align-center pt-50">
+                <b class="purple-text font-l">Bilingual Drivers</b>
                 <div class="align-items-center pt-50">
-                    <img class="card-img round-img-img" src="../../../assets/driver.jpg"/>
+                    <img class="card-img round-img" src="../../../assets/driver.jpg"/>
                 </div>
             </div>
 
-            <div class="col-3 round-img-container pt-50">
-                <div class="purpleText round-img-text">
-                    Special Seats
-                </div>
-                
+            <div class="col-3 text-align-center pt-50">
+                <b class="purple-text font-l">Special Seats</b>
                 <div class="align-items-center pt-50">
-                    <img class="card-img round-img-img" src="../../../assets/booster.jpg"/>
+                    <img class="card-img round-img" src="../../../assets/booster.jpg"/>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="sectionssss p-0">
-        <div class="bn-title purpleText">
+    <!-- Who we are -->
+    <div class="section-l purple-text p-0">
+        <div class="section-title">
             Who we Are.
         </div>
-        <div class="purpleText" style="padding: 0px 75px;">
-            <b>Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.</b>
-            <div class="purpleText pt-50">
-                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
-                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
-                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
-            </div>
-        </div>
-        <div class="row purpleText">
+        <p class="section-text w-75">
+            <b>Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.</b>
+        </p>
+        <p class="section-text w-75">
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+        </p>
+        <div class="row section-text">
             <div class="col-4 d-flex pt-50">
-                <div class="borderless-card w-75">
-                    <div class="borderless-card-title">Why Us?</div>
-                    <div><b>5 resons to love us</b></div>
+                <div class="w-75">
+                    <div class="card-title">Why Us?</div>
+                    <div class="pt-50"><b>5 resons to love us</b></div>
                 </div>
             </div>
             <div class="col-4 d-flex pt-50" *ngFor="let card of borderlessCards; index as i">
-                <div class="borderless-card w-75">
+                <div class="w-75">
                     <div class="d-flex">
-                        <div class="borderless-card-header-number">{{i}}</div>
-                        <div class="borderless-card-header-text"><b>{{card.header}}</b></div>
+                        <div class="header-number">{{i + 1}}</div>
+                        <div class="header-text"><b>{{card.header}}</b></div>
                     </div>
-                    <div class="orangeText borderless-card-title">{{card.title}}</div>
-                    <div>{{card.text}}</div>
+                    <div class="orange-text card-title pt-20">{{card.title}}</div>
+                    <div class="pt-50">{{card.text}}</div>
                 </div>
             </div>
         </div>
-        <div class="bn-btn">
-            <button class="contact-btn" (click)="router.navigateByUrl('/book-now')">Book Now</button>
+        <div class="btn-container">
+            <button class="btn-submit" (click)="router.navigateByUrl('/book-now')">Book Now</button>
         </div>
     </div>
 
     <!-- How It Works -->
-    <div class="section p-0">
-        <div class="hiw-header-1">
+    <div class="section purple-text p-0">
+        <div class="section-header">
             <div class="d-flex align-items-end">
-                <div class="hiw-title-1 purpleText">How it Works.</div>
-                <div class="hiw-title-2 orangeText">4 Nice and easy steps</div>
-            </div>
-            <div class="purpleText">
-                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+                <div class="font-50">How it Works.</div>
+                <div class="font-l orange-text">4 Nice and easy steps</div>
             </div>
         </div>
+        <div class="section-text">
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+        </div>
     
-        <div class="cards d-flex">
+        <div class="cards d-flex pt-xxl">
             <div class="card" *ngFor="let card of cardsSection1; index as i">
                 <div class="card-special card-special-number">{{i+1}}</div>
-                <div class="card-content-1">
-                    <div class="card-content-title">{{card.title}}</div>
+                <div class="h-100 align-content-center">
+                    <div class="font-xxl"><b>{{card.title}}</b></div>
                     <div class="card-content-text">{{card.text}}
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="contact-txt-btn">
-            <div class="contact-txt">
-                Please visit our <b>How it Works</b> page for more information. 
-            </div>
-            <button class="contact-btn xt-button" (click)="router.navigateByUrl('/how-it-works')">Learn How It Works</button>
+        <div class="btn-container-l pt-50">
+            <div class="section-text">Please visit our <b>How it Works</b> page for more information.</div>
+            <button class="btn-submit w-auto" style="margin-left: 20px;" (click)="router.navigateByUrl('/how-it-works')">Learn How It Works</button>
         </div>
     </div>
 
     <!-- Gallery -->
-    <div class="section p-0">
-        <div class="bn-title purpleText">
+    <div class="section purple-text p-0">
+        <div class="section-title">
             Gallery.
         </div>
-        <div class="purpleText" style="padding: 0px 75px;">
+        <div class="section-text">
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
         </div>
 
-        <div class="d-flex justify-content-around align-items-center">
-            <button class="sbButton change" (click)="changePicture()">
-                <mat-icon class="">arrow_back</mat-icon>
-                <div class="sbButtonText"></div>
+        <div class="d-flex justify-content-around align-items-center section-text">
+            <button class="icon-btn-m icon-fw" (click)="changePicture()">
+                <mat-icon>arrow_back</mat-icon>
             </button>
             <div class="align-items-center pt-50">
-                <img class="card-img square-img" src="../../../assets/grocery.jpg"/>
+                <img class="img-container sqr-500" src="../../../assets/grocery.jpg"/>
             </div>
             <div class="align-items-center pt-50">
-                <img class="card-img square-img" src="../../../assets/grocery.jpg"/>
+                <img class="img-container sqr-500" src="../../../assets/grocery.jpg"/>
             </div>
 
-            <button class="sbButton change" (click)="changePicture()">
-                <mat-icon class="">arrow_forward</mat-icon>
-                <div class="sbButtonText"></div>
+            <button class="icon-btn-m icon-fw" (click)="changePicture()">
+                <mat-icon>arrow_forward</mat-icon>
             </button>
         </div>
     </div>
 
     <!-- Reviews -->
-    <div class="section p-0">
-        <div class="hiw-header-1">
+    <div class="section purple-text p-0">
+        <div class="section-header">
             <div class="d-flex align-items-end">
-                <div class="hiw-title-1 purpleText">Reviews.</div>
-                <div class="hiw-title-2 orangeText">Our reputation speaks for us.</div>
-            </div>
-            <div class="purpleText">
-                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+                <div class="font-50">Reviews.</div>
+                <div class="font-m font-m-xxl orange-text">Our reputation speaks for us.</div>
             </div>
         </div>
+        <p class="section-text"><b>Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.</b></p>
         
-        <div class="cards cards-users">
+        <div class="cards d-block pt-20">
             <div class="card card-user" [ngClass]="[i > 0 ? 'mt-20' : '']" *ngFor="let comment of commentsOptions; index as i">
                 <div class="d-flex w-100 h-100">
                     <div class="card-user-left">
-                        <div>{{comment.name}}</div>
+                        <div><b>{{comment.name}}</b></div>
                         <div class="pt-20">Date: {{comment.date}}</div>
                         <div>{{comment.stars}} estrellas</div>
                     </div>
                     <div class="card-user-right">
-                        <div class="card-user-right-title"><em>"{{comment.messageTitle}}"</em></div>
-                        <div class="card-user-right-text pt-20">{{comment.messageText}}</div>
+                        <div><em><b>"{{comment.messageTitle}}"</b></em></div>
+                        <div class="pt-20">{{comment.messageText}}</div>
                     </div>
                 </div>
             </div>
@@ -383,23 +365,23 @@
     </div>
 
     <!-- Get In Touch -->
-    <div class="section p-0">
-        <div class="bn-title purpleText">
+    <div class="section purple-text p-0">
+        <div class="section-title">
             Get in Touch.
         </div>
         <form [formGroup]="contactInformationForm" center>
-            <div class="purpleText fs-18">
-                    Please fill the following form, and write us a short message regarding your inquiry. Our team will reach back as soon as possible.
-                    <div class="d-flex justify-content-between pt-20">
-                        <b>If you Wish to make a reservation, press "Book Now".</b>
-                        <div class="bn-btn">
-                            <button class="contact-btn" (click)="router.navigateByUrl('/book-now')">Book Now</button>
-                        </div>
+            <div class="section-text">
+                Please fill the following form, and write us a short message regarding your inquiry. Our team will reach back as soon as possible.
+                <div class="d-flex justify-content-between pt-20">
+                    <b>If you Wish to make a reservation, press "Book Now".</b>
+                    <div class="btn-container">
+                        <button class="btn-submit" (click)="router.navigateByUrl('/book-now')">Book Now</button>
                     </div>
+                </div>
             </div>
 
-            <div class="row pd-50">
-                <!-- Mat-Input - First Name -->
+            <div class="row section-form">
+                <!-- Mat-Input - Full Name -->
                 <div class="col-6">
                     <mat-form-field class="w-100">
                         <mat-label>Full Name</mat-label>
@@ -423,6 +405,7 @@
                     </mat-form-field>
                 </div>
 
+                <!-- Mat-Input - Message -->
                 <div class="col-9 pt-50">
                     <div>Message</div>
                     <mat-form-field class="w-100 no-underline" >
@@ -431,9 +414,10 @@
                     </mat-form-field>
                 </div>
 
+                <!-- Btn - Submit -->
                 <div class="col-3 pt-50 align-self-end">
-                    <div class="bn-btn">
-                        <button class="contact-btn" (click)="performRequest()">Submit</button>
+                    <div class="btn-container">
+                        <button class="btn-submit" (click)="performRequest()">Submit</button>
                     </div>
                 </div>
             </div>

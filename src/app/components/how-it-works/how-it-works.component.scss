@@ -1,78 +1,12 @@
-.hiw-header-1 {
-    padding: 40px 0px 100px 0px;
-}
-
-.hiw-header-2 {
-    padding: 40px 0px 40px 0px;
-}
-
-.hiw-title-1 {
-    font-size: 50px;
-}
-
-.hiw-title-2 {
-    font-size: 20px;
-}
-
 /**************************************************/
 /****************CARD CLASSES START****************/
-.cards {
-    display: flex;
-    justify-content: center;
-}
-
-.card {
-    height: 300px;
-    width: 250px;
-    text-align: center;
-    color: #310370;
-    margin: 0px 5px;
-}
-
-.card-2 {
+.card-background {
+    height: 375px;
     background-image: url(../../../assets/output-onlinepngtools.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position-y: center;
     padding: 0px;
-}
-
-.card-content-1 {
-    height: 100%;
-    align-content: center;
-}
-
-.card-content-2 {
-    height: 70%;
-    justify-content: space-between;
-}
-
-.card-content-title {
-    font-size: xx-large;
-    font-weight: bold;
-}
-
-.card-content-text {
-    font-size: small;
-    padding: 0px 50px;
-}
-
-.card-special {
-    position: absolute;
-    z-index: 3;
-    box-shadow: 0px 1px 1px .1px black;
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
-    font-size: xx-large;
-    font-weight: bold;
-}
-
-.card-special-number {
-    left: 40%;
-    top: -10%;
-    background-color: #fd8103;
-    border: 3px solid white;    
 }
 
 .card-special-arrow {
@@ -96,46 +30,25 @@
 /**************************************************/
 
 /**************************************************/
-/***************CONTACT CLASSES START**************/
-.contact-txt-btn {
-    padding-top: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    height: 70px;
-}
-
-.contact-txt {
-    padding-right: 40px;
-}
-
-.contact-btn {
-    background-color: #fd8103;
-    color: #310370;
-    border: none;
-    height: 100%;
-    width: 100px;
-}
-/****************CONTACT CLASSES END***************/
-/**************************************************/
-
-/**************************************************/
 /*************COLLAPSABLE CLASSES START************/
 .collapsable-container {
     display: block;
-    height: 520px;
+    height: 560px;
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 20px 75px;
 }
 
 .collapsable {
     height: 150px;
-    width: 99%;
+    width: 100%;
     padding: 0px 50px;
     margin-bottom: 10px;
     align-items: start;
     text-align: start;
     font-size: x-large;
+    margin: 7px 0px 7px 0px;
+    box-shadow: 0px 0px 30px -10px black;
 }
 
 .collapsable:hover {
@@ -204,6 +117,10 @@
 /*****************EXTRA CLASSES END****************/
 /**************************************************/
 .sm {
-    width: calc(260px * 3);
+    width: calc(330px * 3);
     justify-content: center;
+}
+
+.neg-margin {
+    margin: 0px -200px;
 }

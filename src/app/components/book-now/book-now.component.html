@@ -1,10 +1,10 @@
-<div class="bn-container">
-    <div class="bn-title purpleText">
+<div class="component-container">
+    <div class="section-title purple-text">
         Book your Private Transfer.
     </div>
     <mat-tab-group #tabGroup>
         <mat-tab label="Transfer Details">
-            <div class="tab-container purpleText">
+            <div class="tab-container purple-text">
                 <form [formGroup]="transferDetailsForm" center>
                     <div class="tab-header">
                         <b>Your Transfer</b>
@@ -23,9 +23,8 @@
 
                         <!-- Mat-Button - Change Locations -->
                         <div class="col-1">
-                            <button class="sbButton swapz" (click)="changeLocations(transferDetailsForm.get('origin').value, transferDetailsForm.get('destination').value)">
-                                <mat-icon class="swapz">swap_horiz</mat-icon>
-                                <div class="sbButtonText"></div>
+                            <button class="icon-btn-sm icon-fw" (click)="changeLocations(transferDetailsForm.get('origin').value, transferDetailsForm.get('destination').value)">
+                                <mat-icon>swap_horiz</mat-icon>
                             </button>
                         </div>
 
@@ -42,21 +41,21 @@
 
                         <!-- Qty-Btns - Adults -->
                         <div class="col-3 pt-20">
-                            <div class="qty-button-label">Adults</div>
-                            <div class="qty-button-group d-flex">
-                                <button class="qty-button" (click)="adultsQty = adultsQty ? adultsQty - 1 : adultsQty">-</button>
+                            <div class="btn-label">Adults</div>
+                            <div class="d-flex">
+                                <button class="round-btn-sm" (click)="adultsQty = adultsQty ? adultsQty - 1 : adultsQty">-</button>
                                 <div class="mx-4"><b>{{adultsQty}}</b></div>
-                                <button class="qty-button" (click)="adultsQty = adultsQty + 1">+</button>
+                                <button class="round-btn-sm" (click)="adultsQty = adultsQty + 1">+</button>
                             </div>
                         </div>
 
                         <!-- Qty-Btns - Children -->
                         <div class="col-3 pt-20">
-                            <div class="qty-button-label">Children (under 7 free ride)</div>
-                            <div class="qty-button-group d-flex">
-                                <button class="qty-button" (click)="childsQty = childsQty ? childsQty - 1 : childsQty">-</button>
+                            <div class="btn-label">Children (under 7 free ride)</div>
+                            <div class="d-flex">
+                                <button class="round-btn-sm" (click)="childsQty = childsQty ? childsQty - 1 : childsQty">-</button>
                                 <div class="mx-4"><b>{{childsQty}}</b></div>
-                                <button class="qty-button" (click)="childsQty = childsQty + 1">+</button>
+                                <button class="round-btn-sm" (click)="childsQty = childsQty + 1">+</button>
                             </div>
                         </div>
 
@@ -229,14 +228,14 @@
                         </div>
                     </div>
                 </form>
-                <div class="bn-btn">
-                    <button class="contact-btn" (click)="performRequest(); transferDetailsForm.valid ? tabGroup.selectedIndex = 1 : tabGroup.selectedIndex = 0">Next</button>
+                <div class="btn-container">
+                    <button class="btn-submit" (click)="performRequest(); transferDetailsForm.valid ? tabGroup.selectedIndex = 1 : tabGroup.selectedIndex = 0">Next</button>
                 </div>
             </div>
         </mat-tab>
 
         <mat-tab label="Contact Information" [disabled]="!transferDetailsForm.valid">
-            <div class="tab-container purpleText">
+            <div class="tab-container purple-text">
                 <form [formGroup]="contactInformationForm" (ngSubmit)="performRequest()" center>
                     <div class="tab-header">
                         <b>Contact Information</b>
@@ -357,24 +356,24 @@
                     </div>
                 </form>
                 <div class="d-flex justify-content-between">
-                    <div class="bn-btn">
-                        <button class="return-btn" (click)="tabGroup.selectedIndex = 0"> < Go Back</button>
+                    <div class="btn-container">
+                        <button class="btn-return" (click)="tabGroup.selectedIndex = 0"> < Go Back</button>
                     </div>
-                    <div class="bn-btn">
-                        <button class="contact-btn" (click)="performRequest(); transferDetailsForm.valid ? tabGroup.selectedIndex = 2 : tabGroup.selectedIndex = 1">Next</button>
+                    <div class="btn-container">
+                        <button class="btn-submit" (click)="performRequest(); transferDetailsForm.valid ? tabGroup.selectedIndex = 2 : tabGroup.selectedIndex = 1">Next</button>
                     </div>
                 </div>
             </div>
         </mat-tab>
 
         <mat-tab label="Confirmation and Payment" [disabled]="!transferDetailsForm.valid || !contactInformationForm.valid">
-            <div class="tab-container purpleText">
-                <div class="tab-header orangeText">
+            <div class="tab-container purple-text">
+                <div class="tab-header orange-text">
                     Please confirm your transfer, flights and request information.
                 </div>
                 <div class="tab-header pd-50 d-flex justify-content-between">
                     <b>Your Transfer Details</b>
-                    <button class="return-btn" (click)="tabGroup.selectedIndex = 0"> < Edit</button>
+                    <button class="btn-return" (click)="tabGroup.selectedIndex = 0"> < Edit</button>
                 </div>
                 <div class="row row-underline pb-50">
                     <div class="col-4">
@@ -414,7 +413,7 @@
 
                 <div class="tab-header pd-50 d-flex justify-content-between">
                     <b>Arrival Flight Information</b>
-                    <button class="return-btn" (click)="tabGroup.selectedIndex = 0"> < Edit</button>
+                    <button class="btn-return" (click)="tabGroup.selectedIndex = 0"> < Edit</button>
                 </div>
                 <div class="row row-underline pb-50">
                     <div class="col-4">
@@ -448,7 +447,7 @@
 
                 <div class="tab-header pd-50 d-flex justify-content-between">
                     <b>Departure Flight Information</b>
-                    <button class="return-btn" (click)="tabGroup.selectedIndex = 0"> < Edit</button>
+                    <button class="btn-return" (click)="tabGroup.selectedIndex = 0"> < Edit</button>
                 </div>
                 <div class="row row-underline pb-50">
                     <div class="col-4">
@@ -482,7 +481,7 @@
 
                 <div class="tab-header pd-50 d-flex justify-content-between">
                     <b>Special Requests</b> (Water and beers already included)
-                    <button class="return-btn" (click)="tabGroup.selectedIndex = 0"> < Edit</button>
+                    <button class="btn-return" (click)="tabGroup.selectedIndex = 0"> < Edit</button>
                 </div>
                 <div class="row pb-50">
                     <div class="col-3">
@@ -513,13 +512,13 @@
                             Total: <b>$250.00 USD</b>
                         </div>
                         
-                        <div class="col-7 greyText">
+                        <div class="col-7 grey-text">
                             Prices include TAX and service fees. Please ask our staff for invoices and receipts.
                         </div>
                     </div>
                 </div>
 
-                <div class="tab-header pt-50 orangeText">
+                <div class="tab-header pt-50 orange-text">
                     <b>Payment Method</b>
                 </div>
                 <div class="pb-50">
@@ -536,11 +535,11 @@
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <div class="bn-btn">
-                        <button class="return-btn" (click)="tabGroup.selectedIndex = 1"> < Go Back</button>
+                    <div class="btn-container">
+                        <button class="btn-return" (click)="tabGroup.selectedIndex = 1"> < Go Back</button>
                     </div>
-                    <div class="bn-btn">
-                        <button class="contact-btn" (click)="performRequest();">Submit</button>
+                    <div class="btn-container">
+                        <button class="btn-submit" (click)="performRequest();">Submit</button>
                     </div>
                 </div>
             </div>
