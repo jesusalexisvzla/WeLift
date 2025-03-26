@@ -3,7 +3,7 @@
     <div class="justify-content-between btn-container">
         <button class="text-button" [ngClass]="{'selected-btn': selected == '/home'}" (click)="move('/home')">Home</button>
         <button class="text-button" [ngClass]="{'selected-btn': selected == '/how-it-works'}" (click)="move('/how-it-works')">How it Works</button>
-        <button class="text-button">Groups</button>
+        <button class="text-button" [ngClass]="{'selected-btn': selected == '/groups'}" (click)="move('/groups')">Groups</button>
         <button class="text-button">Activities</button>
         <button class="text-button">Blog</button>
         <button class="text-button">Contact</button>
