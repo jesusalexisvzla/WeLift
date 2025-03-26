@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { GroupsComponent } from './groups/groups.component';
 import { BookNowComponent } from './book-now/book-now.component';
+import { ActivitiesComponent } from './activities/activities.component';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { BookNowComponent } from './book-now/book-now.component';
         HowItWorksComponent,
         GroupsComponent,
         BookNowComponent,
+        ActivitiesComponent,
     ],
     imports: [
         CommonModule,

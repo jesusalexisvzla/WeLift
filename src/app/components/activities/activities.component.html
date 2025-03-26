@@ -1,0 +1,104 @@
+<div class="component-container scroll-container">
+        <!-- Book your transfer -->
+        <div class="section purple-text p-0">
+            <div class="section-title">
+                We know activities too.
+            </div>
+            <p class="section-text">
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+            </p>
+            <div class="btn-container-l pt-50">
+                <div class="section-text">Too book or ask about one of our activities, please fill the <b>Activities Form</b>. Our team will get back to you immediately</div>
+                <button class="btn-submit w-auto" style="margin-left: 20px;">Activities</button>
+            </div>
+        </div>
+
+        <!-- Book your transfer -->
+    <div class="section purple-text p-0">
+        <div class="section-title w-100">
+            Start your Group Reservation
+        </div>
+
+        <form [formGroup]="contactInformationForm" center>
+            <div class="section-text">
+                Please fill the following form, and write us a short message regarding your inquiry. Our team will reach back as soon as possible.
+                <div class="d-flex justify-content-between pt-20">
+                    <b>If you Wish to make a reservation, press "Book Now".</b>
+                </div>
+            </div>
+
+            <div class="row section-form">
+                <!-- Mat-Input - Full Name -->
+                <div class="col-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput id="fullName" formControlName="fullName" class="form-control" name="fullName" placeholder="Type your full name">
+                    </mat-form-field>
+                </div>
+
+                <!-- Mat-Input - Email -->
+                <div class="col-3">
+                    <mat-form-field class="w-100">
+                        <mat-label>Email</mat-label>
+                        <input matInput id="email" formControlName="email" class="form-control" name="email" placeholder="Type your email adrress">
+                    </mat-form-field>
+                </div>
+
+                <!-- Mat-Input - Phone -->
+                <div class="col-3">
+                    <mat-form-field class="w-100">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput id="phone" formControlName="phone" class="form-control" name="phone" placeholder="Type your phone number">
+                    </mat-form-field>
+                </div>
+
+                <!-- Mat-Select - Destination -->
+                <div class="col-6 pt-20">
+                    <mat-form-field class="w-100">
+                        <mat-label>To</mat-label>
+                        <mat-select matNativeControl id="destination" formControlName="destination" class="form-control" name="destination" placeholder="Destination">
+                            <mat-option *ngFor="let destination of destinationOptions" [value]="destination.name">{{destination.name}}</mat-option>
+                        </mat-select>
+                        <mat-error>Error</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <!-- Qty-Btns - Adults -->
+                <div class="col-3 pt-20">
+                    <div class="btn-label">Adults</div>
+                    <div class="d-flex">
+                        <button class="round-btn-sm" (click)="adultsQty = adultsQty ? adultsQty - 1 : adultsQty">-</button>
+                        <div class="mx-4"><b>{{adultsQty}}</b></div>
+                        <button class="round-btn-sm" (click)="adultsQty = adultsQty + 1">+</button>
+                    </div>
+                </div>
+
+                <!-- Qty-Btns - Children -->
+                <div class="col-3 pt-20">
+                    <div class="btn-label">Children (under 7 free ride)</div>
+                    <div class="d-flex">
+                        <button class="round-btn-sm" (click)="childsQty = childsQty ? childsQty - 1 : childsQty">-</button>
+                        <div class="mx-4"><b>{{childsQty}}</b></div>
+                        <button class="round-btn-sm" (click)="childsQty = childsQty + 1">+</button>
+                    </div>
+                </div>
+
+                <!-- Mat-Input - Message -->
+                <div class="col-9 pt-50">
+                    <div>Message</div>
+                    <mat-form-field class="w-100 no-underline" >
+                        <mat-label>Type your message.</mat-label>
+                        <textarea matInput id="message" formControlName="message" class="text-area" name="message" placeholder="Type your message." rows="15"></textarea>
+                    </mat-form-field>
+                </div>
+
+                <!-- Btn - Submit -->
+                <div class="col-3 pt-50 align-self-end">
+                    <div class="btn-container">
+                        <button class="btn-submit" (click)="performRequest()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
