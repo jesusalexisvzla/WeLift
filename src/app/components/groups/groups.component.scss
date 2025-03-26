@@ -1,0 +1,54 @@
+.text-area {
+    height: 100% !important;
+    border: 2px solid #fd8103 !important;
+    padding: 5px !important;
+}
+
+.card-background {
+    height: 375px;
+    background-image: url(../../../assets/output-onlinepngtools.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    padding: 0px;
+}
+
+.card-special-arrow {
+    left: 90%;
+    top: 40%;
+    background-color: white;
+    border: 3px solid #fd8103;
+}
+
+.card-img-container {
+    height: 30%;
+    align-content: end;
+}
+
+.card-img {
+    height: 50px;
+    width: fit-content;
+    align-self: center;
+}
+
+.vehicle-img {
+    height: 350px;
+    width: 100%;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.card-with-text-img {
+    height: 450px;
+    width: 300px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.neg-margin {
+    margin: 0px -200px;
+}
+
+.sm {
+    width: calc(330px * 3);
+    justify-content: center;
+}

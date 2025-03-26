@@ -5,6 +5,7 @@ import { Content2Component } from './content2/content2.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { BookNowComponent } from './book-now/book-now.component';
 import { HomeComponent } from './home/home.component';
+import { GroupsComponent } from './groups/groups.component';
 
 const routes: Routes = [
     {
@@ -19,6 +20,10 @@ const routes: Routes = [
     {
         path: 'how-it-works',
         component: HowItWorksComponent,
+    },
+    {
+        path: 'groups',
+        component: GroupsComponent,
     },
     {
         path: 'book-now',
