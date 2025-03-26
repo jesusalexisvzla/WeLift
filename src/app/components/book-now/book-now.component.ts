@@ -201,7 +201,6 @@ export class BookNowComponent implements OnInit {
   wheelChecked = false;
   groceryChecked = false;
 
-
   constructor(
     private fb: FormBuilder,
   ) { }
@@ -308,26 +307,6 @@ export class BookNowComponent implements OnInit {
   }
 
   changeRB(id, property) {
-    console.log(this[property])
-    if (this[property]) {
-      var element = document.getElementById(id);
-      setTimeout(() => {
-        element.classList.remove('mat-radio-checked');
-        element.classList.value.replace('mat-radio-checked', '');
-      }, 0);
-    } else {
-      var element = document.getElementById(id);
-      setTimeout(() => {
-        element.classList.add('mat-radio-checked');
-      }, 0);
-    }
-    this[property] = !this[property];
-  }
-
-  changeRBs(value, id, property) {
-    console.log(value)
-    console.log(id)
-    console.log(this[property])
     if (this[property]) {
       var element = document.getElementById(id);
       setTimeout(() => {
@@ -381,7 +360,7 @@ export class BookNowComponent implements OnInit {
     delete this.bookNowObject.departureTimeMinutes;
     delete this.bookNowObject.departureTimeAP;
 
-    // console.log(this.bookNowObject)
+    console.log(this.bookNowObject)
 
     // console.log(this.transferDetailsForm.value)
     // console.log(this.contactInformationForm.value)

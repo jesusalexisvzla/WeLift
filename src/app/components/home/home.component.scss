@@ -1,0 +1,38 @@
+.card-user {
+    height: 250px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+.card-user-left {
+    height: 100%;
+    width: 30%;
+    padding-left: 50px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #310370;
+    color: white;
+    align-content: center;
+    text-align: justify;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+.card-user-right {
+    height: 100%;
+    width: 70%;
+    padding: 0px 50px;
+    align-content: center;
+    text-align: justify;
+}
+
+.text-area {
+    height: 100% !important;
+    border: 2px solid #fd8103 !important;
+    padding: 5px !important;
+}
+
+.sqr-500 {
+    height: 550px;
+    width: 550px;
+}

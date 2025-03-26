@@ -10,6 +10,7 @@ import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { BookNowComponent } from './book-now/book-now.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         Content2Component,
         HowItWorksComponent,
         BookNowComponent,
+        HomeComponent,
     ],
     imports: [
         CommonModule,
