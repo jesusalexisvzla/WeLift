@@ -12,11 +12,7 @@ export const routes: Routes = [
 
 @NgModule({
   imports: [
-      RouterModule.forRoot(routes, { 
-        relativeLinkResolution: 'legacy',
-      // preloadingStrategy: PreloadAllModules, // <- comment this line for activate lazy load
-      // useHash: true
-    })
+      RouterModule.forRoot(routes, {})
   ],
   exports: [
     RouterModule
