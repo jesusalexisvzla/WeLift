@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
 import { MatTabGroup } from '@angular/material/tabs';
 import { debounceTime, map } from 'rxjs/operators';
 
@@ -12,51 +12,51 @@ export class BookNowComponent implements OnInit {
   @ViewChild('tabGroup') tabGroup!: MatTabGroup;
 
   public transferDetailsForm = this.fb.group({
-    origin: new FormControl({value: '', disabled: false}, Validators.required),
-    destination: new FormControl({value: '', disabled: false}, Validators.required),
-    adultsQty: new FormControl({value: 0, disabled: false}, Validators.required),
-    childsQty: new FormControl({value: 0, disabled: false}, Validators.required),
-    oneWay: new FormControl({value: false, disabled: false}, Validators.required),
+    origin: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    destination: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    adultsQty: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
+    childsQty: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
+    oneWay: new UntypedFormControl({value: false, disabled: false}, Validators.required),
 
-    arrivalAirline: new FormControl({value: '', disabled: false}, Validators.required),
-    arrivalFlightNo: new FormControl({value: '', disabled: false}, Validators.required),
-    arrivalDate: new FormControl({value: '', disabled: false}, Validators.required),
-    arrivalTimeHours: new FormControl({value: '', disabled: false}, Validators.required),
-    arrivalTimeMinutes: new FormControl({value: '', disabled: false}, Validators.required),
-    arrivalTimeAP: new FormControl({value: 'AM', disabled: false}, Validators.required),
+    arrivalAirline: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    arrivalFlightNo: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    arrivalDate: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    arrivalTimeHours: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    arrivalTimeMinutes: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    arrivalTimeAP: new UntypedFormControl({value: 'AM', disabled: false}, Validators.required),
 
-    departureAirline: new FormControl({value: '', disabled: false}, Validators.required),
-    departureFlightNo: new FormControl({value: '', disabled: false}, Validators.required),
-    departureDate: new FormControl({value: '', disabled: false}, Validators.required),
-    departureTimeHours: new FormControl({value: '', disabled: false}, Validators.required),
-    departureTimeMinutes: new FormControl({value: '', disabled: false}, Validators.required),
-    departureTimeAP: new FormControl({value: 'AM', disabled: false}, Validators.required),
+    departureAirline: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    departureFlightNo: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    departureDate: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    departureTimeHours: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    departureTimeMinutes: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    departureTimeAP: new UntypedFormControl({value: 'AM', disabled: false}, Validators.required),
 
-    booster: new FormControl({value: false, disabled: false}, Validators.required),
-    baby: new FormControl({value: false, disabled: false}, Validators.required),
-    wheel: new FormControl({value: false, disabled: false}, Validators.required),
-    grocery: new FormControl({value: false, disabled: false}, Validators.required),
+    booster: new UntypedFormControl({value: false, disabled: false}, Validators.required),
+    baby: new UntypedFormControl({value: false, disabled: false}, Validators.required),
+    wheel: new UntypedFormControl({value: false, disabled: false}, Validators.required),
+    grocery: new UntypedFormControl({value: false, disabled: false}, Validators.required),
 
-    request: new FormControl({value: '', disabled: false}, Validators.required)
+    request: new UntypedFormControl({value: '', disabled: false}, Validators.required)
   });
 
   public contactInformationForm = this.fb.group({
-    firstName: new FormControl({value: '', disabled: false}, Validators.required),
-    lastName: new FormControl({value: '', disabled: false}, Validators.required),
-    email: new FormControl({value: '', disabled: false}, Validators.required),
-    confEmail: new FormControl({value: '', disabled: false}, Validators.required),
-    phone: new FormControl({value: '', disabled: false}, Validators.required),
-    confPhone: new FormControl({value: '', disabled: false}, Validators.required),
+    firstName: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    lastName: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    email: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    confEmail: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    phone: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    confPhone: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     //string
     
-    streetName1: new FormControl({value: '', disabled: false}, Validators.required),
-    streetName2: new FormControl({value: '', disabled: false}),
-    exteriorNo: new FormControl({value: '', disabled: false}, Validators.required),
-    interiorNo: new FormControl({value: '', disabled: false}, Validators.required),
-    colony: new FormControl({value: '', disabled: false}),
-    zipCode: new FormControl({value: '', disabled: false}),
+    streetName1: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    streetName2: new UntypedFormControl({value: '', disabled: false}),
+    exteriorNo: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    interiorNo: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    colony: new UntypedFormControl({value: '', disabled: false}),
+    zipCode: new UntypedFormControl({value: '', disabled: false}),
     //string
-    country: new FormControl({value: '', disabled: false}), //dropdown
+    country: new UntypedFormControl({value: '', disabled: false}), //dropdown
   });
 
   bookNowObject : any = {
@@ -202,7 +202,7 @@ export class BookNowComponent implements OnInit {
   groceryChecked = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
   ) { }
 
   ngOnInit(): void {

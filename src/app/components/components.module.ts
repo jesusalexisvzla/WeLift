@@ -39,8 +39,6 @@ import { ContactComponent } from './contact/contact.component';
         MaterialModule,
         FormsModule,
         ReactiveFormsModule,
-    ],
-    entryComponents: [
     ]
 })
 export class ComponentsModule { }

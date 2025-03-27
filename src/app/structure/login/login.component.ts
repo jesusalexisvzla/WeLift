@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { FormBuilder, FormControl, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
 import { LoginService } from '../../services/login.service';
 import { Subject } from 'rxjs';
 
@@ -14,15 +14,15 @@ export class LoginComponent implements OnInit, OnDestroy {
   onDestroy = new Subject<void>();
 
   public loginForm = this.fb.group({
-    email: new FormControl({value: '', disabled: false}, Validators.required),
-    password: new FormControl({value: '', disabled: false}, Validators.required)
+    email: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    password: new UntypedFormControl({value: '', disabled: false}, Validators.required)
   });
 
   public isLoading = false;
 
   constructor(
     public router: Router,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private loginService: LoginService,
   ) { }
 

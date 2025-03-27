@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,14 +10,14 @@ import { Router } from '@angular/router';
 export class ContactComponent implements OnInit {
 
   public contactInformationForm = this.fb.group({
-    fullName: new FormControl({value: '', disabled: false}, Validators.required),
-    email: new FormControl({value: '', disabled: false}, Validators.required),
-    phone: new FormControl({value: '', disabled: false}, Validators.required),
-    message: new FormControl({value: '', disabled: false}, Validators.required)
+    fullName: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    email: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    phone: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    message: new UntypedFormControl({value: '', disabled: false}, Validators.required)
   });
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public router: Router,
   ) { }
 

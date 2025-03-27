@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
 import { MatTabGroup } from '@angular/material/tabs';
 import { Router } from '@angular/router';
 
@@ -13,18 +13,18 @@ export class HomeComponent implements OnInit {
   @ViewChild('tabGroup') tabGroup!: MatTabGroup;
 
   public transferDetailsForm = this.fb.group({
-    airport: new FormControl({value: '', disabled: false}, Validators.required),
-    hotel: new FormControl({value: '', disabled: false}, Validators.required),
-    adultsQty: new FormControl({value: 0, disabled: false}, Validators.required),
-    childsQty: new FormControl({value: 0, disabled: false}, Validators.required),
-    oneWay: new FormControl({value: false, disabled: false}, Validators.required)
+    airport: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    hotel: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    adultsQty: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
+    childsQty: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
+    oneWay: new UntypedFormControl({value: false, disabled: false}, Validators.required)
   });
 
   public contactInformationForm = this.fb.group({
-    fullName: new FormControl({value: '', disabled: false}, Validators.required),
-    email: new FormControl({value: '', disabled: false}, Validators.required),
-    phone: new FormControl({value: '', disabled: false}, Validators.required),
-    message: new FormControl({value: '', disabled: false}, Validators.required)
+    fullName: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    email: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    phone: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    message: new UntypedFormControl({value: '', disabled: false}, Validators.required)
   });
 
   airportOptions = [
@@ -140,7 +140,7 @@ export class HomeComponent implements OnInit {
   oneWayChecked = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public router: Router,
   ) { }
 
