@@ -6,6 +6,7 @@ import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { BookNowComponent } from './book-now/book-now.component';
 import { HomeComponent } from './home/home.component';
 import { GroupsComponent } from './groups/groups.component';
+import { ActivitiesComponent } from './activities/activities.component';
 
 const routes: Routes = [
     {
@@ -24,6 +25,10 @@ const routes: Routes = [
     {
         path: 'groups',
         component: GroupsComponent,
+    },
+    {
+        path: 'activities',
+        component: ActivitiesComponent,
     },
     {
         path: 'book-now',

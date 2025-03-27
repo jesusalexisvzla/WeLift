@@ -144,6 +144,9 @@ export class HomeComponent implements OnInit {
     public router: Router,
   ) { }
 
+  ngOnInit(): void {
+  }
+
   changeRB(id, property) {
     if (this[property]) {
       var element = document.getElementById(id);
@@ -160,15 +163,10 @@ export class HomeComponent implements OnInit {
     this[property] = !this[property];
   }
 
-  ngOnInit(): void {
-  }
-
   changePicture() {
-
   }
 
   performRequest() {
-    
   }
 
 }
