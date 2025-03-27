@@ -258,6 +258,12 @@ mat-progress-spinner{
     margin: 0;
 }
 
+.section-sm {
+    height: 350px; /* Each section takes full page height */
+    scroll-snap-align: start; /* Aligns the top of the section */
+    margin: 0;
+}
+
 .section-m {
     height: 105vh; /* Each section takes full page height */
     padding: 0px 200px;

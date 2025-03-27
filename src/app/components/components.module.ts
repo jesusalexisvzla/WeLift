@@ -13,6 +13,7 @@ import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { GroupsComponent } from './groups/groups.component';
 import { BookNowComponent } from './book-now/book-now.component';
 import { ActivitiesComponent } from './activities/activities.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { ActivitiesComponent } from './activities/activities.component';
         GroupsComponent,
         BookNowComponent,
         ActivitiesComponent,
+        FooterComponent,
     ],
     imports: [
         CommonModule,
