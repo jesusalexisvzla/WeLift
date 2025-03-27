@@ -4,11 +4,37 @@
             <div class="section-title">
                 We know activities too.
             </div>
-            <p class="section-text">
-                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
-            </p>
+            <div class="d-flex justify-content-between">
+                <p class="section-text">
+                    Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+                </p>
+                <div>
+                    <button class="icon-btn-m icon-fw mx-3" (click)="changePicture(false)">
+                        <mat-icon>arrow_back</mat-icon>
+                    </button>
+                    <button class="icon-btn-m icon-fw mx-3" (click)="changePicture(true)">
+                        <mat-icon>arrow_forward</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="pt-50" style="justify-self: center; padding-left: 200px;">
+                <div class="row-container row sm" id="contt" #contt>
+                    <div class="col- text-align-center card-with-text-img p-0" *ngFor="let activity of activities; index as i" style="margin: 0px 5px" [id]="'car' + i">
+                        <div class="align-items-center">
+                            <div class="vehicle-img white-text section-title ">
+                                {{activity.name}}
+                            </div>
+                        </div>
+                        <div class="vehicle-txt">
+                            <div class="pd-m">
+                                <p><b class="purple-text">{{activity.text}}</b></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="btn-container-l pt-50">
-                <div class="section-text">Too book or ask about one of our activities, please fill the <b>Activities Form</b>. Our team will get back to you immediately</div>
+                <div class="section-text">To book or ask about one of our activities, please fill the <b>Activities Form</b>. Our team will get back to you immediately</div>
                 <button class="btn-submit w-auto" style="margin-left: 20px;">Activities</button>
             </div>
         </div>
