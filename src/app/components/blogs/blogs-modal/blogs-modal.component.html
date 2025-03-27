@@ -1,0 +1,28 @@
+<div class="modal-container">
+    <div class="purple-text p-0">
+        <div class="px-5">
+            <p class="font-50">
+                {{dataIn.blog.title}}
+            </p>
+            <p class="font-m">
+                {{dataIn.blog.description}}
+            </p>
+        </div>
+
+        <div class="align-items-center">
+            <img class="vehicle-img" src="../../../assets/beverages.jpg"/>
+        </div>
+
+        <div class="px-5 pt-20">
+            <p class="font-xl">{{dataIn.blog.titleSectionOne}}</p>
+            <p class="font-m">{{dataIn.blog.textSectionOne}}</p>
+    
+            <p class="font-xl">{{dataIn.blog.titleSectionTwo}}</p>
+            <p class="font-m">{{dataIn.blog.textSectionTwo}}</p>
+        </div>
+
+        <div class="px-5 btn-container">
+            <button class="btn-return" (click)="closeModal()"> < Go Back</button>
+        </div>
+    </div>
+</div>

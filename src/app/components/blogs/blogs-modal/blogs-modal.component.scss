@@ -1,0 +1,17 @@
+.modal-container {
+    text-align: justify;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.modal-container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.vehicle-img {
+    width: -webkit-fill-available;
+}
+
+.btn-container {
+    justify-content: start;
+}

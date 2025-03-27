@@ -15,6 +15,7 @@ import { BookNowComponent } from './book-now/book-now.component';
 import { ActivitiesComponent } from './activities/activities.component';
 import { FooterComponent } from './footer/footer.component';
 import { BlogsComponent } from './blogs/blogs.component';
+import { BlogsModalComponent } from './blogs/blogs-modal/blogs-modal.component';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { BlogsComponent } from './blogs/blogs.component';
         ActivitiesComponent,
         FooterComponent,
         BlogsComponent,
+        BlogsModalComponent,
     ],
     imports: [
         CommonModule,
