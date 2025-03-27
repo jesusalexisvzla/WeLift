@@ -16,6 +16,7 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { FooterComponent } from './footer/footer.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { BlogsModalComponent } from './blogs/blogs-modal/blogs-modal.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { BlogsModalComponent } from './blogs/blogs-modal/blogs-modal.component';
         FooterComponent,
         BlogsComponent,
         BlogsModalComponent,
+        ContactComponent,
     ],
     imports: [
         CommonModule,
