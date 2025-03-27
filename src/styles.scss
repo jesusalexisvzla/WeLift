@@ -189,8 +189,14 @@ body {
     mat-dialog-container {
         border-radius: 10px;
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+    }
+    mat-dialog-container::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
     }
 }
+
 
 .cdk-global-scrollblock {
     overflow: auto;
@@ -280,6 +286,13 @@ mat-progress-spinner{
 
 .section-xl {
     height: 135vh; /* Each section takes full page height */
+    padding: 0px 200px;
+    scroll-snap-align: start; /* Aligns the top of the section */
+    margin: 0;
+}
+
+.section-xxxl {
+    height: 170vh; /* Each section takes full page height */
     padding: 0px 200px;
     scroll-snap-align: start; /* Aligns the top of the section */
     margin: 0;

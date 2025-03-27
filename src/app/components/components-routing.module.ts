@@ -7,6 +7,8 @@ import { BookNowComponent } from './book-now/book-now.component';
 import { HomeComponent } from './home/home.component';
 import { GroupsComponent } from './groups/groups.component';
 import { ActivitiesComponent } from './activities/activities.component';
+import { BlogsComponent } from './blogs/blogs.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
     {
@@ -29,6 +31,14 @@ const routes: Routes = [
     {
         path: 'activities',
         component: ActivitiesComponent,
+    },
+    {
+        path: 'blogs',
+        component: BlogsComponent,
+    },
+    {
+        path: 'contact',
+        component: ContactComponent,
     },
     {
         path: 'book-now',
