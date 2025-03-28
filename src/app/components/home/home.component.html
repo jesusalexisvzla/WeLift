@@ -11,9 +11,9 @@
                         <div class="row pd-50">
                             <!-- Mat-Select - Airport -->
                             <div class="col-5">
+                                <mat-label>From</mat-label>
                                 <mat-form-field class="w-100">
-                                    <mat-label>From</mat-label>
-                                    <mat-select matNativeControl id="airport" formControlName="airport" class="form-control" name="airport" placeholder="Airport" [(value)]="selectedAirport">
+                                    <mat-select matNativeControl id="airport" formControlName="airport" class="form-control" name="airport" [(value)]="selectedAirport">
                                         <mat-option *ngFor="let airport of airportOptions" [value]="airport.name">{{airport.name}}</mat-option>
                                     </mat-select>
                                     <mat-error>Error</mat-error>
@@ -29,9 +29,9 @@
     
                             <!-- Mat-Select - Hotel -->
                             <div class="col-6">
+                                <mat-label>To</mat-label>
                                 <mat-form-field class="w-100">
-                                    <mat-label>To</mat-label>
-                                    <mat-select matNativeControl id="hotel" formControlName="hotel" class="form-control" name="hotel" placeholder="Hotel" [(value)]="selectedHotel">
+                                    <mat-select matNativeControl id="hotel" formControlName="hotel" class="form-control" name="hotel" [(value)]="selectedHotel">
                                         <mat-option *ngFor="let hotel of hotelOptions" [value]="hotel.name">{{hotel.name}}</mat-option>
                                     </mat-select>
                                     <mat-error>Error</mat-error>
@@ -82,9 +82,9 @@
                         <div class="row pd-50">
                             <!-- Mat-Select - Hotel -->
                             <div class="col-5">
+                                <mat-label>To</mat-label>
                                 <mat-form-field class="w-100">
-                                    <mat-label>To</mat-label>
-                                    <mat-select matNativeControl id="hotel" formControlName="hotel" class="form-control" name="hotel" placeholder="Hotel" [(value)]="selectedHotel">
+                                    <mat-select matNativeControl id="hotel" formControlName="hotel" class="form-control" name="hotel" [(value)]="selectedHotel">
                                         <mat-option *ngFor="let hotel of hotelOptions" [value]="hotel.name">{{hotel.name}}</mat-option>
                                     </mat-select>
                                     <mat-error>Error</mat-error>
@@ -100,9 +100,9 @@
                             
                             <!-- Mat-Select - Airport -->
                             <div class="col-6">
+                                <mat-label>From</mat-label>
                                 <mat-form-field class="w-100">
-                                    <mat-label>From</mat-label>
-                                    <mat-select matNativeControl id="airport" formControlName="airport" class="form-control" name="airport" placeholder="Airport" [(value)]="selectedAirport">
+                                    <mat-select matNativeControl id="airport" formControlName="airport" class="form-control" name="airport" [(value)]="selectedAirport">
                                         <mat-option *ngFor="let airport of airportOptions" [value]="airport.name">{{airport.name}}</mat-option>
                                     </mat-select>
                                     <mat-error>Error</mat-error>
@@ -407,10 +407,10 @@
 
                 <!-- Mat-Input - Message -->
                 <div class="col-9 pt-50">
-                    <div>Message</div>
+                    <!-- <div>Message</div> -->
                     <mat-form-field class="w-100 no-underline" >
                         <mat-label>Type your message.</mat-label>
-                        <textarea matInput id="message" formControlName="message" class="text-area" name="message" placeholder="Type your message." rows="20"></textarea>
+                        <textarea matInput id="message" formControlName="message" class="text-area" name="message" placeholder="Type your message." rows="15"></textarea>
                     </mat-form-field>
                 </div>
 

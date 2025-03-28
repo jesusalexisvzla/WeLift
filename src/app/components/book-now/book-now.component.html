@@ -12,9 +12,9 @@
                     <div class="row row-underline pd-50">
                         <!-- Mat-Select - Origin -->
                         <div class="col-5">
+                            <mat-label class="">From</mat-label>
                             <mat-form-field class="w-100">
-                                <mat-label class="">From</mat-label>
-                                <mat-select matNativeControl id="origin" formControlName="origin" class="form-control" name="origin" placeholder="Origin">
+                                <mat-select matNativeControl id="origin" formControlName="origin" class="form-control" name="origin">
                                     <mat-option *ngFor="let origin of originOptions" [value]="origin.name">{{origin.name}}</mat-option>
                                 </mat-select>
                                 <mat-error>Error</mat-error>
@@ -30,9 +30,9 @@
 
                         <!-- Mat-Select - Destination -->
                         <div class="col-6">
+                            <mat-label class="">To</mat-label>
                             <mat-form-field class="w-100">
-                                <mat-label class="">To</mat-label>
-                                <mat-select matNativeControl id="destination" formControlName="destination" class="form-control" name="destination" placeholder="Destination">
+                                <mat-select matNativeControl id="destination" formControlName="destination" class="form-control" name="destination">
                                     <mat-option *ngFor="let destination of destinationOptions" [value]="destination.name">{{destination.name}}</mat-option>
                                 </mat-select>
                                 <mat-error>Error</mat-error>
@@ -73,9 +73,9 @@
                     <div class="row pd-50">
                         <!-- Mat-Select - Arrival Airline -->
                         <div class="col-5">
+                            <mat-label class="">Airline</mat-label>
                             <mat-form-field class="w-100">
-                                <mat-label class="">Airline</mat-label>
-                                <mat-select matNativeControl id="arrivalAirline" formControlName="arrivalAirline" class="form-control" name="arrivalAirline" placeholder="arrivalAirline">
+                                <mat-select matNativeControl id="arrivalAirline" formControlName="arrivalAirline" class="form-control" name="arrivalAirline">
                                     <mat-option *ngFor="let aAirline of aAirlineOptions" [value]="aAirline.id">{{aAirline.name}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
@@ -124,9 +124,9 @@
 
                         <!-- Mat-Input - Time -->
                         <div class="col-1">
+                            <mat-label class="">AM/PM</mat-label>
                             <mat-form-field class="w-100">
-                                <mat-label class=""></mat-label>
-                                <mat-select matNativeControl id="arrivalTimeAP" formControlName="arrivalTimeAP" class="form-control" name="arrivalTimeAP" placeholder="">
+                                <mat-select matNativeControl id="arrivalTimeAP" formControlName="arrivalTimeAP" class="form-control" name="arrivalTimeAP">
                                     <mat-option value="AM">AM</mat-option>
                                     <mat-option value="PM">PM</mat-option>
                                 </mat-select>
@@ -140,9 +140,9 @@
                     <div class="row pd-50">
                         <!-- Mat-Select - Departure Airline -->
                         <div class="col-5">
+                            <mat-label class="">Airline</mat-label>
                             <mat-form-field class="w-100">
-                                <mat-label class="">Airline</mat-label>
-                                <mat-select matNativeControl id="departureAirline" formControlName="departureAirline" class="form-control" name="departureAirline" placeholder="departureAirline">
+                                <mat-select matNativeControl id="departureAirline" formControlName="departureAirline" class="form-control" name="departureAirline">
                                     <mat-option *ngFor="let dAirline of dAirlineOptions" [value]="dAirline.name">{{dAirline.name}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
@@ -190,9 +190,9 @@
 
                         <!-- Mat-Input - Time -->
                         <div class="col-1">
+                            <mat-label class="">AM/PM</mat-label>
                             <mat-form-field class="w-100">
-                                <mat-label class=""></mat-label>
-                                <mat-select matNativeControl id="departureTimeAP" formControlName="departureTimeAP" class="form-control" name="departureTimeAP" placeholder="">
+                                <mat-select matNativeControl id="departureTimeAP" formControlName="departureTimeAP" class="form-control" name="departureTimeAP">
                                     <mat-option value="AM">AM</mat-option>
                                     <mat-option value="PM">PM</mat-option>
                                 </mat-select>
@@ -329,7 +329,7 @@
                         </div>
 
                         <!-- Mat-Input - Neighborhood -->
-                        <div class="col-6 pt-20">
+                        <div class="col-6">
                             <mat-form-field class="w-75">
                                 <mat-label>Neighborhood (Optional)</mat-label>
                                 <input matInput id="colony" formControlName="colony" class="form-control" name="colony" placeholder="Type your neighborhood">
@@ -345,10 +345,10 @@
                         </div>
 
                         <!-- Mat-Select - Country -->
-                        <div class="col-4 pt-20">
-                            <mat-form-field class="w-75">
-                                <mat-label class="">Country</mat-label>
-                                <mat-select matNativeControl id="country" formControlName="country" class="form-control" name="country" placeholder="country">
+                        <div class="col-3 pt-20">
+                            <mat-label class="">Country</mat-label>
+                            <mat-form-field class="w-100">
+                                <mat-select matNativeControl id="country" formControlName="country" class="form-control" name="country">
                                     <mat-option *ngFor="let country of countryOptions" [value]="country.name">{{country.name}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
