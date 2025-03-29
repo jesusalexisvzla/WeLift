@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
 import { MatLegacyTabGroup as MatTabGroup } from '@angular/material/legacy-tabs';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   @ViewChild('tabGroup') tabGroup!: MatTabGroup;
 
   public transferDetailsForm = this.fb.group({
-    airport: new UntypedFormControl({value: '', disabled: false}, Validators.required),
-    hotel: new UntypedFormControl({value: '', disabled: false}, Validators.required),
-    adultsQty: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
-    childsQty: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
-    oneWay: new UntypedFormControl({value: false, disabled: false}, Validators.required)
+    origin: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    destination: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    adultsNo: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
+    childsNo: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
+    roundTrip: new UntypedFormControl({value: true, disabled: false}, Validators.required)
   });
 
   public contactInformationForm = this.fb.group({
@@ -131,20 +131,41 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  selectedAirport = ''
-  selectedHotel = ''
-
-  adultsQty = 0;
-  childsQty = 0;
+  adultsNo = 0;
+  childsNo = 0;
 
   oneWayChecked = false;
 
   constructor(
     private fb: UntypedFormBuilder,
     public router: Router,
+    private dataService: DataService
   ) { }
 
   ngOnInit(): void {
+    this.getData();
+  }
+
+  async getData() {
+    let single = await this.dataService.getById('bookings/','001')
+    let group = await this.dataService.getAll('bookings/')
+
+    console.log(single)
+    console.log(group)
+
+    // const data = {
+    //   adultsNo: 2,
+    //   childsNo: 2,
+    //   destination: 'Holiday Inn',
+    //   origin: 'Los Mochis Sinaloa',
+    //   roundTrip: false
+    // }
+
+    // let edit = await this.dataService.editById('bookings/', '001', data)
+    // let remove = await this.dataService.deleteById('bookings/', '003')
+
+    // let getWithWhere = await this.dataService.getQuery('bookings/', 'origin', 'Los Mochis Sinaloa')
+    // console.log(getWithWhere)
   }
 
   changeRB(id, property) {

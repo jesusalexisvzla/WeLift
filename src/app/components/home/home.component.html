@@ -13,7 +13,7 @@
                             <div class="col-5">
                                 <mat-label>From</mat-label>
                                 <mat-form-field class="w-100">
-                                    <mat-select matNativeControl id="airport" formControlName="airport" class="form-control" name="airport" [(value)]="selectedAirport">
+                                    <mat-select matNativeControl id="origin" formControlName="origin" class="form-control" name="origin">
                                         <mat-option *ngFor="let airport of airportOptions" [value]="airport.name">{{airport.name}}</mat-option>
                                     </mat-select>
                                     <mat-error>Error</mat-error>
@@ -31,7 +31,7 @@
                             <div class="col-6">
                                 <mat-label>To</mat-label>
                                 <mat-form-field class="w-100">
-                                    <mat-select matNativeControl id="hotel" formControlName="hotel" class="form-control" name="hotel" [(value)]="selectedHotel">
+                                    <mat-select matNativeControl id="destination" formControlName="destination" class="form-control" name="destination">
                                         <mat-option *ngFor="let hotel of hotelOptions" [value]="hotel.name">{{hotel.name}}</mat-option>
                                     </mat-select>
                                     <mat-error>Error</mat-error>
@@ -42,9 +42,9 @@
                             <div class="col-3 pt-20">
                                 <div class="btn-label">Adults</div>
                                 <div class="d-flex">
-                                    <button class="round-btn-sm" (click)="adultsQty = adultsQty ? adultsQty - 1 : adultsQty">-</button>
-                                    <div class="mx-4"><b>{{adultsQty}}</b></div>
-                                    <button class="round-btn-sm" (click)="adultsQty = adultsQty + 1">+</button>
+                                    <button class="round-btn-sm" (click)="adultsNo = adultsNo ? adultsNo - 1 : adultsNo">-</button>
+                                    <div class="mx-4"><b>{{adultsNo}}</b></div>
+                                    <button class="round-btn-sm" (click)="adultsNo = adultsNo + 1">+</button>
                                 </div>
                             </div>
     
@@ -52,15 +52,15 @@
                             <div class="col-3 pt-20">
                                 <div class="btn-label">Children (under 7 free ride)</div>
                                 <div class="d-flex">
-                                    <button class="round-btn-sm" (click)="childsQty = childsQty ? childsQty - 1 : childsQty">-</button>
-                                    <div class="mx-4"><b>{{childsQty}}</b></div>
-                                    <button class="round-btn-sm" (click)="childsQty = childsQty + 1">+</button>
+                                    <button class="round-btn-sm" (click)="childsNo = childsNo ? childsNo - 1 : childsNo">-</button>
+                                    <div class="mx-4"><b>{{childsNo}}</b></div>
+                                    <button class="round-btn-sm" (click)="childsNo = childsNo + 1">+</button>
                                 </div>
                             </div>
     
                             <!-- Mat-Radio - One Way -->
                             <div class="col-3 pt-20">
-                                <mat-radio-group aria-label="Select an option" matNativeControl id="oneWay" formControlName="oneWay" class="form-control" name="oneWay" placeholder="oneWay">
+                                <mat-radio-group aria-label="Select an option" matNativeControl id="roundTrip" formControlName="roundTrip" class="form-control" name="roundTrip" placeholder="roundTrip">
                                     <mat-radio-button id="oneWayRB" (click)="changeRB('oneWayRB', 'oneWayChecked')" [checked]="oneWayChecked" value=true>One-way</mat-radio-button>
                                 </mat-radio-group>
                             </div>
@@ -84,7 +84,7 @@
                             <div class="col-5">
                                 <mat-label>To</mat-label>
                                 <mat-form-field class="w-100">
-                                    <mat-select matNativeControl id="hotel" formControlName="hotel" class="form-control" name="hotel" [(value)]="selectedHotel">
+                                    <mat-select matNativeControl id="destination" formControlName="destination" class="form-control" name="destination">
                                         <mat-option *ngFor="let hotel of hotelOptions" [value]="hotel.name">{{hotel.name}}</mat-option>
                                     </mat-select>
                                     <mat-error>Error</mat-error>
@@ -102,7 +102,7 @@
                             <div class="col-6">
                                 <mat-label>From</mat-label>
                                 <mat-form-field class="w-100">
-                                    <mat-select matNativeControl id="airport" formControlName="airport" class="form-control" name="airport" [(value)]="selectedAirport">
+                                    <mat-select matNativeControl id="origin" formControlName="origin" class="form-control" name="origin">
                                         <mat-option *ngFor="let airport of airportOptions" [value]="airport.name">{{airport.name}}</mat-option>
                                     </mat-select>
                                     <mat-error>Error</mat-error>
@@ -113,9 +113,9 @@
                             <div class="col-3 pt-20">
                                 <div class="btn-label">Adults</div>
                                 <div class="d-flex">
-                                    <button class="round-btn-sm" (click)="adultsQty = adultsQty ? adultsQty - 1 : adultsQty">-</button>
-                                    <div class="mx-4"><b>{{adultsQty}}</b></div>
-                                    <button class="round-btn-sm" (click)="adultsQty = adultsQty + 1">+</button>
+                                    <button class="round-btn-sm" (click)="adultsNo = adultsNo ? adultsNo - 1 : adultsNo">-</button>
+                                    <div class="mx-4"><b>{{adultsNo}}</b></div>
+                                    <button class="round-btn-sm" (click)="adultsNo = adultsNo + 1">+</button>
                                 </div>
                             </div>
     
@@ -123,15 +123,15 @@
                             <div class="col-3 pt-20">
                                 <div class="btn-label">Children (under 7 free ride)</div>
                                 <div class="d-flex">
-                                    <button class="round-btn-sm" (click)="childsQty = childsQty ? childsQty - 1 : childsQty">-</button>
-                                    <div class="mx-4"><b>{{childsQty}}</b></div>
-                                    <button class="round-btn-sm" (click)="childsQty = childsQty + 1">+</button>
+                                    <button class="round-btn-sm" (click)="childsNo = childsNo ? childsNo - 1 : childsNo">-</button>
+                                    <div class="mx-4"><b>{{childsNo}}</b></div>
+                                    <button class="round-btn-sm" (click)="childsNo = childsNo + 1">+</button>
                                 </div>
                             </div>
     
                             <!-- Mat-Radio - One Way -->
                             <div class="col-3 pt-20">
-                                <mat-radio-group aria-label="Select an option" matNativeControl id="oneWay" formControlName="oneWay" class="form-control" name="oneWay" placeholder="oneWay">
+                                <mat-radio-group aria-label="Select an option" matNativeControl id="roundTrip" formControlName="roundTrip" class="form-control" name="roundTrip" placeholder="roundTrip">
                                     <mat-radio-button id="oneWayRB" (click)="changeRB('oneWayRB', 'oneWayChecked')" [checked]="oneWayChecked" value=true>One-way</mat-radio-button>
                                 </mat-radio-group>
                             </div>
