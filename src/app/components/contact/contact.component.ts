@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { EmailService } from 'src/app/services/email.service';
 
 @Component({
   selector: 'app-contact',
@@ -19,13 +20,22 @@ export class ContactComponent implements OnInit {
   constructor(
     private fb: UntypedFormBuilder,
     public router: Router,
+    private emailService: EmailService
   ) { }
 
   ngOnInit(): void {
   }
 
-  performRequest(){
-
+  performRequest() {
+    const infoObject = {
+      fullName: this.contactInformationForm.get('fullName')?.value,
+      email: this.contactInformationForm.get('email')?.value,
+      phone: this.contactInformationForm.get('phone')?.value,
+      message: this.contactInformationForm.get('message')?.value
+    };
+    
+    console.log('registered info', infoObject);
+    // this.emailService.sendEmail(infoObject.email, 'Information', infoObject.message)
   }
 
 }

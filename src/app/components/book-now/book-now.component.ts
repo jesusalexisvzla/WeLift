@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
 import { MatLegacyTabGroup as MatTabGroup } from '@angular/material/legacy-tabs';
 import { debounceTime, map } from 'rxjs/operators';
+import { EmailService } from 'src/app/services/email.service';
 
 @Component({
   selector: 'app-book-now',
@@ -203,6 +204,7 @@ export class BookNowComponent implements OnInit {
 
   constructor(
     private fb: UntypedFormBuilder,
+    private emailService: EmailService
   ) { }
 
   ngOnInit(): void {
@@ -365,6 +367,8 @@ export class BookNowComponent implements OnInit {
     // console.log(this.transferDetailsForm.value)
     // console.log(this.contactInformationForm.value)
     if (this.transferDetailsForm.valid && this.contactInformationForm.valid) {
+      // let registerId = await this.dataService.pushRegister('bookings/', this.bookNowObject);
+      // this.emailService.sendEmail(infoObject.email, 'Information', infoObject.message)
       console.log("registered correctly")
     }
   }

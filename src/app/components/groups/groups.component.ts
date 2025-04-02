@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
+import { EmailService } from 'src/app/services/email.service';
 
 @Component({
   selector: 'app-groups',
@@ -59,13 +60,22 @@ export class GroupsComponent implements OnInit {
 
   constructor(
     private fb: UntypedFormBuilder,
+    private emailService: EmailService
   ) { }
 
   ngOnInit(): void {
   }
 
   performRequest() {
+    const infoObject = {
+      fullName: this.contactInformationForm.get('fullName')?.value,
+      email: this.contactInformationForm.get('email')?.value,
+      phone: this.contactInformationForm.get('phone')?.value,
+      message: this.contactInformationForm.get('message')?.value
+    };  
 
+    console.log('registered info', infoObject);
+    // this.emailService.sendEmail(infoObject.email, 'Information', infoObject.message)
   }
 
 }

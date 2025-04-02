@@ -4,6 +4,7 @@ import { MatLegacyTabGroup as MatTabGroup } from '@angular/material/legacy-tabs'
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { AuthService } from '../../services/auth.service'
+import { EmailService } from 'src/app/services/email.service';
 
 @Component({
   selector: 'app-home',
@@ -133,6 +134,9 @@ export class HomeComponent implements OnInit {
     }
   ];
 
+  selectedOrigin = ''
+  selectedDestination = ''
+
   adultsNo = 0;
   childsNo = 0;
 
@@ -142,7 +146,8 @@ export class HomeComponent implements OnInit {
     private fb: UntypedFormBuilder,
     public router: Router,
     private dataService: DataService,
-    private authService: AuthService
+    private authService: AuthService,
+    private emailService: EmailService
   ) { }
 
   ngOnInit(): void {
@@ -208,7 +213,30 @@ export class HomeComponent implements OnInit {
   changePicture() {
   }
 
-  performRequest() {
+  async performRequest(isBooking) {
+    const bookingObject = {
+      adultsNo: this.adultsNo,
+      childsNo: this.childsNo,
+      destination: this.transferDetailsForm.get('destination')?.value,
+      origin: this.transferDetailsForm.get('origin')?.value,
+      roundTrip: !this.oneWayChecked,
+    };
+
+    const infoObject = {
+      fullName: this.contactInformationForm.get('fullName')?.value,
+      email: this.contactInformationForm.get('email')?.value,
+      phone: this.contactInformationForm.get('phone')?.value,
+      message: this.contactInformationForm.get('message')?.value
+    };  
+
+    if (isBooking) {
+      console.log('registered booking', bookingObject);
+      // let registerId = await this.dataService.pushRegister('bookings/', bookingObject)
+    } else {
+      console.log('registered info', infoObject);
+      // let registerId = await this.dataService.pushRegister('bookingsInfo/', infoObject)
+      // this.emailService.sendEmail(infoObject.email, 'Information', infoObject.message)
+    }
   }
 
 }

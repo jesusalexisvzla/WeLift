@@ -13,7 +13,7 @@
                             <div class="col-5">
                                 <mat-label>From</mat-label>
                                 <mat-form-field class="w-100">
-                                    <mat-select matNativeControl id="origin" formControlName="origin" class="form-control" name="origin">
+                                    <mat-select matNativeControl id="origin" formControlName="origin" class="form-control" name="origin" [(value)]="selectedOrigin">
                                         <mat-option *ngFor="let airport of airportOptions" [value]="airport.name">{{airport.name}}</mat-option>
                                     </mat-select>
                                     <mat-error>Error</mat-error>
@@ -31,7 +31,7 @@
                             <div class="col-6">
                                 <mat-label>To</mat-label>
                                 <mat-form-field class="w-100">
-                                    <mat-select matNativeControl id="destination" formControlName="destination" class="form-control" name="destination">
+                                    <mat-select matNativeControl id="destination" formControlName="destination" class="form-control" name="destination" [(value)]="selectedDestination">
                                         <mat-option *ngFor="let hotel of hotelOptions" [value]="hotel.name">{{hotel.name}}</mat-option>
                                     </mat-select>
                                     <mat-error>Error</mat-error>
@@ -68,7 +68,7 @@
                             <!-- Btn - Submit -->
                             <div class="col-3 align-self-end">
                                 <div class="btn-container">
-                                    <button class="btn-submit" (click)="performRequest()">Submit</button>
+                                    <button class="btn-submit" (click)="performRequest(true)">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                             <div class="col-5">
                                 <mat-label>To</mat-label>
                                 <mat-form-field class="w-100">
-                                    <mat-select matNativeControl id="destination" formControlName="destination" class="form-control" name="destination">
+                                    <mat-select matNativeControl id="destination" formControlName="destination" class="form-control" name="destination" [(value)]="selectedDestination">
                                         <mat-option *ngFor="let hotel of hotelOptions" [value]="hotel.name">{{hotel.name}}</mat-option>
                                     </mat-select>
                                     <mat-error>Error</mat-error>
@@ -102,7 +102,7 @@
                             <div class="col-6">
                                 <mat-label>From</mat-label>
                                 <mat-form-field class="w-100">
-                                    <mat-select matNativeControl id="origin" formControlName="origin" class="form-control" name="origin">
+                                    <mat-select matNativeControl id="origin" formControlName="origin" class="form-control" name="origin" [(value)]="selectedOrigin">
                                         <mat-option *ngFor="let airport of airportOptions" [value]="airport.name">{{airport.name}}</mat-option>
                                     </mat-select>
                                     <mat-error>Error</mat-error>
@@ -138,7 +138,7 @@
     
                             <div class="col-3 align-self-end">
                                 <div class="btn-container">
-                                    <button class="btn-submit" (click)="performRequest()">Submit</button>
+                                    <button class="btn-submit" (click)="performRequest(true)">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -189,7 +189,7 @@
     
                             <div class="col-3 pt-50 align-self-end">
                                 <div class="btn-container">
-                                    <button class="btn-submit" (click)="performRequest()">Submit</button>
+                                    <button class="btn-submit" (click)="performRequest(false)">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -417,7 +417,7 @@
                 <!-- Btn - Submit -->
                 <div class="col-3 pt-50 align-self-end">
                     <div class="btn-container">
-                        <button class="btn-submit" (click)="performRequest()">Submit</button>
+                        <button class="btn-submit" (click)="performRequest(false)">Submit</button>
                     </div>
                 </div>
             </div>

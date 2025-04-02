@@ -44,6 +44,7 @@ export class NavbarComponent implements OnInit {
     } else {
       const logOut = await this.authService.signOutUser()
       this.message = "Log In"
+      delete this.userData;
       console.log(this.userData)
       console.log(logOut)
     }
