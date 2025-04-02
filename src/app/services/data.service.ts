@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Database, ref, get, update, remove, query, orderByChild, equalTo } from '@angular/fire/database';
+import { Database, ref, get, push, set, update, remove, query, orderByChild, equalTo } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
@@ -55,6 +55,21 @@ export class DataService {
         console.log('No data found for this '+ collection + ' ID')
         return null;
       }
+    } catch (error) {
+      console.log('Error fetching ' + collection + ':', error);
+      return null;
+    }
+  }
+
+  async pushRegister(collection: string, data: any) {
+    const dataRef = ref(this.db, collection);
+
+    const newRegister = push(dataRef);
+
+    try {
+      await set(newRegister, data);
+      console.log(collection + ' added successfully: ', newRegister.key);
+      return newRegister.key;
     } catch (error) {
       console.log('Error fetching ' + collection + ':', error);
       return null;

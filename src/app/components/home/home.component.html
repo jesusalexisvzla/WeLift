@@ -4,7 +4,7 @@
         <div class="section-title purple-text">
             Book your Private Transfer.
         </div>
-        <mat-tab-group #tabGroup>
+        <mat-tab-group #tabGroup dynamicHeight >
             <mat-tab label="From Airport to  Hotel">
                 <div class="tab-container purple-text">
                     <form [formGroup]="transferDetailsForm">
@@ -78,7 +78,7 @@
     
             <mat-tab label="From Hotel to Airport">
                 <div class="tab-container purple-text">
-                    <form [formGroup]="transferDetailsForm" center>
+                    <form [formGroup]="transferDetailsForm">
                         <div class="row pd-50">
                             <!-- Mat-Select - Hotel -->
                             <div class="col-5">
@@ -148,7 +148,7 @@
     
             <mat-tab label="Confirmation and Payment">
                 <div class="tab-container purple-text">
-                    <form [formGroup]="contactInformationForm" center>
+                    <form [formGroup]="contactInformationForm">
                         <div class="purple-text font-m">
                                 Please fill the following form, provide us your address and as much information as possible regarding your private transfer. 
                                 Our team will contact you as soon as possible.

@@ -3,6 +3,7 @@ import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/for
 import { MatLegacyTabGroup as MatTabGroup } from '@angular/material/legacy-tabs';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import { AuthService } from '../../services/auth.service'
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  userData: any | null = null;
   @ViewChild('tabGroup') tabGroup!: MatTabGroup;
 
   public transferDetailsForm = this.fb.group({
@@ -139,7 +141,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private fb: UntypedFormBuilder,
     public router: Router,
-    private dataService: DataService
+    private dataService: DataService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -153,6 +156,14 @@ export class HomeComponent implements OnInit {
     console.log(single)
     console.log(group)
 
+    this.authService.user$.subscribe((user: any | null) => {
+      if (user) {
+        this.userData = user; // Store user data
+        console.log('Current User:', this.userData);
+      } else {
+        console.log('No user is logged in');
+      }
+    });
     // const data = {
     //   adultsNo: 2,
     //   childsNo: 2,
@@ -166,6 +177,16 @@ export class HomeComponent implements OnInit {
 
     // let getWithWhere = await this.dataService.getQuery('bookings/', 'origin', 'Los Mochis Sinaloa')
     // console.log(getWithWhere)
+    // const bookingObject = {
+    //   adultsNo: 2,
+    //   childsNo: 2,
+    //   destination: 'Holiday Inn',
+    //   origin: 'Los Mochis Sinaloa',
+    //   roundTrip: false,
+    // };
+
+    // let registerId = await this.dataService.pushRegister('bookings/', bookingObject)
+    // console.log(registerId)
   }
 
   changeRB(id, property) {

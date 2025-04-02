@@ -9,6 +9,7 @@ import { GroupsComponent } from './groups/groups.component';
 import { ActivitiesComponent } from './activities/activities.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { ContactComponent } from './contact/contact.component';
+import { authGuard } from '../services/auth.guard';
 
 const routes: Routes = [
     {
@@ -42,7 +43,7 @@ const routes: Routes = [
     },
     {
         path: 'book-now',
-        component: BookNowComponent,
+        component: BookNowComponent, canActivate: [authGuard],
     }
 ]
 

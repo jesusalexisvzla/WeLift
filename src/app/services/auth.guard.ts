@@ -1,24 +1,20 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { LoginService } from './login.service';
-import { tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
+import { Auth, user } from '@angular/fire/auth';
+import { map, Observable } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root'
-})
+export const authGuard: CanActivateFn = (route, state) => {
+  const auth = inject(Auth)
+  const router = inject(Router);
 
-export class AuthGuard  {
-    constructor(
-        private router: Router,
-        private loginService : LoginService
-    ){}
-
-    canActivate(): Observable<boolean> {
-        return this.loginService.verifyAuth().pipe(
-            tap(estado => {
-                if (!estado) this.router.navigateByUrl('/login')
-            })
-        )
-    }
-}
+  return user(auth).pipe(
+    map((firebaseUser) => {
+      if (firebaseUser) {
+        return true; // Allow access if user is authenticated
+      } else {
+        router.navigate(['/login']); // Redirect to login if not authenticated
+        return false;
+      }
+    })
+  );
+};

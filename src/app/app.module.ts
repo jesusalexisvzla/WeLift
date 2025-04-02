@@ -6,10 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth'
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { environment } from '../environments/environment';
-
-import { LoginModule } from './structure/login/login.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +19,7 @@ import { LoginModule } from './structure/login/login.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     // LoginModule,
   ],
