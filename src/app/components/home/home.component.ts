@@ -1,29 +1,39 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
-import { MatLegacyTabGroup as MatTabGroup } from '@angular/material/legacy-tabs';
 import { Router } from '@angular/router';
+import { MatLegacyTabGroup as MatTabGroup } from '@angular/material/legacy-tabs';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { DataService } from 'src/app/services/data.service';
-import { AuthService } from '../../services/auth.service'
 import { EmailService } from 'src/app/services/email.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  userData: any | null = null;
+export class HomeComponent implements OnInit, OnDestroy {
+  private onDestroy = new Subject<void>();
+
   @ViewChild('tabGroup') tabGroup!: MatTabGroup;
+  userData: any | null = null;
 
   public transferDetailsForm = this.fb.group({
     origin: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     destination: new UntypedFormControl({value: '', disabled: false}, Validators.required),
-    adultsNo: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
-    childsNo: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
-    roundTrip: new UntypedFormControl({value: true, disabled: false}, Validators.required)
+    adultsNo: new UntypedFormControl({value: 0, disabled: false}),
+    childsNo: new UntypedFormControl({value: 0, disabled: false}),
+    roundTrip: new UntypedFormControl({value: true, disabled: false})
   });
 
-  public contactInformationForm = this.fb.group({
+  public contactInformationForm1 = this.fb.group({
+    fullName: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    email: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    phone: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    message: new UntypedFormControl({value: '', disabled: false}, Validators.required)
+  });
+
+  public contactInformationForm2 = this.fb.group({
     fullName: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     email: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     phone: new UntypedFormControl({value: '', disabled: false}, Validators.required),
@@ -136,62 +146,21 @@ export class HomeComponent implements OnInit {
 
   selectedOrigin = ''
   selectedDestination = ''
-
   adultsNo = 0;
   childsNo = 0;
-
   oneWayChecked = false;
+
+  btnDisabled = false;
 
   constructor(
     private fb: UntypedFormBuilder,
     public router: Router,
+    private snackBar: MatSnackBar,
     private dataService: DataService,
-    private authService: AuthService,
     private emailService: EmailService
   ) { }
 
   ngOnInit(): void {
-    this.getData();
-  }
-
-  async getData() {
-    let single = await this.dataService.getById('bookings/','001')
-    let group = await this.dataService.getAll('bookings/')
-
-    console.log(single)
-    console.log(group)
-
-    this.authService.user$.subscribe((user: any | null) => {
-      if (user) {
-        this.userData = user; // Store user data
-        console.log('Current User:', this.userData);
-      } else {
-        console.log('No user is logged in');
-      }
-    });
-    // const data = {
-    //   adultsNo: 2,
-    //   childsNo: 2,
-    //   destination: 'Holiday Inn',
-    //   origin: 'Los Mochis Sinaloa',
-    //   roundTrip: false
-    // }
-
-    // let edit = await this.dataService.editById('bookings/', '001', data)
-    // let remove = await this.dataService.deleteById('bookings/', '003')
-
-    // let getWithWhere = await this.dataService.getQuery('bookings/', 'origin', 'Los Mochis Sinaloa')
-    // console.log(getWithWhere)
-    // const bookingObject = {
-    //   adultsNo: 2,
-    //   childsNo: 2,
-    //   destination: 'Holiday Inn',
-    //   origin: 'Los Mochis Sinaloa',
-    //   roundTrip: false,
-    // };
-
-    // let registerId = await this.dataService.pushRegister('bookings/', bookingObject)
-    // console.log(registerId)
   }
 
   changeRB(id, property) {
@@ -213,30 +182,62 @@ export class HomeComponent implements OnInit {
   changePicture() {
   }
 
-  async performRequest(isBooking) {
-    const bookingObject = {
-      adultsNo: this.adultsNo,
-      childsNo: this.childsNo,
-      destination: this.transferDetailsForm.get('destination')?.value,
-      origin: this.transferDetailsForm.get('origin')?.value,
-      roundTrip: !this.oneWayChecked,
-    };
-
-    const infoObject = {
-      fullName: this.contactInformationForm.get('fullName')?.value,
-      email: this.contactInformationForm.get('email')?.value,
-      phone: this.contactInformationForm.get('phone')?.value,
-      message: this.contactInformationForm.get('message')?.value
-    };  
-
+  async performRequest(isBooking?, isFirst?) {
+    this.btnDisabled = true;
     if (isBooking) {
-      console.log('registered booking', bookingObject);
-      // let registerId = await this.dataService.pushRegister('bookings/', bookingObject)
+      this.btnDisabled = false;
+      if (this.transferDetailsForm.valid && (this.adultsNo + this.childsNo > 0)) {
+        const bookingObject = {
+          adultsNo: this.adultsNo,
+          childsNo: this.childsNo,
+          destination: this.transferDetailsForm.get('destination')?.value,
+          origin: this.transferDetailsForm.get('origin')?.value,
+          roundTrip: !this.oneWayChecked,
+        };
+        this.dataService.storeBookingObject(bookingObject);
+        this.router.navigateByUrl("/book-now");
+      } else {
+        console.log("booking not valid");
+        this.showToast('Information in "From Airport to Hotel / From Hotel to Airport" not filled in correctly', 'yellow-snackbar');
+      } 
     } else {
-      console.log('registered info', infoObject);
-      // let registerId = await this.dataService.pushRegister('bookingsInfo/', infoObject)
-      // this.emailService.sendEmail(infoObject.email, 'Information', infoObject.message)
+      var contactForm = isFirst ? this.contactInformationForm1 : this.contactInformationForm2;
+      if (contactForm.valid) {
+        const infoObject = {
+          fullName: contactForm.get('fullName')?.value,
+          email: contactForm.get('email')?.value,
+          phone: contactForm.get('phone')?.value,
+          message: contactForm.get('message')?.value
+        };
+        if (!isFirst) {
+          await this.dataService.pushRegister('contacts/', infoObject).then(response => {
+            if (response) {
+              console.log(response);
+              this.showToast('Information correclty registered', 'green-snackbar');
+              // this.emailService.sendEmail(infoObject.email, 'Follow Up', infoObject.message);
+              this.contactInformationForm2.reset();
+            }
+            this.btnDisabled = false;
+          });
+        }
+      } else {
+        this.btnDisabled = false;
+        this.showToast('Information in ' + (isFirst ? '"Home & Airbnb Transfers"' : '"Get In Touch"') + ' not filled in correctly', 'yellow-snackbar');
+      } 
     }
   }
 
+  showToast(mensaje: string, style: string) {
+    this.snackBar.open(mensaje, 'Cerrar', {
+      duration: 3000,
+      panelClass: [style],
+      verticalPosition: 'top',
+      horizontalPosition: 'end',
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.onDestroy.next();
+    this.onDestroy.unsubscribe();
+  }
 }

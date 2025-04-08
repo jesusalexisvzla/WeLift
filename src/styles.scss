@@ -204,6 +204,7 @@ body {
 }
 
 .green-snackbar {
+    width: 200px;
     background-color: green;
     color: #fff;
     button {
@@ -212,6 +213,7 @@ body {
 }
 
 .yellow-snackbar {
+    width: 200px;
     background-color: orange;
     color: #fff;
     button {
@@ -220,6 +222,7 @@ body {
 }
 
 .red-snackbar {
+    width: 200px;
     background-color: red;
     color: #fff;
     button {
@@ -328,6 +331,11 @@ mat-progress-spinner{
 
 /**************************************************/
 /************BUTTON & ICON CLASSES START***********/
+.icon-btn {
+    background-color: #310370;
+    border: none;
+}
+
 .icon-btn-sm {
     height: 100%;
     width: 100%;

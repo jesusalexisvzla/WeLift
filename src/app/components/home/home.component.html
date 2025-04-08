@@ -146,9 +146,9 @@
                 </div>
             </mat-tab>
     
-            <mat-tab label="Confirmation and Payment">
+            <mat-tab label="Home & Airbnb Transfers">
                 <div class="tab-container purple-text">
-                    <form [formGroup]="contactInformationForm">
+                    <form [formGroup]="contactInformationForm1">
                         <div class="purple-text font-m">
                                 Please fill the following form, provide us your address and as much information as possible regarding your private transfer. 
                                 Our team will contact you as soon as possible.
@@ -189,7 +189,7 @@
     
                             <div class="col-3 pt-50 align-self-end">
                                 <div class="btn-container">
-                                    <button class="btn-submit" (click)="performRequest(false)">Submit</button>
+                                    <button class="btn-submit" (click)="performRequest(false, true)">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -369,7 +369,7 @@
         <div class="section-title">
             Get in Touch.
         </div>
-        <form [formGroup]="contactInformationForm" center>
+        <form [formGroup]="contactInformationForm2" center>
             <div class="section-text">
                 Please fill the following form, and write us a short message regarding your inquiry. Our team will reach back as soon as possible.
                 <div class="d-flex justify-content-between pt-20">
@@ -417,7 +417,7 @@
                 <!-- Btn - Submit -->
                 <div class="col-3 pt-50 align-self-end">
                     <div class="btn-container">
-                        <button class="btn-submit" (click)="performRequest(false)">Submit</button>
+                        <button class="btn-submit" (click)="performRequest()" [disabled]="btnDisabled">Submit</button>
                     </div>
                 </div>
             </div>

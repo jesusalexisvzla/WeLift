@@ -1,44 +1,50 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
 import { MatLegacyTabGroup as MatTabGroup } from '@angular/material/legacy-tabs';
-import { debounceTime, map } from 'rxjs/operators';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { AuthService } from '../../services/auth.service'
+import { DataService } from 'src/app/services/data.service';
 import { EmailService } from 'src/app/services/email.service';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-book-now',
   templateUrl: './book-now.component.html',
   styleUrls: ['./book-now.component.scss']
 })
-export class BookNowComponent implements OnInit {
+export class BookNowComponent implements OnInit, OnDestroy {
+  private onDestroy = new Subject<void>();
   @ViewChild('tabGroup') tabGroup!: MatTabGroup;
+  userData: any | null = null;
 
   public transferDetailsForm = this.fb.group({
     origin: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     destination: new UntypedFormControl({value: '', disabled: false}, Validators.required),
-    adultsQty: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
-    childsQty: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
-    oneWay: new UntypedFormControl({value: false, disabled: false}, Validators.required),
+    adultsNo: new UntypedFormControl({value: 0, disabled: false}),
+    childsNo: new UntypedFormControl({value: 0, disabled: false}),
+    roundTrip: new UntypedFormControl({value: true, disabled: false}),
 
     arrivalAirline: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     arrivalFlightNo: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     arrivalDate: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     arrivalTimeHours: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     arrivalTimeMinutes: new UntypedFormControl({value: '', disabled: false}, Validators.required),
-    arrivalTimeAP: new UntypedFormControl({value: 'AM', disabled: false}, Validators.required),
+    arrivalTimeAP: new UntypedFormControl({value: 'AM', disabled: false}),
 
     departureAirline: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     departureFlightNo: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     departureDate: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     departureTimeHours: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     departureTimeMinutes: new UntypedFormControl({value: '', disabled: false}, Validators.required),
-    departureTimeAP: new UntypedFormControl({value: 'AM', disabled: false}, Validators.required),
+    departureTimeAP: new UntypedFormControl({value: 'AM', disabled: false}),
 
-    booster: new UntypedFormControl({value: false, disabled: false}, Validators.required),
-    baby: new UntypedFormControl({value: false, disabled: false}, Validators.required),
-    wheel: new UntypedFormControl({value: false, disabled: false}, Validators.required),
-    grocery: new UntypedFormControl({value: false, disabled: false}, Validators.required),
+    booster: new UntypedFormControl({value: false, disabled: false}),
+    baby: new UntypedFormControl({value: false, disabled: false}),
+    wheel: new UntypedFormControl({value: false, disabled: false}),
+    grocery: new UntypedFormControl({value: false, disabled: false}),
 
-    request: new UntypedFormControl({value: '', disabled: false}, Validators.required)
+    request: new UntypedFormControl({value: '', disabled: false})
   });
 
   public contactInformationForm = this.fb.group({
@@ -48,23 +54,21 @@ export class BookNowComponent implements OnInit {
     confEmail: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     phone: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     confPhone: new UntypedFormControl({value: '', disabled: false}, Validators.required),
-    //string
     
     streetName1: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     streetName2: new UntypedFormControl({value: '', disabled: false}),
     exteriorNo: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     interiorNo: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     colony: new UntypedFormControl({value: '', disabled: false}),
-    zipCode: new UntypedFormControl({value: '', disabled: false}),
-    //string
-    country: new UntypedFormControl({value: '', disabled: false}), //dropdown
+    zipCode: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    country: new UntypedFormControl({value: '', disabled: false}, Validators.required),
   });
 
   bookNowObject : any = {
     origin: '',
     destination: '',
-    adultsQty: 0,
-    childsQty: 0,
+    adultsNo: 0,
+    childsNo: 0,
     oneWay: false,
 
     arrivalAirline: '',
@@ -82,7 +86,10 @@ export class BookNowComponent implements OnInit {
     wheel: false,
     grocery: false,
     request: '',
+    userId: ''
+  }
 
+  contactObject : any = {
     firstName: '',
     lastName: '',
     email: '',
@@ -97,8 +104,8 @@ export class BookNowComponent implements OnInit {
     country: '',
   }
 
-  adultsQty = 0;
-  childsQty = 0;
+  adultsNo = 0;
+  childsNo = 0;
 
   originOptions = [
     {
@@ -202,13 +209,35 @@ export class BookNowComponent implements OnInit {
   wheelChecked = false;
   groceryChecked = false;
 
+  btnDisabled = false;
+
   constructor(
     private fb: UntypedFormBuilder,
-    private emailService: EmailService
-  ) { }
+    private snackBar: MatSnackBar,
+    private authService: AuthService,
+    private dataService: DataService,
+    private emailService: EmailService,
+  ) {
+    this.authService.user$.subscribe((user: any | null) => {
+      if (user) {
+        this.userData = user;
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.setListeners();
+    let bookingObject = this.dataService.getBookingObject();
+    if (bookingObject) {
+      this.transferDetailsForm.patchValue({
+        destination: bookingObject.destination,
+        origin: bookingObject.origin
+      })
+      this.adultsNo = bookingObject.adultsNo;
+      this.childsNo = bookingObject.childsNo;
+      this.oneWayChecked = !bookingObject.roundTrip;
+    }
+    this.dataService.deleteBookingObject();
   }
 
   setListeners() {
@@ -253,6 +282,8 @@ export class BookNowComponent implements OnInit {
         this.transferDetailsForm.controls['arrivalTimeMinutes'].setErrors({'incorrect': true})
       } else {
         this.transferDetailsForm.controls['arrivalTimeMinutes'].setErrors(null)
+        const padded = time.padStart(2, '0');
+        this.transferDetailsForm.get('time')?.setValue(padded, { emitEvent: false });
       }
     });
 
@@ -324,52 +355,86 @@ export class BookNowComponent implements OnInit {
     this[property] = !this[property];
   }
 
-  removeClasses() {
-    console.log('hola')
+  validateTransferForm() {
+    if (this.transferDetailsForm.valid && (this.adultsNo + this.childsNo > 0)) {
+      var TDForm = this.transferDetailsForm;
+  
+      this.transferDetailsForm.patchValue({
+        adultsNo: this.adultsNo,
+        childsNo: this.childsNo,
+      });
+  
+      this.bookNowObject = {
+        ...this.bookNowObject, 
+        ...this.transferDetailsForm.value, 
+        'arrivalTime': 
+          String(TDForm.get('arrivalTimeHours').value).padStart(2, '0') + ':' +
+          String(TDForm.get('arrivalTimeMinutes').value).padStart(2, '0') + ' ' +
+          TDForm.get('arrivalTimeAP').value,
+        'departureTime': 
+          String(TDForm.get('departureTimeHours').value).padStart(2, '0') + ':' +
+          String(TDForm.get('departureTimeMinutes').value).padStart(2, '0') + ' ' +
+          TDForm.get('departureTimeAP').value,
+        'roundTrip': !this.oneWayChecked,
+        'booster': this.boosterChecked,
+        'baby': this.babyChecked,
+        'wheel': this.wheelChecked,
+        'grocery': this.groceryChecked,
+        'userId': this.userData.uid
+      };
+  
+      delete this.bookNowObject.arrivalTimeHours;
+      delete this.bookNowObject.arrivalTimeMinutes;
+      delete this.bookNowObject.arrivalTimeAP;
+      delete this.bookNowObject.departureTimeHours;
+      delete this.bookNowObject.departureTimeMinutes;
+      delete this.bookNowObject.departureTimeAP;
+  
+      console.log(this.bookNowObject)
+    } else {
+      this.showToast('Information not filled in correctly', 'yellow-snackbar')
+    }
   }
 
-  performRequest() {
-    var TDForm = this.transferDetailsForm;
+  validateContactForm() {
+    if (this.contactInformationForm.valid) {
+      this.contactObject = {
+        ...this.contactInformationForm.value,
+      }
 
-    this.transferDetailsForm.patchValue({
-      adultsQty: this.adultsQty,
-      childsQty: this.childsQty,
-    });
-
-    this.bookNowObject = {
-      ...this.bookNowObject, 
-      ...this.transferDetailsForm.value, 
-      ...this.contactInformationForm.value,
-      'arrivalTime': 
-        String(TDForm.get('arrivalTimeHours').value).padStart(2, '0') + ':' +
-        String(TDForm.get('arrivalTimeMinutes').value).padStart(2, '0') + ' ' +
-        TDForm.get('arrivalTimeAP').value,
-      'departureTime': 
-        String(TDForm.get('departureTimeHours').value).padStart(2, '0') + ':' +
-        String(TDForm.get('departureTimeMinutes').value).padStart(2, '0') + ' ' +
-        TDForm.get('departureTimeAP').value,
-      'oneWay': this.oneWayChecked,
-      'booster': this.boosterChecked,
-      'baby': this.babyChecked,
-      'wheel': this.wheelChecked,
-      'grocery': this.groceryChecked,
-    };
-
-    delete this.bookNowObject.arrivalTimeHours;
-    delete this.bookNowObject.arrivalTimeMinutes;
-    delete this.bookNowObject.arrivalTimeAP;
-    delete this.bookNowObject.departureTimeHours;
-    delete this.bookNowObject.departureTimeMinutes;
-    delete this.bookNowObject.departureTimeAP;
-
-    console.log(this.bookNowObject)
-
-    // console.log(this.transferDetailsForm.value)
-    // console.log(this.contactInformationForm.value)
-    if (this.transferDetailsForm.valid && this.contactInformationForm.valid) {
-      // let registerId = await this.dataService.pushRegister('bookings/', this.bookNowObject);
-      // this.emailService.sendEmail(infoObject.email, 'Information', infoObject.message)
-      console.log("registered correctly")
+      console.log(this.contactObject)
+    } else {
+      this.showToast('Information not filled in correctly', 'yellow-snackbar')
     }
+  }
+
+  async performRequest() {
+    this.btnDisabled = true;
+    if ((this.transferDetailsForm.valid && (this.adultsNo + this.childsNo > 0)) && this.contactInformationForm.valid) {
+      await this.dataService.pushRegister('bookings/', this.bookNowObject).then(response => {
+        if (response) {
+          this.showToast('Information filled in correctly', 'green-snackbar');
+          // this.emailService.sendEmail(infoObject.email, 'Information', infoObject.message)
+        } else {
+          this.btnDisabled = false;
+        }
+      })
+    } else {
+      this.btnDisabled = false;
+    }
+  }
+
+  showToast(mensaje: string, style: string) {
+    this.snackBar.open(mensaje, 'Cerrar', {
+      duration: 3000,
+      panelClass: [style],
+      verticalPosition: 'top',
+      horizontalPosition: 'end',
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.onDestroy.next();
+    this.onDestroy.unsubscribe();
   }
 }
