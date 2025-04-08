@@ -1,43 +1,26 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
-
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-activities',
   templateUrl: './activities.component.html',
   styleUrls: ['./activities.component.scss']
 })
-export class ActivitiesComponent implements OnInit, AfterViewInit {
+export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
+  private onDestroy = new Subject<void>();
 
   public contactInformationForm = this.fb.group({
     fullName: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     email: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     phone: new UntypedFormControl({value: '', disabled: false}, Validators.required),
-    destination: new UntypedFormControl({value: '', disabled: false}, Validators.required),
-    dultsQty: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
-    childsQty: new UntypedFormControl({value: 0, disabled: false}, Validators.required),
+    activity: new UntypedFormControl({value: '', disabled: false}, Validators.required),
+    adultsNo: new UntypedFormControl({value: 0, disabled: false}),
+    childsNo: new UntypedFormControl({value: 0, disabled: false}),
     message: new UntypedFormControl({value: '', disabled: false}, Validators.required)
   });
 
-  destinationOptions = [
-    {
-      id: 1,
-      name: "Los Mochis Sinaloa"
-    },
-    {
-      id: 2,
-      name: "Los Cabos San Lucas"
-    },
-    {
-      id: 3,
-      name: "CDMX"
-    },
-    {
-      id: 4,
-      name: "Guadalajara"
-    }
-  ]
-  
   activities = [
     {
       name: "Golf",
@@ -78,15 +61,17 @@ export class ActivitiesComponent implements OnInit, AfterViewInit {
     }
   ]
 
-  adultsQty = 0;
-  childsQty = 0;
+  adultsNo = 0;
+  childsNo = 0;
+
+  btnDisabled = false;
 
   constructor(
     private fb: UntypedFormBuilder,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
-    
   }
 
   ngAfterViewInit() {
@@ -109,6 +94,37 @@ export class ActivitiesComponent implements OnInit, AfterViewInit {
   }
 
   performRequest(){
+    this.btnDisabled = true;
+    if (this.contactInformationForm.valid && (this.adultsNo + this.childsNo > 0)) {
+      const infoObject = {
+        fullName: this.contactInformationForm.get('fullName')?.value,
+        email: this.contactInformationForm.get('email')?.value,
+        phone: this.contactInformationForm.get('phone')?.value,
+        message: this.contactInformationForm.get('message')?.value
+      };  
+
+      console.log('registered info', infoObject);
+      this.showToast('Information correclty registered', 'green-snackbar')
+      // this.emailService.sendEmail(infoObject.email, 'Information', infoObject.message)
+      this.contactInformationForm.reset();
+      this.btnDisabled = false;
+    } else {
+      this.btnDisabled = false;
+      this.showToast('Information not filled in correclty', 'yellow-snackbar')
+    }
   }
 
+  showToast(mensaje: string, style: string) {
+    this.snackBar.open(mensaje, 'Cerrar', {
+      duration: 3000,
+      panelClass: [style],
+      verticalPosition: 'top',
+      horizontalPosition: 'end',
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.onDestroy.next();
+    this.onDestroy.unsubscribe();
+  }
 }

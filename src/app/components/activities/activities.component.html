@@ -42,15 +42,12 @@
     <!-- Start your Group Reservation -->
     <div class="section purple-text p-0">
         <div class="section-title w-100">
-            Start your Group Reservation
+            Book your Activities
         </div>
 
         <form [formGroup]="contactInformationForm" center>
             <div class="section-text">
                 Please fill the following form, and write us a short message regarding your inquiry. Our team will reach back as soon as possible.
-                <div class="d-flex justify-content-between pt-20">
-                    <b>If you Wish to make a reservation, press "Book Now".</b>
-                </div>
             </div>
 
             <div class="row section-form">
@@ -82,8 +79,8 @@
                 <div class="col-6 pt-20">
                     <mat-label>Activities</mat-label>
                     <mat-form-field class="w-100">
-                        <mat-select matNativeControl id="destination" formControlName="destination" class="form-control" name="destination">
-                            <mat-option *ngFor="let destination of destinationOptions" [value]="destination.name">{{destination.name}}</mat-option>
+                        <mat-select matNativeControl id="activity" formControlName="activity" class="form-control" name="activity">
+                            <mat-option *ngFor="let activity of activities" [value]="activity.name">{{activity.name}}</mat-option>
                         </mat-select>
                         <mat-error>Error</mat-error>
                     </mat-form-field>
@@ -91,22 +88,22 @@
 
                 <!-- Qty-Btns - Adults -->
                 <div class="col-3 pt-20">
-                    <div class="d-flex">
-                        <button class="round-btn-sm" (click)="adultsQty = adultsQty ? adultsQty - 1 : adultsQty">-</button>
-                        <div class="mx-4"><b>{{adultsQty}}</b></div>
-                        <button class="round-btn-sm" (click)="adultsQty = adultsQty + 1">+</button>
-                    </div>
                     <div class="btn-label">Adults</div>
+                    <div class="d-flex">
+                        <button class="round-btn-sm" (click)="adultsNo = adultsNo ? adultsNo - 1 : adultsNo">-</button>
+                        <div class="mx-4"><b>{{adultsNo}}</b></div>
+                        <button class="round-btn-sm" (click)="adultsNo = adultsNo + 1">+</button>
+                    </div>
                 </div>
 
                 <!-- Qty-Btns - Children -->
                 <div class="col-3 pt-20">
+                    <div class="btn-label">Children</div>
                     <div class="d-flex">
-                        <button class="round-btn-sm" (click)="childsQty = childsQty ? childsQty - 1 : childsQty">-</button>
-                        <div class="mx-4"><b>{{childsQty}}</b></div>
-                        <button class="round-btn-sm" (click)="childsQty = childsQty + 1">+</button>
+                        <button class="round-btn-sm" (click)="childsNo = childsNo ? childsNo - 1 : childsNo">-</button>
+                        <div class="mx-4"><b>{{childsNo}}</b></div>
+                        <button class="round-btn-sm" (click)="childsNo = childsNo + 1">+</button>
                     </div>
-                    <div class="btn-label">Children (under 7 free ride)</div>
                 </div>
 
                 <!-- Mat-Input - Message -->

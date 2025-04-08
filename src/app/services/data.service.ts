@@ -7,6 +7,8 @@ import { Database, ref, get, push, set, update, remove, query, orderByChild, equ
 export class DataService {
   private db = inject(Database);
 
+  private bookingObject;
+
   constructor() { }
 
   async getAll(collection: string) {
@@ -100,5 +102,18 @@ export class DataService {
       console.error('Error deleting ' + collection, error);
       return false;
     }
+  }
+
+  storeBookingObject(bookingObject) {
+    this.bookingObject = bookingObject;
+    console.log('stored booking', bookingObject);
+  }
+
+  getBookingObject() {
+    return this.bookingObject;
+  }
+
+  deleteBookingObject() {
+    delete this.bookingObject;
   }
 }
