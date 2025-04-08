@@ -42,7 +42,7 @@ testem.log
 /typings
 src/environments/environment.ts
 src/environments/environment.prod.ts
-hosting.eQ.Cache
+*.cache
 
 # System Files
 .DS_Store
