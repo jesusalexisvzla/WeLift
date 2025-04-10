@@ -12,7 +12,7 @@ export const authGuard: CanActivateFn = (route, state) => {
       if (firebaseUser) {
         return true; // Allow access if user is authenticated
       } else {
-        router.navigate(['/login']); // Redirect to login if not authenticated
+        router.navigate(['/']);
         return false;
       }
     })

@@ -1,12 +1,12 @@
 /**************************************************/
 /****************CARD CLASSES START****************/
 .card-background {
-    height: 375px;
+    height: 48vh;
     background-image: url(../../../assets/output-onlinepngtools.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position-y: center;
-    padding: 0px;
+    padding: 0em 1em;
 }
 
 .card-special-arrow {
@@ -22,7 +22,7 @@
 }
 
 .card-img {
-    height: 50px;
+    height: 7vh;
     width: fit-content;
     align-self: center;
 }
@@ -33,10 +33,10 @@
 /*************COLLAPSABLE CLASSES START************/
 .collapsable-container {
     display: block;
-    height: 560px;
+    height: 53.2vh;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 20px 75px;
+    padding: 1em 3em;
 }
 
 .collapsable {
@@ -56,20 +56,19 @@
 }
 
 .collapsable-clsd {
-    height: 120px;
+    height: 11vh;
     transition: height 1s;
 }
 
 .collapsable-open {
-    height: 215px;
+    height: 23vh;
     transition: height 1s;
 }
 
 .collapsable-header {
-    height: 75px;
-    width: calc(100% - 100px);
+    height: 7.5vh;
+    width: calc(100% - 10vw);
     align-items: end;
-    margin-bottom: 40px;
     position: absolute;
 }
 
@@ -93,34 +92,9 @@
 }
 
 .collapsable-text-open {
-    padding-top: 100px;
+    padding-top: 10vh;
     display: block;
     animation: fadeIn 2s;
 }
 /**************COLLAPSABLE CLASSES END*************/
 /**************************************************/
-
-/**************************************************/
-/****************EXTRA CLASSES START***************/
-.lowerText {
-    line-height: 50px;
-    padding-bottom: 40px;
-}
-
-.pdtp {
-    padding: 5px 0px 0px 0px;
-}
-
-.pdbt {
-    padding: 0px 0px 5px 0px;
-}
-/*****************EXTRA CLASSES END****************/
-/**************************************************/
-.sm {
-    width: calc(330px * 3);
-    justify-content: center;
-}
-
-.neg-margin {
-    margin: 0px -200px;
-}
