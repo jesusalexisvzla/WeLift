@@ -82,8 +82,8 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   changePicture(plus) {
-    plus ? document.getElementById('contt').scrollLeft += 310 : document.getElementById('contt').scrollLeft -= 310;
-    var skips = document.getElementById('contt').scrollLeft / 310;
+    plus ? document.getElementById('contt').scrollLeft += 240 : document.getElementById('contt').scrollLeft -= 240;
+    var skips = document.getElementById('contt').scrollLeft / 250;
     var element = document.getElementById("car" + (4 + Math.ceil(skips)))
     var element2 = document.getElementById("car" + (5 + Math.ceil(skips)))
 

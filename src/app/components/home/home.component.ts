@@ -119,27 +119,27 @@ export class HomeComponent implements OnInit, OnDestroy {
   borderlessCards = [
     {
       header: 'Service',
-      title: 'We are passionate about service.',
+      title: 'We´re passionate about service.',
       text: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.'
     },
     {
       header: 'Values',
-      title: 'We are passionate about service.',
+      title: 'We´re passionate about service.',
       text: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.'
     },
     {
       header: 'Experience',
-      title: 'We are passionate about service.',
+      title: 'We´re passionate about service.',
       text: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.'
     },
     {
       header: 'COVID-19',
-      title: 'We are passionate about service.',
+      title: 'We´re passionate about service.',
       text: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.'
     },
     {
       header: 'Respect',
-      title: 'We are passionate about service.',
+      title: 'We´re passionate about service.',
       text: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.'
     }
   ];
