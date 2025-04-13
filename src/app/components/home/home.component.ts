@@ -14,6 +14,7 @@ import { Subject } from 'rxjs';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private onDestroy = new Subject<void>();
+  public isBigSize = window.innerWidth > 800;
 
   @ViewChild('tabGroup') tabGroup!: MatTabGroup;
   userData: any | null = null;

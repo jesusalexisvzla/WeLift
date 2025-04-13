@@ -11,6 +11,10 @@
     background-repeat: no-repeat;
     background-position-y: center;
     padding: 0em 1em;
+
+    @media only screen and (max-width: 800px) {
+        height: 28vh;
+    }
 }
 
 .card-special-arrow {
@@ -23,6 +27,10 @@
 .card-img-container {
     height: 30%;
     align-content: end;
+
+    @media only screen and (max-width: 800px) {
+        // height: 20%;
+    }
 }
 
 .card-img {
@@ -35,6 +43,10 @@
     height: 38vh;
     width: 100%;
     border-radius: 5px 5px 0px 0px;
+
+    @media only screen and (max-width: 800px) {
+        height: 20vh;
+    }
 }
 
 .card-with-text-img {
@@ -42,4 +54,9 @@
     width: 17vw;
     background-color: white;
     border-radius: 5px;
+
+    @media only screen and (max-width: 800px) {
+        height: 30vh;
+        width: 40vw;    
+    }
 }

@@ -12,6 +12,7 @@ import { Subject } from 'rxjs';
 })
 export class GroupsComponent implements OnInit, OnDestroy {
   private onDestroy = new Subject<void>();
+  public isBigSize = window.innerWidth > 800;
 
   public contactInformationForm = this.fb.group({
       fullName: new UntypedFormControl({value: '', disabled: false}, Validators.required),

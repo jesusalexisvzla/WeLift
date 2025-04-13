@@ -1,0 +1,15 @@
+.text-button {
+    // color: white;
+    // height: 100%;
+    // width: 110px;
+    text-decoration: none;
+    background: linear-gradient(#fd8103 0 0) 
+        bottom/
+        var(--underline-width, 0%) 0.3em
+        no-repeat;
+    transition: background-size 0.5s;
+}
+
+.selected-btn {
+    --underline-width:100%;
+}

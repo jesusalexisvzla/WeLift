@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../../services/data.service'
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,36 +9,64 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+  sidebarStatus = false;
+  private sub!: Subscription;
 
   public sidebarMenu = [
     {
-      name: 'content1',
+      name: 'Home',
       icon: 'accessibility',
-      url: 'content1',
-      dropdownArray: [
-        {
-          name: 'content1',
-          icon: 'accessibility',
-          url: 'content1',
-        },
-        {
-          name: 'content2',
-          icon: 'accessible',
-          url: 'content2',
-        },
-      ]
+      url: 'home',
+      dropdownArray: []
     },
     {
-      name: 'content2',
+      name: 'How it Works',
       icon: 'accessible',
-      url: 'content2',
+      url: 'how-it-works',
       dropdownArray: []
-    }
+    },
+    {
+      name: 'Groups',
+      icon: 'accessibility',
+      url: 'groups',
+      dropdownArray: []
+    },
+    {
+      name: 'Activities',
+      icon: 'accessibility',
+      url: 'activities',
+      dropdownArray: []
+    },
+    {
+      name: 'Blogs',
+      icon: 'accessibility',
+      url: 'blogs',
+      dropdownArray: []
+    },
+    {
+      name: 'Contact',
+      icon: 'accessibility',
+      url: 'contact',
+      dropdownArray: []
+    },
+    {
+      name: 'Book Now',
+      icon: 'accessibility',
+      url: 'book-now',
+      dropdownArray: []
+    },
   ]
 
+  selected: string = this.router.url;
+  
   constructor(
     public router: Router,
-  ) { }
+    private dataService: DataService,
+  ) { 
+    this.sub = this.dataService.sidebarStatus$.subscribe(
+      status => this.sidebarStatus = status
+    );
+  }
 
   ngOnInit(): void {
   }

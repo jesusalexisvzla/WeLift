@@ -57,6 +57,10 @@ body {
 
 .font-m {
     font-size: 1.2rem;
+
+    @media only screen and (max-width: 800px) {
+        font-size: .7rem;
+    }
 }
 
 .font-l {
@@ -65,10 +69,18 @@ body {
 
 .font-xl {
     font-size: 1.9rem;
+
+    @media only screen and (max-width: 800px) {
+        font-size: .9rem;
+    }
 }
 
 .font-xxl {
     font-size: 2.4rem;
+
+    @media only screen and (max-width: 800px) {
+        font-size: 2rem;
+    }
 }
 
 .text-align-center {
@@ -85,44 +97,46 @@ body {
     font-family: "Sans3-Bold", sans-serif;
 }
 
-.sidebar{
-    background-color: #f8f8f8;
-    height: 90vh;
-    width: 6vw;
+.sidebar-container {
+    width: 0vw;
     transition: 0.3s;
-    @media only screen and (max-width: 800px) {
-        width: 10vw;
-    }
+}
+
+.sidebar {
+    background-color: #310370;
+    height: 100vh;
+    width: 25vw;
+    transition: 0.3s;
     .sbButtonList {
         padding: 0px 5px 0px 5px;
         .sbButton {
-            background-color: #f8f8f8;
+            color: white;
+            background-color: transparent;
             border: 0cm;
             border-radius: 4px;
             padding-bottom: 4px;
             height: 7vh;
-            width: 6vw;
+            width: 25vw;
             .sbButtonText {
-                display: none;
+                // display: none;
             }
         }
     }
 }
 
 .sidebar:hover {
-    width: 16vw;
     @media only screen and (max-width: 800px) {
-        width: 20vw;
+        // width: 25vw;
     }
     .sbButton {
-        width: 16vw;
+        width: 25vw;
         .sbButtonText {
             animation: fadeIn 0.3s;
             display: block;
         }
     }
     .sbButton:hover {
-        background-color: #d6dce1;
+        background-color: transparent;
     }
 }
 
@@ -131,9 +145,6 @@ body {
     background-color: white;
     height: 90vh;
     width: 100vw;
-    @media only screen and (max-width: 800px) {
-        width: 90vw;
-    }
 }
 
 .plantillaModal {
@@ -201,10 +212,13 @@ mat-progress-spinner{
 }
 
 .component-container {
-    padding: 0px 10vw;
+    padding: 0vh 10vw;
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    @media only screen and (max-width: 800px) {
+        padding: 0vh 1vw;
+    }
 }
 
 .section {
@@ -226,27 +240,42 @@ mat-progress-spinner{
     padding: .9em 1.7em .9em;
     font-size: 3rem;
     line-height: 3rem;
+
+    @media only screen and (max-width: 800px) {
+        width: 100%;
+        padding: .3em .4em .3em;
+    }
 }
 
 .section-text {
     padding: 0em 4.25em;
     font-size: 1.2rem;
+
+    @media only screen and (max-width: 800px) {
+        width: 100%;
+        font-size: 1.0rem;
+        padding: 0em 1.2em;
+    }
 }
 
 .section-m {
-    height: fit-content; /* Each section takes full page height */
+    height: fit-content;
+    min-height: 90vh;
     padding: 0vh 10vw 5vh !important;
-    scroll-snap-align: start; /* Aligns the top of the section */
+    scroll-snap-align: start;
     margin: 0;
 }
 
 .neg-margin {
     margin: 0px -200px !important;
+    @media only screen and (max-width: 800px) {
+        margin: 0 -4px !important;
+    }
 }
 
 .section-sm {
-    height: 350px; /* Each section takes full page height */
-    scroll-snap-align: start; /* Aligns the top of the section */
+    height: 350px;
+    scroll-snap-align: start;
     margin: 0;
 }
 
@@ -257,6 +286,10 @@ mat-progress-spinner{
 
 .section-form {
     padding: .5em 5.1em 0em;
+
+    @media only screen and (max-width: 800px) {
+        padding: .5em 1.2em 0em;
+    }
 }
 
 .tab-container {
@@ -287,6 +320,11 @@ mat-progress-spinner{
     border-radius: 50%;
     background-color: transparent;
     color: #fd8103;
+
+    @media only screen and (max-width: 800px) {
+        height: 40px;
+        width: 40px;
+    }
 }
 
 .round-btn-sm {
@@ -337,6 +375,9 @@ mat-progress-spinner{
 .cards {
     display: flex;
     justify-content: center;
+    @media only screen and (max-width: 800px) {
+        display: block;
+    }
 }
 
 .card {
@@ -346,12 +387,22 @@ mat-progress-spinner{
     color: #310370;
     margin: 0em 1em;
     box-shadow: 0px 0px 90px -20px black;
+
+    @media only screen and (max-width: 800px) {
+        height: 28vh;
+        width: 48vw;
+    }
 }
 
 .card-content-text {
     font-size: 1.2rem;
     padding: 0em 3.4em;
     text-align: justify;
+
+    @media only screen and (max-width: 800px) {
+        font-size: 1rem;
+        padding: 0em 1em;
+    }
 }
 
 .card-special {
@@ -363,6 +414,12 @@ mat-progress-spinner{
     border-radius: 27.5px;
     font-size: xx-large;
     font-weight: bold;
+    
+    @media only screen and (max-width: 800px) {
+        height: 30px;
+        width: 30px;
+        font-size: medium;
+    }
 }
 
 .card-special-number {
@@ -375,6 +432,11 @@ mat-progress-spinner{
 .card-title {
     font-size: 2.8rem;
     line-height: 2.8rem;
+
+    @media only screen and (max-width: 800px) {
+        font-size: 2.4rem;
+        line-height: 2.4rem;
+    }
 }
 
 .header-number {
@@ -385,6 +447,11 @@ mat-progress-spinner{
     font-weight: bold;
     text-align: center;
     align-content: center;
+
+    @media only screen and (max-width: 800px) {
+        height: 3vh;
+        width: 3vh;
+    }
 }
 
 .header-text {
@@ -433,6 +500,11 @@ mat-progress-spinner{
     width: calc((100vw - 500px)/4);
     border-radius: 50%;
     border: 7px solid #fd8103;
+
+    @media only screen and (max-width: 800px) {
+        height: calc((90vw)/2);
+        width: calc((90vw)/2);
+    }
 }
 /*********************MATERIAL*********************/
 /**************************************************/
@@ -450,6 +522,11 @@ mat-progress-spinner{
 
 .mat-tab-labels {
     justify-content: space-between;
+
+    @media only screen and (max-width: 800px) {
+        width: 36%;
+        font-size: .65rem;
+    }
 }
 
 .mat-tab-label {
@@ -467,6 +544,9 @@ mat-progress-spinner{
     background-color: #310370 !important;
     transition: background-size 0.25s;
     border-radius: 5px 5px 0px 0px;
+    @media only screen and (max-width: 800px) {
+        margin-right: 5px;    
+    }
 }
 
 .mat-tab-label.mat-tab-disabled {

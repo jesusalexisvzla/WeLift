@@ -10,25 +10,25 @@
                 Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
             </p>
             <div>
-                <button class="icon-btn-m icon-fw mx-3" (click)="changePicture(false)">
+                <button class="icon-btn-m icon-fw mx-1 mx-md-3" (click)="changePicture(false)">
                     <mat-icon>arrow_back</mat-icon>
                 </button>
-                <button class="icon-btn-m icon-fw mx-3" (click)="changePicture(true)">
+                <button class="icon-btn-m icon-fw mx-1 mx-md-3" (click)="changePicture(true)">
                     <mat-icon>arrow_forward</mat-icon>
                 </button>
             </div>
         </div>
 
-        <div class="" style="justify-self: center; padding-left: 200px;">
+        <div class="" style="justify-self: center;" [ngStyle]="{'padding-left': isBigSize ? '200px' : '0px'}">
             <div class="row-container row sm" id="contt" #contt>
                 <div class="col- text-align-center card-with-text-img p-0" *ngFor="let activity of activities; index as i" style="margin: 0px 5px" [id]="'car' + i">
                     <div class="align-items-center">
-                        <div class="vehicle-img white-text section-title p-5">
+                        <div class="vehicle-img white-text section-title p-1 p-md-5">
                             {{activity.name}}
                         </div>
                     </div>
                     <div class="vehicle-txt">
-                        <div class="p-4">
+                        <div class="p-2 p-md-5">
                             <p><b class="purple-text">{{activity.text}}</b></p>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
 
             <div class="row section-form">
                 <!-- Mat-Input - Full Name -->
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Full Name</mat-label>
                         <input matInput id="fullName" formControlName="fullName" class="form-control" name="fullName" placeholder="Type your full name">
@@ -65,7 +65,7 @@
                 </div>
 
                 <!-- Mat-Input - Email -->
-                <div class="col-3">
+                <div class="col-6 col-md-3 pt-1 pt-md-0">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Email</mat-label>
                         <input matInput id="email" formControlName="email" class="form-control" name="email" placeholder="Type your email adrress">
@@ -73,7 +73,7 @@
                 </div>
 
                 <!-- Mat-Input - Phone -->
-                <div class="col-3">
+                <div class="col-6 col-md-3 pt-1 pt-md-0">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Phone Number</mat-label>
                         <input matInput id="phone" formControlName="phone" class="form-control" name="phone" placeholder="Type your phone number">
@@ -81,7 +81,7 @@
                 </div>
 
                 <!-- Mat-Select - Destination -->
-                <div class="col-6 pt-1">
+                <div class="col-12 col-md-6 pt-1">
                     <mat-label>Activities</mat-label>
                     <mat-form-field class="w-100">
                         <mat-select matNativeControl id="activity" formControlName="activity" class="form-control" name="activity">
@@ -92,7 +92,7 @@
                 </div>
 
                 <!-- Qty-Btns - Adults -->
-                <div class="col-3 pt-1">
+                <div class="col-5 col-md-3 pt-1">
                     <div class="btn-label">Adults</div>
                     <div class="d-flex">
                         <button class="round-btn-sm" (click)="adultsNo = adultsNo ? adultsNo - 1 : adultsNo">-</button>
@@ -102,7 +102,7 @@
                 </div>
 
                 <!-- Qty-Btns - Children -->
-                <div class="col-3 pt-1">
+                <div class="col-5 col-md-3 pt-1">
                     <div class="btn-label">Children</div>
                     <div class="d-flex">
                         <button class="round-btn-sm" (click)="childsNo = childsNo ? childsNo - 1 : childsNo">-</button>
@@ -112,7 +112,7 @@
                 </div>
 
                 <!-- Mat-Input - Message -->
-                <div class="col-9 pt-2">
+                <div class="col-8 col-md-9 pt-2">
                     <mat-label>Message</mat-label>
                     <mat-form-field class="w-100 no-underline" hideRequiredMarker="true">
                         <textarea matInput id="message" formControlName="message" class="text-area" name="message" placeholder="Type your message." rows="12"></textarea>

@@ -6,9 +6,9 @@
         <p class="section-text">
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna. Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
         </p>
-        <div class="pt-4" style="justify-self: center;">
-            <div class="row sm">
-                <div class="col-4 text-align-center card-with-text-img p-0" *ngFor="let blog of blogs; index as i" [ngStyle]="{'margin': i >= 3 ? '5px 5px 0px 5px' : '0px 5px 5px 5px'}">
+        <div class="pt-2 pt-md-4" style="justify-self: center;">
+            <div class="row" [ngClass]="[!isBigSize ? 'm-auto justify-content-center' : 'sm']">
+                <div class="col-4 text-align-center card-with-text-img p-0" *ngFor="let blog of blogs; index as i" [ngStyle]="{'margin': isBigSize ? i >= 3 ? '5px 5px 0px 5px' : '0px 5px 5px 5px' : '10px 5px'}">
                     <div class="align-items-center">
                         <img class="vehicle-img" src="../../../assets/beverages.jpg"/>
                     </div>

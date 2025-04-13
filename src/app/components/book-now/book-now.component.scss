@@ -15,4 +15,8 @@
 
 .paypal-img {
     height: 100px;
+
+    @media only screen and (max-width: 800px) {
+        height: 50px;
+    }
 }

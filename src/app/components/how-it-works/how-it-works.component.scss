@@ -7,6 +7,10 @@
     background-repeat: no-repeat;
     background-position-y: center;
     padding: 0em 1em;
+
+    @media only screen and (max-width: 800px) {
+        height: 28vh;
+    }
 }
 
 .card-special-arrow {
@@ -19,12 +23,26 @@
 .card-img-container {
     height: 30%;
     align-content: end;
+
+    @media only screen and (max-width: 800px) {
+        height: 20%;
+    }
 }
 
 .card-img {
     height: 7vh;
     width: fit-content;
     align-self: center;
+
+    @media only screen and (max-width: 800px) {
+        height: 3.5vh;
+    }
+}
+
+.card-sm {
+    @media only screen and (max-width: 800px) {
+        width: 26vw !important;
+    }
 }
 /*****************CARD CLASSES END*****************/
 /**************************************************/
@@ -37,6 +55,10 @@
     overflow-y: auto;
     overflow-x: hidden;
     padding: 1em 3em;
+
+    @media only screen and (max-width: 800px) {
+        padding: 1em 0em;
+    }
 }
 
 .collapsable {
@@ -49,6 +71,10 @@
     font-size: x-large;
     margin: 7px 0px 7px 0px;
     box-shadow: 0px 0px 30px -10px black;
+
+    @media only screen and (max-width: 800px) {
+        font-size: large;
+    }
 }
 
 .collapsable:hover {
@@ -70,6 +96,11 @@
     width: calc(100% - 10vw);
     align-items: end;
     position: absolute;
+
+    @media only screen and (max-width: 800px) {
+        height: 7.5vh;
+        width: calc(100% - 20vw);
+    }
 }
 
 .collapsable-title {
@@ -98,3 +129,12 @@
 }
 /**************COLLAPSABLE CLASSES END*************/
 /**************************************************/
+.card-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.card-grid-2 {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
