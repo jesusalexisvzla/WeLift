@@ -8,6 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class FooterComponent implements OnInit, OnDestroy {
   private onDestroy = new Subject<void>();
+  public isBigSize = window.innerWidth > 800;
 
   constructor() { }
 

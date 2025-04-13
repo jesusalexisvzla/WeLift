@@ -30,3 +30,9 @@
     background-color: #fd8103;
     color: #310370;
 }
+
+.navbar-routes {
+    @media only screen and (max-width: 800px) {
+        display: none;
+    }
+}

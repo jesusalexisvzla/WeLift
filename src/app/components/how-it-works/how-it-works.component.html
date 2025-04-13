@@ -1,6 +1,6 @@
 <div class="component-container scroll-container">
     <!-- How It Works -->
-    <div class="section purple-text">
+    <div class="section purple-text" [ngClass]="[!isBigSize ? 'section-fit-content' : '']">
         <div class="section-title d-flex w-100 align-items-end">
             How it Works.
             <div class="font-l orange-text h-100 lh-1">
@@ -11,8 +11,8 @@
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
         </div>
     
-        <div class="cards d-flex pt-5">
-            <div class="card" *ngFor="let card of cardsSection1; index as i">
+        <div class="cards pt-2 pt-md-5" [ngClass]="[!isBigSize ? 'card-grid' : 'd-flex']">
+            <div class="card mx-auto my-1 my-md-auto" *ngFor="let card of cardsSection1; index as i">
                 <div class="card-special card-special-number">{{i+1}}</div>
                 <div class="h-100 align-content-center">
                     <div class="font-xxl px-2"><b>{{card.title}}</b></div>
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div class="section-text d-flex align-items-center justify-content-end pt-4">
+        <div class="section-text d-flex align-items-center justify-content-end pt-2 pt-md-4">
             For groups larger than 10 passengers, please <b>contact us</b> for a quote.
             <div class="btn-container ps-4">
                 <button class="btn-submit">Contact Us</button>
@@ -31,7 +31,7 @@
     </div>
 
     <!-- At the Airport -->
-    <div class="section-m section-purple neg-margin">
+    <div class="section-m section-purple neg-margin" [ngClass]="[!isBigSize ? 'section-fit-content' : '']">
         <div class="section-title white-text">
             At the airport.
         </div>
@@ -39,9 +39,9 @@
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
         </div>
     
-        <div class="cards pt-5">
-            <div class="row w-75 justify-content-center">
-                <div class="col- card card-background" *ngFor="let card of cardsSection2; index as i" [ngStyle]="{'margin': i >= 3 ? '5px 5px 0px 5px' : '0px 5px 5px 5px'}">
+        <div class="cards pt-4 pt-md-5">
+            <div class="row d-flex justify-content-center" [ngClass]="[!isBigSize ? '' : ' w-75']">
+                <div class="col- card card-background card-sm" *ngFor="let card of cardsSection2; index as i" [ngStyle]="{'margin': i >= 3 ? '5px 5px 0px 5px' : '0px 5px 5px 5px'}">
                     <div *ngIf="card.arrow" class="card-special card-special-arrow"> > </div>
                     <div class="card-img-container">
                         <img class="card-img" src="../../../assets/Purpura-Naranja.png"/>
@@ -49,7 +49,7 @@
         
                     <div class="h-100">
                         <div class="font-xl"><b>{{card.title}}</b></div>
-                        <div class="font-m pt-4">{{card.text}}</div>
+                        <div class="font-m pt-1 pt-md-4">{{card.text}}</div>
                     </div>
                 </div>
             </div>

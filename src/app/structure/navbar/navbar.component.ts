@@ -10,9 +10,13 @@ import { DataService } from '../../services/data.service'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  public isBigSize = window.innerWidth > 800;
+
   userData: any | null = null;
   iconName = '';
   iconText = '';
+  
+  selected: string = this.router.url;
 
   constructor(
     public router: Router,
@@ -33,8 +37,6 @@ export class NavbarComponent implements OnInit {
       }
     });
   }
-  
-  selected: string = this.router.url
 
   ngOnInit(): void {
     console.log(this.selected)
@@ -64,7 +66,11 @@ export class NavbarComponent implements OnInit {
   }
 
   move(url) {
-    this.selected = url
-    this.router.navigateByUrl(url)
+    this.selected = url;
+    this.router.navigateByUrl(url);
+  }
+
+  openCloseSB() {
+    this.dataService.openCloseSB();
   }
 }

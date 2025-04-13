@@ -1,6 +1,12 @@
 <div class="navbar justify-content-around">
+    <div *ngIf="!isBigSize">
+        <button class="icon-btn icon-fw orange-text" (click)="openCloseSB()">
+            <mat-icon>menu</mat-icon>
+            <div class="sbButtonText"></div>
+        </button>
+    </div>
     <img class="img-navbar" src="../../../assets/Naranja.png"/>
-    <div class="justify-content-between btn-container">
+    <div class="navbar-routes justify-content-between btn-container">
         <button class="text-button" [ngClass]="{'selected-btn': selected == '/home'}" (click)="move('/home')">Home</button>
         <button class="text-button" [ngClass]="{'selected-btn': selected == '/how-it-works'}" (click)="move('/how-it-works')">How it Works</button>
         <button class="text-button" [ngClass]="{'selected-btn': selected == '/groups'}" (click)="move('/groups')">Groups</button>

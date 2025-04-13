@@ -3,6 +3,10 @@
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    @media only screen and (max-width: 800px) {
+        height: fit-content;
+        width: 92%;
+    }
 }
 
 .card-user-left {
@@ -16,6 +20,10 @@
     align-content: center;
     text-align: justify;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    @media only screen and (max-width: 800px) {
+        height: auto;
+        padding-left: 10px;
+    }
 }
 
 .card-user-right {
@@ -24,6 +32,10 @@
     padding: 0px 50px;
     align-content: center;
     text-align: justify;
+
+    @media only screen and (max-width: 800px) {
+        padding: 0px 10px;
+    }
 }
 
 .text-area {
@@ -35,4 +47,19 @@
 .sqr-500 {
     height: 55vh;
     width: 55vh;
+
+    @media only screen and (max-width: 800px) {
+        height: 37vw;
+        width: 37vw;
+    }
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: 11% 39% 39% 11%;
 }

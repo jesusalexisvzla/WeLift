@@ -1,13 +1,17 @@
 import { Injectable, inject } from '@angular/core';
 import { Database, ref, get, push, set, update, remove, query, orderByChild, equalTo } from '@angular/fire/database';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   private db = inject(Database);
-
+  
   private bookingObject;
+  
+  private sidebarStatus = new BehaviorSubject<boolean>(true); // false = closed
+  sidebarStatus$ = this.sidebarStatus.asObservable();
 
   constructor() { }
 
@@ -115,5 +119,10 @@ export class DataService {
 
   deleteBookingObject() {
     delete this.bookingObject;
+  }
+
+  openCloseSB() {
+    this.sidebarStatus.next(!this.sidebarStatus.value);
+    console.log(this.sidebarStatus)
   }
 }

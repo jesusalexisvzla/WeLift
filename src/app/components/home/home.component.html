@@ -10,7 +10,7 @@
                     <form [formGroup]="transferDetailsForm">
                         <div class="row">
                             <!-- Mat-Select - Airport -->
-                            <div class="col-5">
+                            <div class="col-10 col-md-5">
                                 <mat-label>From</mat-label>
                                 <mat-form-field class="w-100" hideRequiredMarker="true">
                                     <mat-label *ngIf="!selectedOrigin">Select your Airport...</mat-label>
@@ -22,14 +22,14 @@
                             </div>
     
                             <!-- Mat-Button - Change Locations -->
-                            <div class="col-1">
+                            <div class="col-2 col-md-1">
                                 <button class="icon-btn-sm icon-fw" (click)="tabGroup.selectedIndex = 1">
                                     <mat-icon>swap_horiz</mat-icon>
                                 </button>
                             </div>
     
                             <!-- Mat-Select - Hotel -->
-                            <div class="col-6">
+                            <div class="col-12 col-md-6 pt-4 pt-md-0">
                                 <mat-label>To</mat-label>
                                 <mat-form-field class="w-100" hideRequiredMarker="true">
                                     <mat-label *ngIf="!selectedDestination">Select your Hotel...</mat-label>
@@ -41,7 +41,7 @@
                             </div>
     
                             <!-- Qty-Btns - Adults -->
-                            <div class="col-3 pt-4">
+                            <div class="col-4 col-md-3 pt-4">
                                 <div class="btn-label">Adults</div>
                                 <div class="d-flex">
                                     <button class="round-btn-sm" (click)="adultsNo = adultsNo ? adultsNo - 1 : adultsNo">-</button>
@@ -51,7 +51,7 @@
                             </div>
     
                             <!-- Qty-Btns - Children -->
-                            <div class="col-3 pt-4">
+                            <div class="col-8 col-md-3 pt-4">
                                 <div class="btn-label">Children (under 7 free ride)</div>
                                 <div class="d-flex">
                                     <button class="round-btn-sm" (click)="childsNo = childsNo ? childsNo - 1 : childsNo">-</button>
@@ -61,14 +61,14 @@
                             </div>
     
                             <!-- Mat-Radio - One Way -->
-                            <div class="col-3 pt-4">
+                            <div class="col-6 col-md-3 pt-4">
                                 <mat-radio-group aria-label="Select an option" matNativeControl id="roundTrip" formControlName="roundTrip" class="form-control" name="roundTrip" placeholder="roundTrip">
                                     <mat-radio-button id="oneWayRB" (click)="changeRB('oneWayRB', 'oneWayChecked')" [checked]="oneWayChecked" value=true>One-way</mat-radio-button>
                                 </mat-radio-group>
                             </div>
     
                             <!-- Btn - Submit -->
-                            <div class="col-3 align-self-end">
+                            <div class="col-6 col-md-3 align-self-end pt-4">
                                 <div style="justify-self: end;">
                                     <div class="btn-container font-m">
                                         <button class="btn-submit" (click)="performRequest(true)">Submit</button>
@@ -85,7 +85,7 @@
                     <form [formGroup]="transferDetailsForm">
                         <div class="row">
                             <!-- Mat-Select - Hotel -->
-                            <div class="col-5">
+                            <div class="col-10 col-md-5">
                                 <mat-label>From</mat-label>
                                 <mat-form-field class="w-100" hideRequiredMarker="true">
                                     <mat-label *ngIf="!selectedDestination">Select your Hotel...</mat-label>
@@ -97,14 +97,14 @@
                             </div>
                             
                             <!-- Mat-Button - Change Locations -->
-                            <div class="col-1">
+                            <div class="col-2 col-md-1">
                                 <button class="icon-btn-sm icon-fw" (click)="tabGroup.selectedIndex = 0">
                                     <mat-icon>swap_horiz</mat-icon>
                                 </button>
                             </div>
                             
                             <!-- Mat-Select - Airport -->
-                            <div class="col-6">
+                            <div class="col-12 col-md-6 pt-4 pt-md-0">
                                 <mat-label>To</mat-label>
                                 <mat-form-field class="w-100" hideRequiredMarker="true">
                                     <mat-label *ngIf="!selectedOrigin">Select your Airport...</mat-label>
@@ -116,7 +116,7 @@
                             </div>
                             
                             <!-- Qty-Btns - Adults -->
-                            <div class="col-3 pt-4">
+                            <div class="col-4 col-md-3 pt-4">
                                 <div class="btn-label">Adults</div>
                                 <div class="d-flex">
                                     <button class="round-btn-sm" (click)="adultsNo = adultsNo ? adultsNo - 1 : adultsNo">-</button>
@@ -126,7 +126,7 @@
                             </div>
     
                             <!-- Qty-Btns - Children -->
-                            <div class="col-3 pt-4">
+                            <div class="col-8 col-md-3 pt-4">
                                 <div class="btn-label">Children (under 7 free ride)</div>
                                 <div class="d-flex">
                                     <button class="round-btn-sm" (click)="childsNo = childsNo ? childsNo - 1 : childsNo">-</button>
@@ -136,13 +136,13 @@
                             </div>
     
                             <!-- Mat-Radio - One Way -->
-                            <div class="col-3 pt-4">
+                            <div class="col-6 col-md-3 pt-4">
                                 <mat-radio-group aria-label="Select an option" matNativeControl id="roundTrip" formControlName="roundTrip" class="form-control" name="roundTrip" placeholder="roundTrip">
                                     <mat-radio-button id="oneWayRB" (click)="changeRB('oneWayRB', 'oneWayChecked')" [checked]="oneWayChecked" value=true>One-way</mat-radio-button>
                                 </mat-radio-group>
                             </div>
 
-                            <div class="col-3 align-self-end">
+                            <div class="col-6 col-md-3 align-self-end pt-4">
                                 <div style="justify-self: end;">
                                     <div class="btn-container font-m">
                                         <button class="btn-submit" (click)="performRequest(true)">Submit</button>
@@ -164,7 +164,7 @@
     
                         <div class="row">
                             <!-- Mat-Input - First Name -->
-                            <div class="col-6 pt-4">
+                            <div class="col-12 col-md-6 pt-4">
                                 <mat-form-field class="w-100" hideRequiredMarker="true">
                                     <mat-label>Full Name</mat-label>
                                     <input matInput id="fullName" formControlName="fullName" name="fullName" placeholder="Type your full name">
@@ -172,7 +172,7 @@
                             </div>
     
                             <!-- Mat-Input - Email -->
-                            <div class="col-3 pt-4">
+                            <div class="col-6 col-md-3 pt-4">
                                 <mat-form-field class="w-100" hideRequiredMarker="true">
                                     <mat-label>Email</mat-label>
                                     <input matInput id="email" formControlName="email" class="form-control" name="email" placeholder="Type your email adrress">
@@ -180,21 +180,21 @@
                             </div>
     
                             <!-- Mat-Input - Phone -->
-                            <div class="col-3 pt-4">
+                            <div class="col-6 col-md-3 pt-4">
                                 <mat-form-field class="w-100" hideRequiredMarker="true">
                                     <mat-label>Phone Number</mat-label>
                                     <input matInput id="phone" formControlName="phone" class="form-control" name="phone" placeholder="Type your phone number">
                                 </mat-form-field>
                             </div>
     
-                            <div class="col-9 pt-4">
+                            <div class="col-8 col-md-9 pt-4">
                                 <mat-label>Message</mat-label>
                                 <mat-form-field class="w-100 pt-2" hideRequiredMarker="true">
                                     <textarea matInput id="message" formControlName="message" class="text-area" name="message" rows="5"></textarea>
                                 </mat-form-field>
                             </div>
 
-                            <div class="col-3 align-self-end">
+                            <div class="col-4 col-md-3 align-self-end">
                                 <div style="justify-self: end;">
                                     <div class="btn-container font-m">
                                         <button class="btn-submit" (click)="performRequest(false, true)">Submit</button>
@@ -209,7 +209,7 @@
     </div>
 
     <!-- Everything for your transfer -->
-    <div class="section purple-text">
+    <div class="section purple-text" [ngClass]="[!isBigSize ? 'section-fit-content' : '']">
         <div class="section-title">
             Everything for your Transfer.
         </div>
@@ -222,28 +222,28 @@
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
         </p>
         <div class="row text-align-center">
-            <div class="col-3">
+            <div class="col-6 col-md-3">
                 <b class="font-l">Beverages</b>
                 <div class="pt-4">
                     <img class="round-img" src="../../../assets/beverages.jpg"/>
                 </div>
             </div>
 
-            <div class="col-3">
+            <div class="col-6 col-md-3">
                 <b class="font-l">Grocery Stop</b>
                 <div class="pt-4">
                     <img class="round-img" src="../../../assets/grocery.jpg"/>
                 </div>
             </div>
 
-            <div class="col-3">
+            <div class="col-6 col-md-3">
                 <b class="font-l">Bilingual Drivers</b>
                 <div class="pt-4">
                     <img class="round-img" src="../../../assets/driver.jpg"/>
                 </div>
             </div>
 
-            <div class="col-3">
+            <div class="col-6 col-md-3">
                 <b class="font-l">Special Seats</b>
                 <div class=" pt-4">
                     <img class="round-img" src="../../../assets/booster.jpg"/>
@@ -257,40 +257,40 @@
         <div class="section-title">
             Who we Are.
         </div>
-        <p class="section-text w-75">
+        <p class="section-text" [ngClass]="[!isBigSize ? 'w-100' : 'w-75']">
             <b>Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.</b>
         </p>
-        <p class="section-text w-75">
+        <p class="section-text" [ngClass]="[!isBigSize ? 'w-100' : 'w-75']">
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
         </p>
         <div class="row section-text">
-            <div class="col-4 d-flex pt-4">
+            <div class="col-6 col-md-4 d-flex pt-2 pt-md-4">
                 <div class="w-75">
                     <div class="card-title">Why Us?</div>
                     <div class="pt-4"><b>5 resons to love us</b></div>
                 </div>
             </div>
-            <div class="col-4 d-flex pt-4" *ngFor="let card of borderlessCards; index as i">
+            <div class="col-6 col-md-4 d-flex pt-2 pt-md-4" *ngFor="let card of borderlessCards; index as i">
                 <div class="w-75">
                     <div class="d-flex">
                         <div class="header-number">{{i + 1}}</div>
                         <div class="header-text"><b>{{card.header}}</b></div>
                     </div>
                     <div class="card-title orange-text pt-2">{{card.title}}</div>
-                    <div class="pt-2">{{card.text}}</div>
+                    <div class="pt-0 pt-md-2">{{card.text}}</div>
                 </div>
             </div>
         </div>
-        <div class="btn-container section-text pt-4">
+        <div class="btn-container section-text pt-2 pt-md-4">
             <button class="btn-submit" (click)="router.navigateByUrl('/book-now')">Book Now</button>
         </div>
     </div>
 
     <!-- How It Works -->
-    <div class="section purple-text">
+    <div class="section purple-text" [ngClass]="[!isBigSize ? 'section-fit-content' : '']">
         <div class="section-title d-flex w-100 align-items-end">
                 How it Works.
             <div class="font-l orange-text h-100 lh-1">
@@ -301,8 +301,8 @@
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
         </div>
     
-        <div class="cards d-flex pt-5">
-            <div class="card" *ngFor="let card of cardsSection1; index as i">
+        <div class="cards pt-4 pt-md-5" [ngClass]="[!isBigSize ? 'card-grid' : 'd-flex']">
+            <div class="card mx-auto my-1 my-md-auto" *ngFor="let card of cardsSection1; index as i">
                 <div class="card-special card-special-number">{{i+1}}</div>
                 <div class="h-100 align-content-center">
                     <div class="font-xxl px-2"><b>{{card.title}}</b></div>
@@ -331,7 +331,7 @@
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
         </div>
 
-        <div class="section-text d-flex justify-content-around align-items-center">
+        <div class="justify-content-around align-items-center" [ngClass]="[!isBigSize ? 'photo-grid' : 'section-text d-flex']">
             <button class="icon-btn-m icon-fw" (click)="changePicture()">
                 <mat-icon>arrow_back</mat-icon>
             </button>
@@ -396,7 +396,7 @@
 
             <div class="row section-form">
                 <!-- Mat-Input - Full Name -->
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Full Name</mat-label>
                         <input matInput id="fullName" formControlName="fullName" class="form-control" name="fullName" placeholder="Type your full name">
@@ -404,7 +404,7 @@
                 </div>
 
                 <!-- Mat-Input - Email -->
-                <div class="col-3">
+                <div class="col-6 col-md-3">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Email</mat-label>
                         <input matInput id="email" formControlName="email" class="form-control" name="email" placeholder="Type your email adrress">
@@ -412,7 +412,7 @@
                 </div>
 
                 <!-- Mat-Input - Phone -->
-                <div class="col-3">
+                <div class="col-6 col-md-3">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Phone Number</mat-label>
                         <input matInput id="phone" formControlName="phone" class="form-control" name="phone" placeholder="Type your phone number">
@@ -420,7 +420,7 @@
                 </div>
 
                 <!-- Mat-Input - Message -->
-                <div class="col-9 pt-4">
+                <div class="col-9 col-md-9 pt-4">
                     <mat-label>Message</mat-label>
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Type your message.</mat-label>

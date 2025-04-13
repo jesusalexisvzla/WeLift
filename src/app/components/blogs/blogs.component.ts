@@ -12,6 +12,7 @@ import { Subject } from 'rxjs';
 })
 export class BlogsComponent implements OnInit, OnDestroy {
   private onDestroy = new Subject<void>();
+  public isBigSize = window.innerWidth > 800;
   
   blogs = [
     {

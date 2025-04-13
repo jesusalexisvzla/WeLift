@@ -10,6 +10,7 @@ import { Subject } from 'rxjs';
 })
 export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
   private onDestroy = new Subject<void>();
+  public isBigSize = window.innerWidth > 800;
 
   public contactInformationForm = this.fb.group({
     fullName: new UntypedFormControl({value: '', disabled: false}, Validators.required),
@@ -82,8 +83,8 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   changePicture(plus) {
-    plus ? document.getElementById('contt').scrollLeft += 240 : document.getElementById('contt').scrollLeft -= 240;
-    var skips = document.getElementById('contt').scrollLeft / 250;
+    plus ? document.getElementById('contt').scrollLeft += (this.isBigSize ? 240 : 155) : document.getElementById('contt').scrollLeft -= (this.isBigSize ? 240 : 155);
+    var skips = document.getElementById('contt').scrollLeft / (this.isBigSize ? 250 : 165);
     var element = document.getElementById("car" + (4 + Math.ceil(skips)))
     var element2 = document.getElementById("car" + (5 + Math.ceil(skips)))
 
