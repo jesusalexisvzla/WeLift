@@ -88,12 +88,18 @@ body {
 }
 /**************************************************/
 /**************STRUCTURE CLASSES START*************/
+.app-wrapper {
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden; /* or auto */
+}
+
 .navbar {
-    background-color: #310370;
+    height: calc(var(--vh, 1vh) * 10);
     padding: 0;
-    height: 10vh;
-    align-items: center;
     display: flex;
+    flex-direction: row;
+    background-color: #310370;
+    align-items: center;
     font-family: "Sans3-Bold", sans-serif;
 }
 
@@ -143,7 +149,7 @@ body {
 .content {
     overflow: hidden;
     background-color: white;
-    height: 90vh;
+    height: calc(var(--vh, 1vh) * 90);
     width: 100vw;
 }
 

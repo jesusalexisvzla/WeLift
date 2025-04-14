@@ -1,13 +1,15 @@
-<app-navbar (messageEvent)="receiveMessage($event)"></app-navbar>
-
-<div class="d-flex">
-    <div 
-        id="sidebar-container"
-        class="sidebar-container"
-    >
-        <app-sidebar></app-sidebar>
-    </div>
-    <div id="content" class="content" (click)="cls()">
-        <router-outlet></router-outlet>
+<div class="app-wrapper">
+    <app-navbar (messageEvent)="receiveMessage($event)"></app-navbar>
+    
+    <div class="d-flex">
+        <div 
+            id="sidebar-container"
+            class="sidebar-container"
+        >
+            <app-sidebar></app-sidebar>
+        </div>
+        <div id="content" class="content" (click)="cls()">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>
