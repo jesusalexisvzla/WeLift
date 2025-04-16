@@ -1,6 +1,6 @@
 <div class="component-container scroll-container">
     <!-- Book your transfer -->
-    <div class="section">
+    <div class="section-fit-content px-0 px-md-5">
         <div class="section-title purple-text">
             Book your Private Transfer.
         </div>
@@ -10,7 +10,7 @@
                     <form [formGroup]="transferDetailsForm">
                         <div class="row">
                             <!-- Mat-Select - Airport -->
-                            <div class="col-10 col-md-5">
+                            <div class="col-10 col-md-5 pb-3 pb-md-4">
                                 <mat-label>From</mat-label>
                                 <mat-form-field class="w-100" hideRequiredMarker="true">
                                     <mat-label *ngIf="!selectedOrigin">Select your Airport...</mat-label>
@@ -23,13 +23,13 @@
     
                             <!-- Mat-Button - Change Locations -->
                             <div class="col-2 col-md-1">
-                                <button class="icon-btn-sm icon-fw" (click)="tabGroup.selectedIndex = 1">
+                                <button class="icon-fw" (click)="tabGroup.selectedIndex = 1" [ngClass]="[!isBigSize ? 'icon-transperent purple-text' : 'icon-btn-sm']">
                                     <mat-icon>swap_horiz</mat-icon>
                                 </button>
                             </div>
     
                             <!-- Mat-Select - Hotel -->
-                            <div class="col-12 col-md-6 pt-4 pt-md-0">
+                            <div class="col-12 col-md-6 py-3 py-md-0">
                                 <mat-label>To</mat-label>
                                 <mat-form-field class="w-100" hideRequiredMarker="true">
                                     <mat-label *ngIf="!selectedDestination">Select your Hotel...</mat-label>
@@ -41,7 +41,7 @@
                             </div>
     
                             <!-- Qty-Btns - Adults -->
-                            <div class="col-4 col-md-3 pt-4">
+                            <div class="col-5 col-md-3 py-3 py-md-0 pt-md-4">
                                 <div class="btn-label">Adults</div>
                                 <div class="d-flex">
                                     <button class="round-btn-sm" (click)="adultsNo = adultsNo ? adultsNo - 1 : adultsNo">-</button>
@@ -51,8 +51,12 @@
                             </div>
     
                             <!-- Qty-Btns - Children -->
-                            <div class="col-8 col-md-3 pt-4">
-                                <div class="btn-label">Children (under 7 free ride)</div>
+                            <div class="col-7 col-md-3 py-3 py-md-0 pt-md-4">
+                                <div class="btn-label d-flex align-items-end">Children 
+                                    <div class="font-s ps-1">
+                                        (under 7 free ride)
+                                    </div>
+                                </div>
                                 <div class="d-flex">
                                     <button class="round-btn-sm" (click)="childsNo = childsNo ? childsNo - 1 : childsNo">-</button>
                                     <div class="mx-4"><b>{{childsNo}}</b></div>
@@ -61,14 +65,14 @@
                             </div>
     
                             <!-- Mat-Radio - One Way -->
-                            <div class="col-6 col-md-3 pt-4">
+                            <div class="col-6 col-md-3 pt-3 pt-md-5">
                                 <mat-radio-group aria-label="Select an option" matNativeControl id="roundTrip" formControlName="roundTrip" class="form-control" name="roundTrip" placeholder="roundTrip">
                                     <mat-radio-button id="oneWayRB" (click)="changeRB('oneWayRB', 'oneWayChecked')" [checked]="oneWayChecked" value=true>One-way</mat-radio-button>
                                 </mat-radio-group>
                             </div>
     
                             <!-- Btn - Submit -->
-                            <div class="col-6 col-md-3 align-self-end pt-4">
+                            <div class="col-6 col-md-3 align-self-end pt-3 pt-md-4">
                                 <div style="justify-self: end;">
                                     <div class="btn-container font-m">
                                         <button class="btn-submit" (click)="performRequest(true)">Submit</button>
@@ -85,7 +89,7 @@
                     <form [formGroup]="transferDetailsForm">
                         <div class="row">
                             <!-- Mat-Select - Hotel -->
-                            <div class="col-10 col-md-5">
+                            <div class="col-10 col-md-5 pb-3 pb-md-4">
                                 <mat-label>From</mat-label>
                                 <mat-form-field class="w-100" hideRequiredMarker="true">
                                     <mat-label *ngIf="!selectedDestination">Select your Hotel...</mat-label>
@@ -98,13 +102,13 @@
                             
                             <!-- Mat-Button - Change Locations -->
                             <div class="col-2 col-md-1">
-                                <button class="icon-btn-sm icon-fw" (click)="tabGroup.selectedIndex = 0">
+                                <button class="icon-fw" (click)="tabGroup.selectedIndex = 0" [ngClass]="[!isBigSize ? 'icon-transperent purple-text' : 'icon-btn-sm']">
                                     <mat-icon>swap_horiz</mat-icon>
                                 </button>
                             </div>
                             
                             <!-- Mat-Select - Airport -->
-                            <div class="col-12 col-md-6 pt-4 pt-md-0">
+                            <div class="col-12 col-md-6 py-3 py-md-0">
                                 <mat-label>To</mat-label>
                                 <mat-form-field class="w-100" hideRequiredMarker="true">
                                     <mat-label *ngIf="!selectedOrigin">Select your Airport...</mat-label>
@@ -116,7 +120,7 @@
                             </div>
                             
                             <!-- Qty-Btns - Adults -->
-                            <div class="col-4 col-md-3 pt-4">
+                            <div class="col-5 col-md-3 py-3 py-md-0 pt-md-4">
                                 <div class="btn-label">Adults</div>
                                 <div class="d-flex">
                                     <button class="round-btn-sm" (click)="adultsNo = adultsNo ? adultsNo - 1 : adultsNo">-</button>
@@ -126,8 +130,12 @@
                             </div>
     
                             <!-- Qty-Btns - Children -->
-                            <div class="col-8 col-md-3 pt-4">
-                                <div class="btn-label">Children (under 7 free ride)</div>
+                            <div class="col-7 col-md-3 py-3 py-md-0 pt-md-4">
+                                <div class="btn-label d-flex align-items-end">Children
+                                    <div class="font-s ps-1">
+                                        (under 7 free ride)
+                                    </div>
+                                </div>
                                 <div class="d-flex">
                                     <button class="round-btn-sm" (click)="childsNo = childsNo ? childsNo - 1 : childsNo">-</button>
                                     <div class="mx-4"><b>{{childsNo}}</b></div>
@@ -136,13 +144,13 @@
                             </div>
     
                             <!-- Mat-Radio - One Way -->
-                            <div class="col-6 col-md-3 pt-4">
+                            <div class="col-6 col-md-3 pt-3 pt-md-5">
                                 <mat-radio-group aria-label="Select an option" matNativeControl id="roundTrip" formControlName="roundTrip" class="form-control" name="roundTrip" placeholder="roundTrip">
                                     <mat-radio-button id="oneWayRB" (click)="changeRB('oneWayRB', 'oneWayChecked')" [checked]="oneWayChecked" value=true>One-way</mat-radio-button>
                                 </mat-radio-group>
                             </div>
 
-                            <div class="col-6 col-md-3 align-self-end pt-4">
+                            <div class="col-6 col-md-3 align-self-end pt-3 pt-md-4">
                                 <div style="justify-self: end;">
                                     <div class="btn-container font-m">
                                         <button class="btn-submit" (click)="performRequest(true)">Submit</button>
@@ -187,13 +195,15 @@
                                 </mat-form-field>
                             </div>
     
+                            <!-- Mat-Input - Message -->
                             <div class="col-8 col-md-9 pt-4">
                                 <mat-label>Message</mat-label>
                                 <mat-form-field class="w-100 pt-2" hideRequiredMarker="true">
                                     <textarea matInput id="message" formControlName="message" class="text-area" name="message" rows="5"></textarea>
                                 </mat-form-field>
                             </div>
-
+                            
+                            <!-- Btn - Submit -->
                             <div class="col-4 col-md-3 align-self-end">
                                 <div style="justify-self: end;">
                                     <div class="btn-container font-m">
@@ -213,39 +223,41 @@
         <div class="section-title">
             Everything for your Transfer.
         </div>
-        <p class="section-text">
-            Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
-            Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
-        </p>
-        <p class="section-text">
-            Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
-            Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
-        </p>
+        <div class="section-text">
+            <p>
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+            </p>
+            <p>
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
+            </p>
+        </div>
         <div class="row text-align-center">
-            <div class="col-6 col-md-3">
+            <div class="col-6 col-md-3 pb-3 pb-0">
                 <b class="font-l">Beverages</b>
-                <div class="pt-4">
+                <div class="pt-3 pt-md-4">
                     <img class="round-img" src="../../../assets/beverages.jpg"/>
                 </div>
             </div>
 
             <div class="col-6 col-md-3">
                 <b class="font-l">Grocery Stop</b>
-                <div class="pt-4">
+                <div class="pt-3 pt-md-4">
                     <img class="round-img" src="../../../assets/grocery.jpg"/>
                 </div>
             </div>
 
-            <div class="col-6 col-md-3">
+            <div class="col-6 col-md-3 pt-3">
                 <b class="font-l">Bilingual Drivers</b>
-                <div class="pt-4">
+                <div class="pt-3 pt-md-4">
                     <img class="round-img" src="../../../assets/driver.jpg"/>
                 </div>
             </div>
 
-            <div class="col-6 col-md-3">
+            <div class="col-6 col-md-3 pt-3">
                 <b class="font-l">Special Seats</b>
-                <div class=" pt-4">
+                <div class="pt-3 pt-md-4">
                     <img class="round-img" src="../../../assets/booster.jpg"/>
                 </div>
             </div>
@@ -304,8 +316,8 @@
         <div class="cards pt-4 pt-md-5" [ngClass]="[!isBigSize ? 'card-grid' : 'd-flex']">
             <div class="card mx-auto my-1 my-md-auto" *ngFor="let card of cardsSection1; index as i">
                 <div class="card-special card-special-number">{{i+1}}</div>
-                <div class="h-100 align-content-center">
-                    <div class="font-xxl px-2"><b>{{card.title}}</b></div>
+                <div class="h-100 pt-3 pt-md-5">
+                    <div class="px-0 px-md-4" [ngClass]="[!isBigSize ? 'font-l' : 'font-xxl']"><b>{{card.title}}</b></div>
                     <div class="card-content-text">{{card.text}}
                     </div>
                 </div>
@@ -313,8 +325,10 @@
         </div>
 
         <div class="section-text d-flex align-items-center justify-content-end pt-4">
-            Please visit our <b>How it Works</b> page for more information.
-            <div class="btn-container ps-4 ">
+            <div [ngClass]="[!isBigSize ? 'font-s' : 'pe-3']">
+                Please visit our&nbsp;<b>How it Works</b>&nbsp;page for more information.
+            </div>
+            <div class="btn-container">
                 <button class="btn-submit" (click)="router.navigateByUrl('/how-it-works')">Learn How It Works</button>
             </div>
         </div>
@@ -325,14 +339,14 @@
         <div class="section-title">
             Gallery.
         </div>
-        <div class="section-text">
+        <p class="section-text">
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
-        </div>
+        </p>
 
-        <div class="justify-content-around align-items-center" [ngClass]="[!isBigSize ? 'photo-grid' : 'section-text d-flex']">
-            <button class="icon-btn-m icon-fw" (click)="changePicture()">
+        <div class="section-text d-flex justify-content-around align-items-center">
+            <button *ngIf="isBigSize" class="icon-btn-m icon-fw" (click)="changePicture()">
                 <mat-icon>arrow_back</mat-icon>
             </button>
             <div class="align-items-center pt-4">
@@ -342,17 +356,17 @@
                 <img class="img-container sqr-500" src="../../../assets/grocery.jpg"/>
             </div>
 
-            <button class="icon-btn-m icon-fw" (click)="changePicture()">
+            <button *ngIf="isBigSize" class="icon-btn-m icon-fw" (click)="changePicture()">
                 <mat-icon>arrow_forward</mat-icon>
             </button>
         </div>
     </div>
 
     <!-- Reviews -->
-    <div class="section purple-text">
+    <div class="section-fit-content purple-text">
         <div class="section-title d-flex w-100 align-items-end">
             Reviews.
-            <div class="font-l orange-text h-100 lh-1">
+            <div class="orange-text h-100 lh-1" [ngClass]="[!isBigSize ? 'font-m' : 'font-l']">
                 Our reputation speaks for us.
             </div>
         </div>
@@ -364,13 +378,13 @@
             <div class="card card-user" [ngClass]="[i > 0 ? 'mt-4' : '']" *ngFor="let comment of commentsOptions; index as i">
                 <div class="d-flex w-100 h-100">
                     <div class="card-user-left">
-                        <div><b>{{comment.name}}</b></div>
+                        <div [ngClass]="[!isBigSize ? 'font-m' : '']"><b>{{comment.name}}</b></div>
                         <div class="pt-2">Date: {{comment.date}}</div>
                         <div>{{comment.stars}} estrellas</div>
                     </div>
                     <div class="card-user-right">
                         <div><em><b>"{{comment.messageTitle}}"</b></em></div>
-                        <div class="pt-2">{{comment.messageText}}</div>
+                        <div class="pt-2" [ngClass]="[!isBigSize ? 'font-s' : '']">{{comment.messageText}}</div>
                     </div>
                 </div>
             </div>
@@ -378,7 +392,7 @@
     </div>
 
     <!-- Get In Touch -->
-    <div class="section purple-text">
+    <div class="section-fit-content purple-text">
         <div class="section-title">
             Get in Touch.
         </div>
@@ -388,7 +402,7 @@
                 Please fill the following form, and write us a short message regarding your inquiry. Our team will reach back as soon as possible.
                 <div class="d-flex align-items-center pt-2">
                     <b>If you Wish to make a reservation, press "Book Now".</b>
-                    <div class="btn-container ps-4 ">
+                    <div class="btn-container font-m ps-2 ps-md-4">
                         <button class="btn-submit w-100" (click)="router.navigateByUrl('/book-now')">Book Now</button>
                     </div>
                 </div>
@@ -396,7 +410,7 @@
 
             <div class="row section-form">
                 <!-- Mat-Input - Full Name -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 pb-3 pb-md-4">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Full Name</mat-label>
                         <input matInput id="fullName" formControlName="fullName" class="form-control" name="fullName" placeholder="Type your full name">
@@ -404,7 +418,7 @@
                 </div>
 
                 <!-- Mat-Input - Email -->
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-3 py-3 py-md-0">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Email</mat-label>
                         <input matInput id="email" formControlName="email" class="form-control" name="email" placeholder="Type your email adrress">
@@ -412,7 +426,7 @@
                 </div>
 
                 <!-- Mat-Input - Phone -->
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-3 py-3 py-md-0">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Phone Number</mat-label>
                         <input matInput id="phone" formControlName="phone" class="form-control" name="phone" placeholder="Type your phone number">
@@ -420,7 +434,7 @@
                 </div>
 
                 <!-- Mat-Input - Message -->
-                <div class="col-9 col-md-9 pt-4">
+                <div class="col-8 col-md-9 pt-4">
                     <mat-label>Message</mat-label>
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Type your message.</mat-label>
@@ -429,7 +443,7 @@
                 </div>
 
                 <!-- Btn - Submit -->
-                <div class="btn-container section-text align-self-end">
+                <div class="btn-container font-m align-self-end">
                     <button class="btn-submit" (click)="performRequest()">Send</button>
                 </div>
             </div>

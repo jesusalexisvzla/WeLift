@@ -11,20 +11,22 @@
             Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
         </div>
     
-        <div class="cards pt-2 pt-md-5" [ngClass]="[!isBigSize ? 'card-grid' : 'd-flex']">
+        <div class="cards pt-4 pt-md-5" [ngClass]="[!isBigSize ? 'card-grid' : 'd-flex']">
             <div class="card mx-auto my-1 my-md-auto" *ngFor="let card of cardsSection1; index as i">
                 <div class="card-special card-special-number">{{i+1}}</div>
-                <div class="h-100 align-content-center">
-                    <div class="font-xxl px-2"><b>{{card.title}}</b></div>
+                <div class="h-100 pt-3 pt-md-5">
+                    <div class="px-0 px-md-4" [ngClass]="[!isBigSize ? 'font-l' : 'font-xxl']"><b>{{card.title}}</b></div>
                     <div class="card-content-text">{{card.text}}
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="section-text d-flex align-items-center justify-content-end pt-2 pt-md-4">
-            For groups larger than 10 passengers, please <b>contact us</b> for a quote.
-            <div class="btn-container ps-4">
+        <div class="section-text d-flex align-items-center justify-content-end pt-4">
+            <div [ngClass]="[!isBigSize ? 'font-s' : 'pe-3']">
+                For larger than 10 passengers, please&nbsp;<b>contact us</b>&nbsp;for a quote.
+            </div>
+            <div class="btn-container">
                 <button class="btn-submit">Contact Us</button>
             </div>
         </div>
@@ -48,8 +50,8 @@
                     </div>
         
                     <div class="h-100">
-                        <div class="font-xl"><b>{{card.title}}</b></div>
-                        <div class="font-m pt-1 pt-md-4">{{card.text}}</div>
+                        <div class="px-0 px-md-4" [ngClass]="[!isBigSize ? 'font-xl' : 'font-xxl']"><b>{{card.title}}</b></div>
+                        <div class="text-start pt-1 px-0 px-md-5" [ngClass]="[!isBigSize ? 'font-s' : 'font-m']">{{card.text}}</div>
                     </div>
                 </div>
             </div>
@@ -57,7 +59,7 @@
     </div>
 
     <!-- Frequently asked questions. -->
-    <div class="section purple-text">
+    <div class="section-fit-content purple-text">
             <div class="section-title w-50">
                 Frequently asked questions.
             </div>
@@ -79,9 +81,11 @@
                 </div>
             </div>
 
-            <div class="section-text d-flex align-items-center justify-content-end pt-2">
-                Still have questions? <b>Contact us!</b> Our team will get back to you as soon as possible.
-                <div class="btn-container ps-4 ">
+            <div class="section-text d-flex align-items-center justify-content-end pt-4">
+                <div [ngClass]="[!isBigSize ? 'font-s' : 'pe-3']">
+                    Still have questions?&nbsp;<b>Contact us!</b>&nbsp;Our team will get back to you as soon as possible.
+                </div>
+                <div class="btn-container">
                     <button class="btn-submit">Contact Us</button>
                 </div>
             </div>
