@@ -49,8 +49,8 @@
     width: 55vh;
 
     @media only screen and (max-width: 800px) {
-        height: 37vw;
-        width: 37vw;
+        height: 48vw;
+        width: 100%;
     }
 }
 
@@ -61,5 +61,5 @@
 
 .photo-grid {
     display: grid;
-    grid-template-columns: 11% 39% 39% 11%;
+    grid-template-columns: 50% 50%;
 }

@@ -9,7 +9,7 @@
                 Please fill the following form, and write us a short message regarding your inquiry. Our team will reach back as soon as possible.
                 <div class="d-flex align-items-center pt-2">
                     <b>If you Wish to make a reservation, press "Book Now".</b>
-                    <div class="btn-container ps-4 ">
+                    <div class="btn-container font-m ps-2 ps-md-4">
                         <button class="btn-submit w-100" (click)="router.navigateByUrl('/book-now')">Book Now</button>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
 
             <div class="row section-form">
                 <!-- Mat-Input - Full Name -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 pb-3 pb-md-4">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Full Name</mat-label>
                         <input matInput id="fullName" formControlName="fullName" class="form-control" name="fullName" placeholder="Type your full name">
@@ -25,7 +25,7 @@
                 </div>
 
                 <!-- Mat-Input - Email -->
-                <div class="col-6 col-md-3 pt-1 pt-md-0">
+                <div class="col-6 col-md-3 py-3 py-md-0">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Email</mat-label>
                         <input matInput id="email" formControlName="email" class="form-control" name="email" placeholder="Type your email adrress">
@@ -33,7 +33,7 @@
                 </div>
 
                 <!-- Mat-Input - Phone -->
-                <div class="col-6 col-md-3 pt-1 pt-md-0">
+                <div class="col-6 col-md-3 py-3 py-md-0">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Phone Number</mat-label>
                         <input matInput id="phone" formControlName="phone" class="form-control" name="phone" placeholder="Type your phone number">
@@ -49,7 +49,7 @@
                 </div>
 
                 <!-- Btn - Submit -->
-                <div class="btn-container section-text align-self-end">
+                <div class="btn-container font-m align-self-end">
                     <button class="btn-submit" (click)="performRequest()" [disabled]="btnDisabled">Send</button>
                 </div>
             </div>

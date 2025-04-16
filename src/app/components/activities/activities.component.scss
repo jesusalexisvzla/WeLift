@@ -77,7 +77,8 @@
 
     @media only screen and (max-width: 800px) {
         height: 38vh;
-        width: 100vw;
+        width: 100vw; 
+        padding-left: 2vw;
     }
 }
 
@@ -86,9 +87,17 @@
 }
 
 .blur-sm {
-    filter: blur(2px)
+    filter: blur(2px);
+
+    @media only screen and (max-width: 800px) {
+        filter: blur(0px);
+    }
 }
 
 .blur-m {
-    filter: blur(3px)
+    filter: blur(3px);
+
+    @media only screen and (max-width: 800px) {
+        filter: blur(0px);
+    }
 }

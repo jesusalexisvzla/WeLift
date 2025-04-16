@@ -1,4 +1,4 @@
-<div class="navbar justify-content-around">
+<div class="navbar" [ngClass]="[!isBigSize ? 'justify-content-around' : 'justify-content-evenly']">
     <div *ngIf="!isBigSize">
         <button class="icon-btn icon-fw orange-text" (click)="openCloseSB()">
             <mat-icon>menu</mat-icon>

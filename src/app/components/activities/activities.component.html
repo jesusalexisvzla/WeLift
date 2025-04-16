@@ -6,10 +6,10 @@
         </div>
 
         <div class="d-flex justify-content-between">
-            <p class="section-text w-75">
+            <p class="section-text" [ngClass]="[!isBigSize ? '' : 'w-75']">
                 Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce elementum sed auctor curae sodales felis magna.
             </p>
-            <div>
+            <div *ngIf="isBigSize">
                 <button class="icon-btn-m icon-fw mx-1 mx-md-3" (click)="changePicture(false)">
                     <mat-icon>arrow_back</mat-icon>
                 </button>
@@ -36,16 +36,18 @@
             </div>
         </div>
 
-        <div class="section-text font-m d-flex align-items-center justify-content-end pt-2 ps-0">
-            To book or ask about one of our activities, please fill the <b>Activities Form</b>. Our team will get back to you immediately
-            <div class="btn-container ps-4 ">
+        <div class="section-text d-flex align-items-center justify-content-end pt-4">
+            <div [ngClass]="[!isBigSize ? 'font-s' : 'pe-3']">
+                To book or ask about one of our activities, please fill the&nbsp;<b>Activities Form</b>&nbsp;. Our team will get back to you immediately
+            </div>
+            <div class="btn-container">
                 <button class="btn-submit">Activities</button>
             </div>
         </div>
     </div>
 
     <!-- Start your Group Reservation -->
-    <div class="section-fit-content purple-text p-0">
+    <div class="section-fit-content purple-text">
         <div class="section-title w-100">
             Book your Activities
         </div>
@@ -57,7 +59,7 @@
 
             <div class="row section-form">
                 <!-- Mat-Input - Full Name -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 pb-3 pb-md-4">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Full Name</mat-label>
                         <input matInput id="fullName" formControlName="fullName" class="form-control" name="fullName" placeholder="Type your full name">
@@ -65,7 +67,7 @@
                 </div>
 
                 <!-- Mat-Input - Email -->
-                <div class="col-6 col-md-3 pt-1 pt-md-0">
+                <div class="col-6 col-md-3 pt-md-0 py-3 py-md-0">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Email</mat-label>
                         <input matInput id="email" formControlName="email" class="form-control" name="email" placeholder="Type your email adrress">
@@ -73,7 +75,7 @@
                 </div>
 
                 <!-- Mat-Input - Phone -->
-                <div class="col-6 col-md-3 pt-1 pt-md-0">
+                <div class="col-6 col-md-3 pt-md-0 py-3 py-md-0">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Phone Number</mat-label>
                         <input matInput id="phone" formControlName="phone" class="form-control" name="phone" placeholder="Type your phone number">
@@ -81,7 +83,7 @@
                 </div>
 
                 <!-- Mat-Select - Destination -->
-                <div class="col-12 col-md-6 pt-1">
+                <div class="col-12 col-md-6 py-3 py-md-0">
                     <mat-label>Activities</mat-label>
                     <mat-form-field class="w-100">
                         <mat-select matNativeControl id="activity" formControlName="activity" class="form-control" name="activity">
@@ -92,7 +94,7 @@
                 </div>
 
                 <!-- Qty-Btns - Adults -->
-                <div class="col-5 col-md-3 pt-1">
+                <div class="col-5 col-md-3 py-3 py-md-0 pt-md-2">
                     <div class="btn-label">Adults</div>
                     <div class="d-flex">
                         <button class="round-btn-sm" (click)="adultsNo = adultsNo ? adultsNo - 1 : adultsNo">-</button>
@@ -102,7 +104,7 @@
                 </div>
 
                 <!-- Qty-Btns - Children -->
-                <div class="col-5 col-md-3 pt-1">
+                <div class="col-5 col-md-3 py-3 py-md-0 pt-md-2">
                     <div class="btn-label">Children</div>
                     <div class="d-flex">
                         <button class="round-btn-sm" (click)="childsNo = childsNo ? childsNo - 1 : childsNo">-</button>
@@ -112,14 +114,15 @@
                 </div>
 
                 <!-- Mat-Input - Message -->
-                <div class="col-8 col-md-9 pt-2">
+                <div class="col-8 col-md-9 pt-4">
                     <mat-label>Message</mat-label>
                     <mat-form-field class="w-100 no-underline" hideRequiredMarker="true">
                         <textarea matInput id="message" formControlName="message" class="text-area" name="message" placeholder="Type your message." rows="12"></textarea>
                     </mat-form-field>
                 </div>
 
-                <div class="btn-container section-text align-self-end">
+                <!-- Btn - Submit -->
+                <div class="btn-container font-m align-self-end">
                     <button class="btn-submit" (click)="performRequest()">Send</button>
                 </div>
             </div>

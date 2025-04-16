@@ -15,8 +15,8 @@
                     </div>
         
                     <div class="h-100">
-                        <div class="font-xl"><b>{{card.title}}</b></div>
-                        <div class="font-m pt-4">{{card.text}}</div>
+                        <div class="pt-5 pt-md-0 px-0 px-md-4" [ngClass]="[!isBigSize ? 'font-l' : 'font-xxl']"><b>{{card.title}}</b></div>
+                        <div class="text-start font-m px-0 px-md-5">{{card.text}}</div>
                     </div>
                 </div>
             </div>
@@ -38,9 +38,9 @@
                     <div class="align-items-center">
                         <img class="vehicle-img" src="../../../assets/beverages.jpg"/>
                     </div>
-                    <p><b class="purple-text font-l">{{car.name}}</b></p>
+                    <p [ngClass]="[!isBigSize ? 'm-0' : '']"><b class="purple-text font-l">{{car.name}}</b></p>
                     <div class="d-flex w-100">
-                        <button class="icon-btn-sm icon-fw w-25">
+                        <button class="icon-fw" [ngClass]="[!isBigSize ? 'icon-transperent purple-text' : 'icon-btn-sm w-25']">
                             <mat-icon>person</mat-icon>
                         </button>
                         <p><b class="purple-text font-m w-75" [ngStyle]="{'padding-left': isBigSize ? '30px' : '0px'}">Up to {{car.passengers}} passengers</b></p>
@@ -50,15 +50,17 @@
         </div>
 
         <div class="section-text d-flex align-items-center justify-content-end pt-4">
-            Contact us to get a free, <b>no obligation quote</b>. Our team will get back to you immediately            
-            <div class="btn-container ps-4 ">
+            <div [ngClass]="[!isBigSize ? 'font-s' : 'pe-3']">
+                Contact us to get a free, &nbsp;<b>no obligation quote</b>&nbsp;. Our team will get back to you immediately
+            </div>
+            <div class="btn-container">
                 <button class="btn-submit">Contact Us</button>
             </div>
         </div>
     </div>
 
     <!-- Start your Group reservation -->
-    <div class="section purple-text">
+    <div class="section-fit-content purple-text">
         <div class="section-title w-100">
             Start your Group Reservation
         </div>
@@ -70,7 +72,7 @@
 
             <div class="row section-form">
                 <!-- Mat-Input - Full Name -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 pb-3 pb-md-4">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Full Name</mat-label>
                         <input matInput id="fullName" formControlName="fullName" class="form-control" name="fullName" placeholder="Type your full name">
@@ -78,7 +80,7 @@
                 </div>
 
                 <!-- Mat-Input - Email -->
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-3 py-3 py-md-0">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Email</mat-label>
                         <input matInput id="email" formControlName="email" class="form-control" name="email" placeholder="Type your email adrress">
@@ -86,7 +88,7 @@
                 </div>
 
                 <!-- Mat-Input - Phone -->
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-3 py-3 py-md-0">
                     <mat-form-field class="w-100" hideRequiredMarker="true">
                         <mat-label>Phone Number</mat-label>
                         <input matInput id="phone" formControlName="phone" class="form-control" name="phone" placeholder="Type your phone number">
@@ -103,7 +105,7 @@
                 </div>
 
                 <!-- Btn - Submit -->
-                <div class="btn-container section-text align-self-end">
+                <div class="btn-container font-m align-self-end">
                     <button class="btn-submit" (click)="performRequest()" [disabled]="btnDisabled">Submit</button>
                 </div>
             </div>

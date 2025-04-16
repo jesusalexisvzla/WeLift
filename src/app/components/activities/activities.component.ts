@@ -76,8 +76,8 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    var element = document.getElementById("car" + 4)
-    var element2 = document.getElementById("car" + 5)
+    var element = document.getElementById("car" + (!this.isBigSize ? 1 : 4))
+    var element2 = document.getElementById("car" + (!this.isBigSize ? 2 : 5))
     element.classList.add('blur-sm')
     element2.classList.add('blur-m')
   }
@@ -85,8 +85,8 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
   changePicture(plus) {
     plus ? document.getElementById('contt').scrollLeft += (this.isBigSize ? 240 : 155) : document.getElementById('contt').scrollLeft -= (this.isBigSize ? 240 : 155);
     var skips = document.getElementById('contt').scrollLeft / (this.isBigSize ? 250 : 165);
-    var element = document.getElementById("car" + (4 + Math.ceil(skips)))
-    var element2 = document.getElementById("car" + (5 + Math.ceil(skips)))
+    var element = document.getElementById("car" + ((!this.isBigSize ? 1 : 4) + Math.ceil(skips)))
+    var element2 = document.getElementById("car" + ((!this.isBigSize ? 2 : 5) + Math.ceil(skips)))
 
     document.getElementsByClassName('blur-sm')[0]?.classList.remove('blur-sm')
     document.getElementsByClassName('blur-m')[0]?.classList.remove('blur-m')

@@ -16,6 +16,12 @@ body {
     100% { height: 1; }
 }
 
+p {
+    @media only screen and (max-width: 800px) {
+        margin-bottom: .4rem;
+    }
+}
+
 // @font-face {
 //     font-family: 'Sans3-Bold';
 //     src: url('/src/assets/SourceSans3-Bold.otf') format('opentype');
@@ -55,11 +61,21 @@ body {
     color: #b6b6b6;
 }
 
+.font-s {
+    font-size: .8rem;
+    line-height: 1.4rem;
+
+    @media only screen and (max-width: 800px) {
+        font-size: .7rem;
+        line-height: 1.3rem;
+    }
+}
+
 .font-m {
     font-size: 1.2rem;
 
     @media only screen and (max-width: 800px) {
-        font-size: .7rem;
+        font-size: 1rem;
     }
 }
 
@@ -236,7 +252,7 @@ mat-progress-spinner{
 .section-fit-content {
     height: fit-content;
     min-height: 90vh;
-    padding: 0px 0px 5vh !important;
+    padding-bottom: 5vh;
     scroll-snap-align: start;
     margin: 0;
 }
@@ -259,8 +275,8 @@ mat-progress-spinner{
 
     @media only screen and (max-width: 800px) {
         width: 100%;
-        font-size: 1.0rem;
-        padding: 0em 1.2em;
+        font-size: .9rem;
+        padding: 0em 1.3em;
     }
 }
 
@@ -306,9 +322,39 @@ mat-progress-spinner{
 
 /**************************************************/
 /************BUTTON & ICON CLASSES START***********/
+.btn-container {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.btn-submit {
+    height: 100%;
+    width: 100%;
+    padding: .5em 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: #fd8103;
+    color: #310370;
+    font-weight: bold;
+}
+
 .icon-btn {
     background-color: #310370;
     border: none;
+}
+
+.icon-transperent {
+    background-color: transparent;
+    border: none;
+}
+
+.icon-transperent-m {
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 50%;
 }
 
 .icon-btn-sm {
@@ -349,25 +395,6 @@ mat-progress-spinner{
     padding-bottom: 10px;
 }
 
-.btn-container {
-    height: fit-content;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-}
-
-.btn-submit {
-    height: 100%;
-    width: 100%;
-    padding: .5em;
-    border: none;
-    border-radius: 5px;
-    background-color: #fd8103;
-    color: #310370;
-    font-weight: bold;
-}
-
 .btn-return {
     background-color: transparent;
     color: #fd8103;
@@ -395,7 +422,7 @@ mat-progress-spinner{
     box-shadow: 0px 0px 90px -20px black;
 
     @media only screen and (max-width: 800px) {
-        height: 28vh;
+        height: 25vh;
         width: 48vw;
     }
 }
@@ -407,7 +434,7 @@ mat-progress-spinner{
 
     @media only screen and (max-width: 800px) {
         font-size: 1rem;
-        padding: 0em 1em;
+        padding: 0em 2.5em;
     }
 }
 
@@ -440,8 +467,8 @@ mat-progress-spinner{
     line-height: 2.8rem;
 
     @media only screen and (max-width: 800px) {
-        font-size: 2.4rem;
-        line-height: 2.4rem;
+        font-size: 2.0rem;
+        line-height: 2.0rem;
     }
 }
 
@@ -514,6 +541,20 @@ mat-progress-spinner{
 }
 /*********************MATERIAL*********************/
 /**************************************************/
+.mat-form-field {
+    min-height: 35px;
+    padding-top: 5px;
+}
+
+.mat-input-element {
+    min-height: 35px;
+    padding: 24px 0px 0px 0px !important;
+}
+
+.mat-form-field-infix {
+    min-height: 35px;
+}
+
 .mat-tab-group {
     padding-bottom: 50px;
 }
@@ -531,7 +572,7 @@ mat-progress-spinner{
 
     @media only screen and (max-width: 800px) {
         width: 36%;
-        font-size: .65rem;
+        font-size: .63rem;
     }
 }
 
@@ -550,8 +591,9 @@ mat-progress-spinner{
     background-color: #310370 !important;
     transition: background-size 0.25s;
     border-radius: 5px 5px 0px 0px;
+
     @media only screen and (max-width: 800px) {
-        margin-right: 5px;    
+        margin-right: 4px;    
     }
 }
 
@@ -577,6 +619,8 @@ mat-progress-spinner{
     width: 100%;
     top: -25px !important;
     box-shadow: 0px 0px 90px -20px black;
+    border-radius: 4px;
+
 }
 
 // 
@@ -601,6 +645,22 @@ mat-progress-spinner{
     .mat-form-field-ripple {
         display: none !important;
     }
+}
+
+.mat-form-field-invalid .mat-form-field-underline {
+    background-color: red !important;
+}
+
+.mat-form-field-invalid .mat-form-field-label {
+    color: red !important;
+}
+
+.mat-form-field-invalid .mat-select-arrow {
+    color: red !important;
+}
+
+.mat-error {
+    color: red;
 }
 
 .form-control {
@@ -673,11 +733,6 @@ mat-progress-spinner{
 
 .mat-form-field-wrapper {
     // height: 80px;
-}
-
-.mat-input-element {
-    height: 30px !important;
-    padding: 20px 0px 0px 0px !important;
 }
 
 .icon-fw {
