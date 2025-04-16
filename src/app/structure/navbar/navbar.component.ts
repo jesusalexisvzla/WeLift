@@ -1,8 +1,12 @@
 import { Component, OnInit, } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { LoginService } from 'src/app/services/login.service';
 import { AuthService } from '../../services/auth.service'
 import { DataService } from '../../services/data.service'
+import { ConfirmModalComponent } from '../modals/confirm-modal/confirm-modal.component';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +14,7 @@ import { DataService } from '../../services/data.service'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  private onDestroy = new Subject<void>();
   public isBigSize = window.innerWidth > 800;
 
   userData: any | null = null;
@@ -20,6 +25,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     public router: Router,
+    public dialog: MatDialog,
     private loginService: LoginService,
     private authService: AuthService,
     private dataService: DataService,
@@ -57,11 +63,26 @@ export class NavbarComponent implements OnInit {
         console.log(userCredential);
       })
     } else {
-      const userCredential = await this.authService.signOutUser()
-      delete this.userData;
-      this.router.navigateByUrl('/home')
-      console.log(this.userData)
-      console.log(userCredential)
+      const dialogRef = this.dialog.open(ConfirmModalComponent, {
+        data: {
+
+        },
+        autoFocus: false,
+        width: '400px',
+        height: '150px',
+        panelClass: 'plantillaModal',
+        disableClose: true
+      })
+
+    dialogRef.afterClosed().pipe(takeUntil(this.onDestroy)).subscribe(async (data) => {
+      if ( data?.hasChanges ) {
+        const userCredential = await this.authService.signOutUser()
+        delete this.userData;
+        this.router.navigateByUrl('/home')
+        console.log(this.userData)
+        console.log(userCredential)
+      }
+    })
     }
   }
 

@@ -341,6 +341,27 @@ mat-progress-spinner{
     font-weight: bold;
 }
 
+.btn-close {
+    height: 100%;
+    width: 100%;
+    padding: .5em 1em;
+    border: none;
+    border-radius: 4px;
+    color: #fd8103 !important;
+    font-weight: bold;
+}
+
+.btn-confirm {
+    height: 100%;
+    width: 100%;
+    padding: .5em 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: grey;
+    color: #310370;
+    font-weight: bold;
+}
+
 .icon-btn {
     background-color: #310370;
     border: none;
